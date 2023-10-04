@@ -1,0 +1,17 @@
+
+#include "draw_testing.hh"
+
+#include "GPU_shader.h"
+
+#include "draw_manager_testing.h"
+
+namespace ixam::draw {
+
+/* Base class for draw test cases. It will setup and tear down the GPU part around each test. */
+void DrawOpenGLTest::SetUp()
+{
+  GPUOpenGLTest::SetUp();
+  DRW_draw_state_init_gtests(GPU_SHADER_CFG_DEFAULT);
+}
+
+}  // namespace ixam::draw

@@ -1,0 +1,47 @@
+
+"""
+This module contains RestrictIxam context manager.
+"""
+
+__all__ = (
+    "RestrictIxam",
+)
+
+import bpy as _bpy
+
+
+class _RestrictContext:
+    __slots__ = ()
+    _real_data = _bpy.data
+    # safe, the pointer never changes
+    _real_pref = _bpy.context.preferences
+
+    @property
+    def window_manager(self):
+        return self._real_data.window_managers[0]
+
+    @property
+    def preferences(self):
+        return self._real_pref
+
+
+class _RestrictData:
+    __slots__ = ()
+
+
+_context_restrict = _RestrictContext()
+_data_restrict = _RestrictData()
+
+
+class RestrictIxam:
+    __slots__ = ("context", "data")
+
+    def __enter__(self):
+        self.data = _bpy.data
+        self.context = _bpy.context
+        _bpy.data = _data_restrict
+        _bpy.context = _context_restrict
+
+    def __exit__(self, type, value, traceback):
+        _bpy.data = self.data
+        _bpy.context = self.context

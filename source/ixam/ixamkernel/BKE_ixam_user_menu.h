@@ -1,0 +1,29 @@
+
+#pragma once
+
+/** \file
+ * \ingroup bke
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+struct ListBase;
+struct bUserMenu;
+struct bUserMenuItem;
+
+struct bUserMenu *BKE_ixam_user_menu_find(struct ListBase *lb,
+                                             char space_type,
+                                             const char *context);
+struct bUserMenu *BKE_ixam_user_menu_ensure(struct ListBase *lb,
+                                               char space_type,
+                                               const char *context);
+
+struct bUserMenuItem *BKE_ixam_user_menu_item_add(struct ListBase *lb, int type);
+void BKE_ixam_user_menu_item_free(struct bUserMenuItem *umi);
+void BKE_ixam_user_menu_item_free_list(struct ListBase *lb);
+
+#ifdef __cplusplus
+}
+#endif

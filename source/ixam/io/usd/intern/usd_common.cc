@@ -1,0 +1,26 @@
+
+
+#include "usd_common.h"
+
+#include <pxr/base/plug/registry.h>
+
+#include "BKE_appdir.h"
+
+namespace ixam::io::usd {
+
+void ensure_usd_plugin_path_registered()
+{
+  static bool plugin_path_registered = false;
+  if (plugin_path_registered) {
+    return;
+  }
+  plugin_path_registered = true;
+
+  /* Tell USD which directory to search for its JSON files. If 'datafiles/usd'
+   * does not exist, the USD library will not be able to read or write any files. */
+  const std::string ixam_usd_datafiles = BKE_appdir_folder_id(IXAM_DATAFILES, "usd");
+  /* The trailing slash indicates to the USD library that the path is a directory. */
+  pxr::PlugRegistry::GetInstance().RegisterPlugins(ixam_usd_datafiles + "/");
+}
+
+}  // namespace ixam::io::usd

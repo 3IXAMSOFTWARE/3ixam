@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.9.0</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ixam</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>3ixam_ext.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>3IXAM File</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>IXAM</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSIsAppleDefaultForType</key>
+			<true/>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>ixam.file</string>
+			</array>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>3IXAM</string>
+	<key>CFBundleGetInfoString</key>
+	<string>${MACOSX_BUNDLE_LONG_VERSION_STRING}, 3IXAM Foundation</string>
+	<key>CFBundleIconFile</key>
+	<string>3ixam.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.3ixam.app</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>3IXAM</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>${MACOSX_BUNDLE_SHORT_VERSION_STRING}</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>${MACOSX_BUNDLE_LONG_VERSION_STRING}</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>ixam.file</string>
+			<key>UTTypeDescription</key>
+			<string>3IXAM File</string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconName</key>
+				<string>3IXAM File</string>
+				<key>UTTypeIconText</key>
+				<string>ixam</string>
+			</dict>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>ixam</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

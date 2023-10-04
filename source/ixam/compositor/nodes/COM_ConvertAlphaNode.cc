@@ -1,0 +1,28 @@
+
+
+#include "COM_ConvertAlphaNode.h"
+#include "COM_ConvertOperation.h"
+
+namespace ixam::compositor {
+
+void ConvertAlphaNode::convert_to_operations(NodeConverter &converter,
+                                             const CompositorContext & /*context*/) const
+{
+  NodeOperation *operation = nullptr;
+  const bNode *node = this->get_bnode();
+
+  /* value hardcoded in rna_nodetree.c */
+  if (node->custom1 == 1) {
+    operation = new ConvertPremulToStraightOperation();
+  }
+  else {
+    operation = new ConvertStraightToPremulOperation();
+  }
+
+  converter.add_operation(operation);
+
+  converter.map_input_socket(get_input_socket(0), operation->get_input_socket(0));
+  converter.map_output_socket(get_output_socket(0), operation->get_output_socket());
+}
+
+}  // namespace ixam::compositor

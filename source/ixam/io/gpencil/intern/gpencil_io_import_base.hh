@@ -1,0 +1,24 @@
+
+#pragma once
+
+/** \file
+ * \ingroup bgpencil
+ */
+#include "gpencil_io_base.hh"
+
+namespace ixam::io::gpencil {
+
+class GpencilImporter : public GpencilIO {
+
+ public:
+  GpencilImporter(const struct GpencilIOParams *iparams);
+  virtual bool read() = 0;
+
+ protected:
+  struct Object *create_object();
+  int32_t create_material(const char *name, bool stroke, bool fill);
+
+ private:
+};
+
+}  // namespace ixam::io::gpencil

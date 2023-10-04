@@ -1,0 +1,52 @@
+
+set(INC
+  .
+  intern
+  ../ixamfont
+  ../ixamkernel
+  ../ixamlib
+  ../ixamtranslation
+  ../bmesh
+  ../depsgraph
+  ../editors/include
+  ../makesdna
+  ../makesrna
+  ../render
+  ../windowmanager
+  ../../../intern/eigen
+  ../../../intern/guardedalloc
+  # RNA_prototypes.h
+  ${CMAKE_BINARY_DIR}/source/ixam/makesrna
+)
+
+set(INC_SYS
+  ${ZLIB_INCLUDE_DIRS}
+)
+
+set(SRC
+  intern/FX_shader_util.h
+  intern/FX_ui_common.c
+
+  intern/FX_shader_blur.c
+  intern/FX_shader_colorize.c
+  intern/FX_shader_flip.c
+  intern/FX_shader_glow.c
+  intern/FX_shader_pixel.c
+  intern/FX_shader_rim.c
+  intern/FX_shader_shadow.c
+  intern/FX_shader_swirl.c
+  intern/FX_shader_util.c
+  intern/FX_shader_wave.c
+
+  intern/FX_ui_common.h
+  FX_shader_types.h
+)
+
+set(LIB
+)
+
+
+ixam_add_lib(bf_shader_fx "${SRC}" "${INC}" "${INC_SYS}" "${LIB}")
+
+# RNA_prototypes.h
+add_dependencies(bf_shader_fx bf_rna)

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width = "32" height = "32" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+<rect fill="#eaeaea" x="-15.01" y="-8.13" transform="translate(319.99,279.37) rotate(-0.1)" width="30.02" height="16.26" rx="0.28"/>
+<rect fill="#eaeaea" x="431.74" y="271.24" width="29.76" height="16.26" rx="0.26"/>
+<rect fill="#eaeaea" x="-14.99" y="-8.13" transform="translate(489.25,279.37) rotate(0.1)" width="29.98" height="16.26" rx="0.56"/>
+<rect fill="#eaeaea" x="517.16" y="271.24" width="29.84" height="16.26" rx="0.26"/>
+<rect fill="#eaeaea" x="-14.89" y="-8.13" transform="translate(574.64,279.37) rotate(-0.1)" width="29.78" height="16.26" rx="0.26"/>
+<rect fill="#eaeaea" x="602.73" y="271.24" width="29.76" height="16.26" rx="0.26"/>
+<rect fill="#eaeaea" x="645.26" y="271.23" width="29.98" height="16.28" rx="0.51"/>
+<rect fill="#eaeaea" x="688.19" y="271.24" width="23.30" height="16.26" rx="0.49"/>
+<path fill="#eaeaea" d="
+  M 285.00 287.54
+  L 285.00 301.16
+  A 0.34 0.34 0.0 0 1 284.66 301.50
+  L 269.09 301.50
+  A 0.34 0.34 0.0 0 1 268.75 301.16
+  L 268.75 271.59
+  A 0.34 0.34 0.0 0 1 269.09 271.25
+  L 298.53 271.25
+  A 0.34 0.34 0.0 0 1 298.87 271.59
+  L 299.01 287.05
+  A 0.34 0.34 0.0 0 1 298.66 287.39
+  L 285.35 287.20
+  A 0.34 0.34 0.0 0 0 285.00 287.54
+  Z"
+/>
+<rect fill="#eaeaea" x="346.97" y="271.25" width="29.96" height="16.24" rx="0.43"/>
+<rect fill="#eaeaea" x="388.76" y="271.26" width="29.76" height="16.24" rx="0.27"/>
+<path fill="#eaeaea" d="
+  M 733.94 287.50
+  L 721.25 287.50
+  Q 720.75 287.50 720.75 287.00
+  L 720.75 271.75
+  Q 720.75 271.25 721.25 271.25
+  L 750.53 271.25
+  Q 751.01 271.25 751.01 271.72
+  L 751.01 300.62
+  Q 751.01 301.25 750.38 301.25
+  L 736.16 301.25
+  Q 735.00 301.25 735.00 300.09
+  L 734.99 288.56
+  A 1.06 1.06 0.0 0 0 733.94 287.50
+  Z"
+/>
+<rect fill="#eaeaea" x="734.75" y="305.76" width="16.50" height="24.74" rx="0.43"/>
+<rect fill="#eaeaea" x="-8.13" y="-12.37" transform="translate(276.88,319.12) rotate(-0.1)" width="16.26" height="24.74" rx="0.32"/>
+<rect fill="#eaeaea" x="734.76" y="348.73" width="16.48" height="24.74" rx="0.26"/>
+<rect fill="#eaeaea" x="-8.13" y="-12.29" transform="translate(276.88,362.01) rotate(-0.1)" width="16.26" height="24.58" rx="0.27"/>
+<rect fill="#eaeaea" x="734.75" y="391.26" width="16.50" height="24.76" rx="0.33"/>
+<rect fill="#eaeaea" x="268.75" y="392.25" width="16.26" height="24.74" rx="0.27"/>
+<rect fill="#eaeaea" x="734.75" y="434.23" width="16.50" height="24.58" rx="0.27"/>
+<rect fill="#eaeaea" x="268.76" y="435.24" width="16.24" height="24.54" rx="0.26"/>
+<rect fill="#eaeaea" x="734.75" y="476.76" width="16.50" height="24.74" rx="0.43"/>
+<rect fill="#eaeaea" x="-8.13" y="-12.37" transform="translate(276.88,490.12) rotate(-0.1)" width="16.26" height="24.74" rx="0.32"/>
+<rect fill="#eaeaea" x="734.75" y="520.73" width="16.50" height="24.74" rx="0.27"/>
+<path fill="#eaeaea" d="
+  M 488.38 735.75
+  L 504.75 735.75
+  A 0.50 0.50 0.0 0 1 505.25 736.25
+  L 505.25 751.68
+  Q 505.25 752.11 504.82 752.11
+  L 270.40 751.95
+  Q 269.25 751.95 269.25 750.80
+  Q 269.25 657.41 269.25 563.25
+  C 269.25 551.51 268.48 535.97 268.82 522.27
+  Q 268.84 521.75 269.36 521.75
+  L 284.48 521.71
+  Q 285.00 521.71 285.00 522.23
+  L 285.00 531.72
+  Q 285.00 533.50 286.78 533.50
+  L 487.00 533.50
+  Q 487.50 533.50 487.50 534.00
+  L 487.50 734.87
+  Q 487.50 735.75 488.38 735.75
+  Z"
+/>
+<rect fill="#eaeaea" x="-8.24" y="-12.28" transform="translate(742.99,576.21) rotate(-0.1)" width="16.48" height="24.56" rx="0.27"/>
+<rect fill="#eaeaea" x="-8.25" y="-12.37" transform="translate(743.00,618.63) rotate(-0.1)" width="16.50" height="24.74" rx="0.45"/>
+<rect fill="#eaeaea" x="-8.24" y="-12.31" transform="translate(742.99,661.19) rotate(-0.1)" width="16.48" height="24.62" rx="0.26"/>
+<rect fill="#eaeaea" x="734.75" y="691.76" width="16.50" height="24.74" rx="0.43"/>
+<path fill="#eaeaea" d="
+  M 734.75 735.74
+  L 734.75 722.07
+  A 0.32 0.32 0.0 0 1 735.07 721.75
+  L 750.67 721.75
+  A 0.32 0.32 0.0 0 1 750.99 722.07
+  L 751.02 751.93
+  A 0.32 0.32 0.0 0 1 750.70 752.25
+  L 721.54 752.25
+  A 0.32 0.32 0.0 0 1 721.22 751.93
+  L 721.26 736.15
+  A 0.32 0.32 0.0 0 1 721.59 735.83
+  L 734.42 736.06
+  A 0.32 0.32 0.0 0 0 734.75 735.74
+  Z"
+/>
+<rect fill="#eaeaea" x="518.24" y="735.76" width="29.78" height="16.48" rx="0.42"/>
+<rect fill="#eaeaea" x="560.75" y="735.75" width="30.02" height="16.50" rx="0.26"/>
+<rect fill="#eaeaea" x="603.74" y="735.75" width="29.76" height="16.50" rx="0.27"/>
+<rect fill="#eaeaea" x="646.47" y="735.75" width="29.96" height="16.50" rx="0.43"/>
+<rect fill="#eaeaea" x="689.25" y="735.75" width="22.76" height="16.50" rx="0.39"/>
+</svg>

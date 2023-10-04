@@ -1,0 +1,107 @@
+
+set(INC
+  .
+  intern
+  ../ixamfont
+  ../ixamkernel
+  ../ixamlib
+  ../ixamloader
+  ../ixamtranslation
+  ../depsgraph
+  ../imbuf
+  ../makesdna
+  ../makesrna
+  ../render
+  ../windowmanager
+  ../../../intern/atomic
+  ../../../intern/clog
+  ../../../intern/guardedalloc
+
+  # dna_type_offsets.h
+  ${CMAKE_CURRENT_BINARY_DIR}/../makesdna/intern
+  # RNA_prototypes.h
+  ${CMAKE_BINARY_DIR}/source/ixam/makesrna
+)
+
+set(INC_SYS
+
+)
+
+set(SRC
+  SEQ_add.h
+  SEQ_animation.h
+  SEQ_channels.h
+  SEQ_clipboard.h
+  SEQ_edit.h
+  SEQ_effects.h
+  SEQ_iterator.h
+  SEQ_modifier.h
+  SEQ_prefetch.h
+  SEQ_proxy.h
+  SEQ_relations.h
+  SEQ_render.h
+  SEQ_select.h
+  SEQ_sequencer.h
+  SEQ_sound.h
+  SEQ_time.h
+  SEQ_transform.h
+  SEQ_utils.h
+
+  intern/animation.c
+  intern/channels.c
+  intern/clipboard.c
+  intern/disk_cache.c
+  intern/disk_cache.h
+  intern/effects.c
+  intern/effects.h
+  intern/image_cache.c
+  intern/image_cache.h
+  intern/iterator.c
+  intern/modifier.c
+  intern/multiview.c
+  intern/multiview.h
+  intern/prefetch.c
+  intern/prefetch.h
+  intern/proxy.c
+  intern/proxy.h
+  intern/proxy_job.c
+  intern/render.c
+  intern/render.h
+  intern/sequence_lookup.c
+  intern/sequencer.c
+  intern/sequencer.h
+  intern/sound.c
+  intern/strip_add.c
+  intern/strip_edit.c
+  intern/strip_relations.c
+  intern/strip_select.c
+  intern/strip_time.c
+  intern/strip_time.h
+  intern/strip_transform.c
+  intern/utils.c
+  intern/utils.h
+)
+
+set(LIB
+  bf_ixamkernel
+  bf_ixamlib
+)
+
+if(WITH_AUDASPACE)
+  add_definitions(-DWITH_AUDASPACE)
+
+  list(APPEND INC_SYS
+    ${AUDASPACE_C_INCLUDE_DIRS}
+  )
+  list(APPEND LIB
+    ${AUDASPACE_C_LIBRARIES}
+    ${AUDASPACE_PY_LIBRARIES}
+  )
+endif()
+
+ixam_add_lib(bf_sequencer "${SRC}" "${INC}" "${INC_SYS}" "${LIB}")
+
+# Needed so we can use dna_type_offsets.h.
+add_dependencies(bf_sequencer bf_dna)
+# RNA_prototypes.h
+add_dependencies(bf_sequencer bf_rna)
