@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #define MTL_SSBO_VERTEX_FETCH_IBO_INDEX MTL_SSBO_VERTEX_FETCH_MAX_VBOS
 

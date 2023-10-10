@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2021 Blender Foundation. */
 
 
 /** \file
@@ -533,7 +535,7 @@ void POSELIB_OT_apply_pose_asset(wmOperatorType *ot)
   ot->poll = poselib_blend_poll;
 
   /* Flags: */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties: */
   RNA_def_float_factor(ot->srna,
@@ -569,7 +571,7 @@ void POSELIB_OT_blend_pose_asset(wmOperatorType *ot)
   ot->poll = poselib_blend_poll;
 
   /* Flags: */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X | OPTYPE_INTERNAL;
 
   /* Properties: */
   prop = RNA_def_float_factor(ot->srna,

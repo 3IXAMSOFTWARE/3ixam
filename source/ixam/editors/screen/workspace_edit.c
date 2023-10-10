@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <stdlib.h>
@@ -309,6 +310,8 @@ static void WORKSPACE_OT_duplicate(wmOperatorType *ot)
   /* api callbacks */
   ot->poll = workspace_context_poll;
   ot->exec = workspace_new_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int workspace_delete_exec(bContext *C, wmOperator *UNUSED(op))
@@ -330,6 +333,8 @@ static void WORKSPACE_OT_delete(wmOperatorType *ot)
   /* api callbacks */
   ot->poll = workspace_context_poll;
   ot->exec = workspace_delete_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int workspace_append_activate_exec(bContext *C, wmOperator *op)
@@ -385,6 +390,8 @@ static void WORKSPACE_OT_append_activate(wmOperatorType *ot)
 
   /* api callbacks */
   ot->exec = workspace_append_activate_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_string(ot->srna,
                  "idname",
@@ -545,6 +552,8 @@ static void WORKSPACE_OT_add(wmOperatorType *ot)
 
   /* api callbacks */
   ot->invoke = workspace_add_invoke;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int workspace_reorder_to_back_exec(bContext *C, wmOperator *UNUSED(op))
@@ -568,6 +577,8 @@ static void WORKSPACE_OT_reorder_to_back(wmOperatorType *ot)
   /* api callbacks */
   ot->poll = workspace_context_poll;
   ot->exec = workspace_reorder_to_back_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int workspace_reorder_to_front_exec(bContext *C, wmOperator *UNUSED(op))
@@ -591,6 +602,8 @@ static void WORKSPACE_OT_reorder_to_front(wmOperatorType *ot)
   /* api callbacks */
   ot->poll = workspace_context_poll;
   ot->exec = workspace_reorder_to_front_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int workspace_scene_pin_toggle(bContext *C, wmOperator *UNUSED(op))

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1491,7 +1493,7 @@ void RENDER_OT_opengl_dialog(wmOperatorType *ot)
   
   ot->poll = ED_operator_screenactive;
   
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER,
@@ -1529,6 +1531,8 @@ void RENDER_OT_opengl(wmOperatorType *ot)
   ot->exec = screen_opengl_render_exec; /* blocking */
   ot->modal = screen_opengl_render_modal;
   ot->cancel = screen_opengl_render_cancel;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->poll = ED_operator_screenactive;
 

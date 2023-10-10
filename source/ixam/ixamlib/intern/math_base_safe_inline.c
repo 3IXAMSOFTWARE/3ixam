@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #ifndef __MATH_BASE_SAFE_INLINE_C__
 #define __MATH_BASE_SAFE_INLINE_C__

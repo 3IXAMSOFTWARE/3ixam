@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 __all__ = (
     "bmesh_linked_uv_islands",

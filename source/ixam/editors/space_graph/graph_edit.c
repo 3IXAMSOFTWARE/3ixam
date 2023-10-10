@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -1172,7 +1174,7 @@ void GRAPH_OT_sound_bake(wmOperatorType *ot)
   ot->poll = graphop_selected_fcurve_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties */
   WM_operator_properties_filesel(ot,
@@ -2032,7 +2034,7 @@ void GRAPH_OT_euler_filter(wmOperatorType *ot)
   ot->poll = graphop_editable_keyframes_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2192,7 +2194,7 @@ void GRAPH_OT_snap_cursor_value(wmOperatorType *ot)
   ot->poll = graphkeys_framejump_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2422,7 +2424,7 @@ void GRAPH_OT_equalize_handles(wmOperatorType *ot)
   ot->poll = graphop_editable_keyframes_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties */
   ot->prop = RNA_def_enum(ot->srna,
@@ -2783,7 +2785,7 @@ void GRAPH_OT_fmodifier_add(wmOperatorType *ot)
   ot->poll = graphop_selected_fcurve_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Id-props */
   prop = RNA_def_enum(ot->srna, "type", rna_enum_fmodifier_type_items, 0, "Type", "");
@@ -2849,7 +2851,7 @@ void GRAPH_OT_fmodifier_copy(wmOperatorType *ot)
   ot->poll = graphop_active_fcurve_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Id-props */
 #if 0
@@ -2940,7 +2942,7 @@ void GRAPH_OT_fmodifier_paste(wmOperatorType *ot)
   ot->poll = graphop_active_fcurve_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties */
   RNA_def_boolean(
@@ -2994,7 +2996,7 @@ void GRAPH_OT_driver_variables_copy(wmOperatorType *ot)
   ot->poll = graphop_active_editable_fcurve_ctx_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3042,7 +3044,7 @@ void GRAPH_OT_driver_variables_paste(wmOperatorType *ot)
   ot->poll = graphop_active_editable_fcurve_ctx_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties */
   RNA_def_boolean(ot->srna,

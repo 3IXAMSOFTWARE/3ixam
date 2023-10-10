@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2004 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1902,7 +1904,7 @@ void MESH_OT_edgering_select(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh_region_view3d;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   PropertyRNA *prop;
@@ -4400,7 +4402,7 @@ void MESH_OT_select_nth(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_checker_interval(ot, false);
 }

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 from bpy.types import Operator
 
@@ -236,7 +237,7 @@ class FollowActiveQuads(Operator):
     """Follow UVs from active quads along continuous face loops"""
     bl_idname = "uv.follow_active_quads"
     bl_label = "Follow Active Quads"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     mode: EnumProperty(
         name="Edge Length Mode",

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #define DNA_DEPRECATED_ALLOW

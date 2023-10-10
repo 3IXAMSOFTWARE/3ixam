@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2004 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -662,7 +664,7 @@ void OUTLINER_OT_scene_operation(wmOperatorType *ot)
   ot->exec = outliner_scene_operation_exec;
   ot->poll = ED_operator_outliner_active;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", prop_scene_op_types, 0, "Scene Operation", "");
 }
@@ -1858,7 +1860,7 @@ void OUTLINER_OT_liboverride_operation(wmOperatorType *ot)
   ot->exec = outliner_liboverride_operation_exec;
   ot->poll = outliner_liboverride_operation_poll;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "type", prop_liboverride_op_types, 0, "Library Override Operation", "");
   ot->prop = RNA_def_enum(ot->srna,
@@ -1881,7 +1883,7 @@ void OUTLINER_OT_liboverride_troubleshoot_operation(wmOperatorType *ot)
   ot->exec = outliner_liboverride_operation_exec;
   ot->poll = outliner_liboverride_operation_poll;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna,
                           "type",
@@ -2333,7 +2335,7 @@ void OUTLINER_OT_object_operation(wmOperatorType *ot)
   ot->exec = outliner_object_operation_exec;
   ot->poll = ED_operator_outliner_active;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", prop_object_op_types, 0, "Object Operation", "");
 }
@@ -2492,7 +2494,7 @@ void OUTLINER_OT_delete(wmOperatorType *ot)
   ot->poll = ED_operator_outliner_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop = RNA_def_boolean(
@@ -2801,7 +2803,7 @@ void OUTLINER_OT_id_operation(wmOperatorType *ot)
   ot->exec = outliner_id_operation_exec;
   ot->poll = outliner_operation_tree_element_poll;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", prop_id_op_types, 0, "ID Data Operation", "");
   RNA_def_enum_funcs(ot->prop, outliner_id_operation_itemf);
@@ -2895,6 +2897,8 @@ void OUTLINER_OT_lib_operation(wmOperatorType *ot)
   ot->invoke = WM_menu_invoke;
   ot->exec = outliner_lib_operation_exec;
   ot->poll = outliner_operation_tree_element_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(
       ot->srna, "type", outliner_lib_op_type_items, 0, "Library Operation", "");
@@ -3006,7 +3010,7 @@ void OUTLINER_OT_action_set(wmOperatorType *ot)
   ot->poll = outliner_operation_tree_element_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   /* TODO: this would be nicer as an ID-pointer... */
@@ -3124,7 +3128,7 @@ void OUTLINER_OT_animdata_operation(wmOperatorType *ot)
   ot->exec = outliner_animdata_operation_exec;
   ot->poll = ED_operator_outliner_active;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", prop_animdata_op_types, 0, "Animation Operation", "");
 }
@@ -3169,7 +3173,7 @@ void OUTLINER_OT_constraint_operation(wmOperatorType *ot)
   ot->exec = outliner_constraint_operation_exec;
   ot->poll = ED_operator_outliner_active;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(
       ot->srna, "type", prop_constraint_op_types, 0, "Constraint Operation", "");
@@ -3215,7 +3219,7 @@ void OUTLINER_OT_modifier_operation(wmOperatorType *ot)
   ot->exec = outliner_modifier_operation_exec;
   ot->poll = ED_operator_outliner_active;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", prop_modifier_op_types, 0, "Modifier Operation", "");
 }
@@ -3356,7 +3360,7 @@ void OUTLINER_OT_data_operation(wmOperatorType *ot)
   ot->exec = outliner_data_operation_exec;
   ot->poll = outliner_data_operation_poll;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", DummyRNA_DEFAULT_items, 0, "Data Operation", "");
   RNA_def_enum_funcs(ot->prop, outliner_data_op_sets_enum_item_fn);
@@ -3498,6 +3502,8 @@ void OUTLINER_OT_operation(wmOperatorType *ot)
   ot->invoke = outliner_operation;
 
   ot->poll = ED_operator_outliner_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */

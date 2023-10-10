@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 
 set(OIDN_EXTRA_ARGS

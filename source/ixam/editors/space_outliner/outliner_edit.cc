@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2004 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -138,6 +140,8 @@ void OUTLINER_OT_highlight_update(wmOperatorType *ot)
   ot->invoke = outliner_highlight_update;
 
   ot->poll = ED_operator_outliner_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -274,6 +278,8 @@ void OUTLINER_OT_item_openclose(wmOperatorType *ot)
   ot->modal = outliner_item_openclose_modal;
 
   ot->poll = ED_operator_outliner_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "all", false, "All", "Close or open all items");
 }
@@ -431,7 +437,7 @@ void OUTLINER_OT_item_rename(wmOperatorType *ot)
   ot->poll = ED_operator_outliner_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "use_active",
@@ -581,7 +587,7 @@ void OUTLINER_OT_id_delete(wmOperatorType *ot)
   ot->poll = ED_operator_outliner_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -720,7 +726,7 @@ void OUTLINER_OT_id_remap(wmOperatorType *ot)
   ot->poll = ED_operator_outliner_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_enum(ot->srna, "id_type", rna_enum_id_type_items, ID_OB, "ID Type", "");
   RNA_def_property_translation_context(prop, BLT_I18NCONTEXT_ID_ID);
@@ -828,7 +834,7 @@ void OUTLINER_OT_id_copy(wmOperatorType *ot)
   ot->poll = ED_operator_outliner_active;
 
   /* Flags, don't need any undo here (this operator does not change anything in 3IXAM data). */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -869,7 +875,7 @@ void OUTLINER_OT_id_paste(wmOperatorType *ot)
   ot->poll = ED_operator_outliner_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -980,7 +986,7 @@ void OUTLINER_OT_lib_relocate(wmOperatorType *ot)
   ot->poll = ED_operator_outliner_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void lib_relocate_fn(bContext *C,
@@ -1166,6 +1172,8 @@ void OUTLINER_OT_expanded_toggle(wmOperatorType *ot)
   ot->exec = outliner_toggle_expanded_exec;
   ot->poll = ED_operator_outliner_active;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* no undo or registry, UI option */
 }
 
@@ -1217,6 +1225,8 @@ void OUTLINER_OT_select_all(wmOperatorType *ot)
   /* callbacks */
   ot->exec = outliner_select_all_exec;
   ot->poll = ED_operator_outliner_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* no undo or registry */
 
@@ -1365,6 +1375,8 @@ void OUTLINER_OT_show_active(wmOperatorType *ot)
   /* callbacks */
   ot->exec = outliner_show_active_exec;
   ot->poll = ED_operator_outliner_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1404,6 +1416,8 @@ void OUTLINER_OT_scroll_page(wmOperatorType *ot)
   /* callbacks */
   ot->exec = outliner_scroll_page_exec;
   ot->poll = ED_operator_outliner_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_boolean(ot->srna, "up", false, "Up", "Scroll up one page");
@@ -1476,6 +1490,8 @@ void OUTLINER_OT_show_one_level(wmOperatorType *ot)
   /* callbacks */
   ot->exec = outliner_one_level_exec;
   ot->poll = ED_operator_outliner_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* no undo or registry, UI option */
 
@@ -1568,6 +1584,8 @@ void OUTLINER_OT_show_hierarchy(wmOperatorType *ot)
   /* callbacks */
   ot->exec = outliner_show_hierarchy_exec;
   ot->poll = ED_operator_outliner_active; /* TODO: shouldn't be allowed in RNA views... */
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* no undo or registry, UI option */
 }
@@ -1860,7 +1878,7 @@ void OUTLINER_OT_drivers_add_selected(wmOperatorType *ot)
   ot->poll = ed_operator_outliner_datablocks_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1899,7 +1917,7 @@ void OUTLINER_OT_drivers_delete_selected(wmOperatorType *ot)
   ot->poll = ed_operator_outliner_datablocks_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2047,7 +2065,7 @@ void OUTLINER_OT_keyingset_add_selected(wmOperatorType *ot)
   ot->poll = ed_operator_outliner_datablocks_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2088,7 +2106,7 @@ void OUTLINER_OT_keyingset_remove_selected(wmOperatorType *ot)
   ot->poll = ed_operator_outliner_datablocks_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2210,7 +2228,7 @@ void OUTLINER_OT_orphans_purge(wmOperatorType *ot)
   ot->poll = ed_operator_outliner_id_orphans_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop = RNA_def_int(ot->srna, "num_deleted", 0, 0, INT_MAX, "", "", 0, INT_MAX);

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /* allow readfile to use deprecated functionality */
 #define DNA_DEPRECATED_ALLOW

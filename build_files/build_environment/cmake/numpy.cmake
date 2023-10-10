@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(MSVC)
   message("BIN >${PYTHON_BINARY}<")

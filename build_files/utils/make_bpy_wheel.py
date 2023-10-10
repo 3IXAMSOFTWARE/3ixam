@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/usr/bin/env python3
 
 """
@@ -37,33 +39,7 @@ from typing import (
 # ------------------------------------------------------------------------------
 # Long Description
 
-long_description = """# 3IXAM
-
-[3IXAM](https://www.3ixam.org) is the free and open source 3D creation suite. It supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing.
-
-This package provides 3IXAM as a Python module for use in studio pipelines, web services, scientific research, and more.
-
-## Documentation
-
-* [3IXAM Python API](https://docs.ixam.org/api/current/)
-* [3IXAM as a Python Module](https://docs.ixam.org/api/current/info_advanced_ixam_as_bpy.html)
-
-## Requirements
-
-[System requirements](https://www.3ixam.org/download/requirements/) are the same as 3IXAM.
-
-Each 3IXAM release supports one Python version, and the package is only compatible with that version.
-
-## Source Code
-
-* [Releases](https://download.ixam.org/source/)
-* Repository: [git.ixam.org/ixam.git](https://git.ixam.org/gitweb/gitweb.cgi/ixam.git)
-
-## Credits
-
-Created by the [3IXAM developer community](https://www.3ixam.org/about/credits/).
-
-Thanks to Tyler Alden Gubala for maintaining the original version of this package."""
+long_description = """# 3IXAM"""
 
 # ------------------------------------------------------------------------------
 # Generic Functions
@@ -227,9 +203,9 @@ def main() -> None:
         long_description=long_description,
         long_description_content_type='text/markdown',
         license="GPL-3.0",
-        author="3IXAM Foundation",
-        author_email="bf-committers@ixam.org",
-        url="https://www.3ixam.org"
+        author="Blender Foundation",
+        author_email="bf-committers@blender.org",
+        url="https://www.blender.org"
     )
 
     if not os.path.exists(output_dir):

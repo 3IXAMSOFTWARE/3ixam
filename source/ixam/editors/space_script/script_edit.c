@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -141,4 +143,6 @@ void SCRIPT_OT_reload(wmOperatorType *ot)
 
   /* api callbacks */
   ot->exec = script_reload_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }

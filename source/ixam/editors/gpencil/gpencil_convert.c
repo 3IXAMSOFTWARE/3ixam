@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. */
 
 
 /** \file
@@ -1648,7 +1650,7 @@ void GPENCIL_OT_convert(wmOperatorType *ot)
   ot->poll_property = gpencil_convert_poll_property;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(
@@ -1840,7 +1842,7 @@ void GPENCIL_OT_image_to_grease_pencil(wmOperatorType *ot)
   ot->poll = image_to_gpencil_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_float(ot->srna,

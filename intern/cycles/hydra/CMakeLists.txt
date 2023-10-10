@@ -1,4 +1,5 @@
-# Copyright 2022 3IXAM Foundation
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2022 Blender Foundation
 
 #####################################################################
 # Cycles Hydra render delegate

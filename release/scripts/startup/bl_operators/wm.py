@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 from __future__ import annotations
 
 import bpy
@@ -1063,10 +1065,10 @@ class WM_OT_url_open_preset(Operator):
         return "https://www.3ixam.com/download/releases/%d-%d/" % bpy.app.version[:2]
 
     def _url_from_manual(self, _context):
-        return "https://docs.ixam.org/manual/en/%d.%d/" % bpy.app.version[:2]
+        return "https://docs.blender.org/manual/en/%d.%d/" % bpy.app.version[:2]
 
     def _url_from_api(self, _context):
-        return "https://docs.ixam.org/api/%d.%d/" % bpy.app.version[:2]
+        return "https://docs.blender.org/api/%d.%d/" % bpy.app.version[:2]
 
     # This list is: (enum_item, url) pairs.
     # Allow dynamically extending.
@@ -1092,7 +1094,7 @@ class WM_OT_url_open_preset(Operator):
         (('FUND', iface_("Development Fund"),
           tip_("The donation program to support maintenance and improvements")),
          "https://www.3ixam.com"),
-        (('IXAM', iface_("ixam.org"),
+        (('IXAM', iface_("blender.org"),
           tip_("3IXAM's official web-site")),
          "https://www.3ixam.com"),
         (('CREDITS', iface_("Credits"),
@@ -1245,6 +1247,7 @@ class WM_OT_doc_view_manual(Operator):
     """Load online manual"""
     bl_idname = "wm.doc_view_manual"
     bl_label = "View Manual"
+    bl_options = {'INTERNAL'}
 
     doc_id: doc_id
 
@@ -1299,6 +1302,7 @@ class WM_OT_doc_view(Operator):
     """Open online reference docs in a web browser"""
     bl_idname = "wm.doc_view"
     bl_label = "View Documentation"
+    bl_options = {'INTERNAL'}
 
     doc_id: doc_id
     if bpy.app.version_cycle in {"release", "rc", "beta"}:
@@ -2043,6 +2047,7 @@ class WM_OT_sysinfo(Operator):
 
     bl_idname = "wm.sysinfo"
     bl_label = "Save System Info"
+    bl_options = {'INTERNAL'}
 
     filepath: StringProperty(
         subtype='FILE_PATH',
@@ -2070,6 +2075,7 @@ class WM_OT_operator_cheat_sheet(Operator):
     """List all the operators in a text-block, useful for scripting"""
     bl_idname = "wm.operator_cheat_sheet"
     bl_label = "Operator Cheat Sheet"
+    bl_options = {'INTERNAL'}
 
     def execute(self, _context):
         op_strings = []
@@ -2099,6 +2105,7 @@ class WM_OT_owner_enable(Operator):
     """Enable workspace owner ID"""
     bl_idname = "wm.owner_enable"
     bl_label = "Enable Add-on"
+    bl_options = {'INTERNAL'}
 
     owner_id: StringProperty(
         name="UI Tag",
@@ -2114,6 +2121,7 @@ class WM_OT_owner_disable(Operator):
     """Enable workspace owner ID"""
     bl_idname = "wm.owner_disable"
     bl_label = "Disable UI Tag"
+    bl_options = {'INTERNAL'}
 
     owner_id: StringProperty(
         name="UI Tag",
@@ -2130,6 +2138,7 @@ class WM_OT_tool_set_by_id(Operator):
     """Set the tool by name (for keymaps)"""
     bl_idname = "wm.tool_set_by_id"
     bl_label = "Set Tool by Name"
+    bl_options = {'INTERNAL'}
 
     name: StringProperty(
         name="Identifier",
@@ -2202,6 +2211,7 @@ class WM_OT_tool_set_by_index(Operator):
     """Set the tool by index (for keymaps)"""
     bl_idname = "wm.tool_set_by_index"
     bl_label = "Set Tool by Index"
+    bl_options = {'INTERNAL'}
     index: IntProperty(
         name="Index in Toolbar",
         default=0,
@@ -2330,6 +2340,7 @@ class WM_OT_toolbar(Operator):
 class WM_OT_toolbar_fallback_pie(Operator):
     bl_idname = "wm.toolbar_fallback_pie"
     bl_label = "Fallback Tool Pie Menu"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -3338,7 +3349,7 @@ class WM_OT_open_legacy(bpy.types.Operator, ImportHelper):
 
     bl_idname = "wm.open_legacy"
     bl_label = "Import Legacy File"
-    bl_options = {'PRESET', 'UNDO'}
+    bl_options = {'PRESET', 'UNDO', 'INTERNAL'}
 
     filename_ext = ""
     filter_glob: StringProperty(

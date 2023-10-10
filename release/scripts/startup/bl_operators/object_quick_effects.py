@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 from mathutils import Vector
 import bpy
@@ -38,7 +39,7 @@ class QuickFur(ObjectModeOperator, Operator):
     """Add fur setup to the selected objects"""
     bl_idname = "object.quick_fur"
     bl_label = "Quick Fur"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     density: EnumProperty(
         name="Fur Density",
@@ -104,7 +105,7 @@ class QuickExplode(ObjectModeOperator, Operator):
     """Make selected objects explode"""
     bl_idname = "object.quick_explode"
     bl_label = "Quick Explode"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     style: EnumProperty(
         name="Explode Style",
@@ -311,7 +312,7 @@ class QuickSmoke(ObjectModeOperator, Operator):
     """Use selected objects as smoke emitters"""
     bl_idname = "object.quick_smoke"
     bl_label = "Quick Smoke"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     style: EnumProperty(
         name="Smoke Style",
@@ -426,7 +427,7 @@ class QuickLiquid(Operator):
     """Make selected objects liquid"""
     bl_idname = "object.quick_liquid"
     bl_label = "Quick Liquid"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     show_flows: BoolProperty(
         name="Render Liquid Objects",

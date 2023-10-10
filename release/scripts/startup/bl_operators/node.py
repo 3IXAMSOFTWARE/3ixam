@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 from __future__ import annotations
 
 import bpy
@@ -160,7 +162,7 @@ class NODE_OT_collapse_hide_unused_toggle(Operator):
     '''Toggle collapsed nodes and hide unused sockets'''
     bl_idname = "node.collapse_hide_unused_toggle"
     bl_label = "Collapse and Hide Unused Sockets"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -191,7 +193,7 @@ class NODE_OT_tree_path_parent(Operator):
     '''Go to parent node tree'''
     bl_idname = "node.tree_path_parent"
     bl_label = "Parent Node Tree"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2014 DreamWorks Animation LLC. */
 
 
 /** \file

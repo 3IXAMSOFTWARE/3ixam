@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -196,7 +198,7 @@ void OBJECT_OT_face_map_add(struct wmOperatorType *ot)
   ot->exec = face_map_add_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int face_map_remove_exec(bContext *C, wmOperator *UNUSED(op))
@@ -225,7 +227,7 @@ void OBJECT_OT_face_map_remove(struct wmOperatorType *ot)
   ot->exec = face_map_remove_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int face_map_assign_exec(bContext *C, wmOperator *UNUSED(op))
@@ -274,7 +276,7 @@ void OBJECT_OT_face_map_assign(struct wmOperatorType *ot)
   ot->exec = face_map_assign_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int face_map_remove_from_exec(bContext *C, wmOperator *UNUSED(op))
@@ -324,7 +326,7 @@ void OBJECT_OT_face_map_remove_from(struct wmOperatorType *ot)
   ot->exec = face_map_remove_from_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static void fmap_select(Object *ob, bool select)
@@ -379,7 +381,7 @@ void OBJECT_OT_face_map_select(struct wmOperatorType *ot)
   ot->exec = face_map_select_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int face_map_deselect_exec(bContext *C, wmOperator *UNUSED(op))
@@ -409,7 +411,7 @@ void OBJECT_OT_face_map_deselect(struct wmOperatorType *ot)
   ot->exec = face_map_deselect_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int face_map_move_exec(bContext *C, wmOperator *op)
@@ -484,7 +486,7 @@ void OBJECT_OT_face_map_move(wmOperatorType *ot)
   ot->exec = face_map_move_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(
       ot->srna, "direction", fmap_slot_move, 0, "Direction", "Direction to move, up or down");

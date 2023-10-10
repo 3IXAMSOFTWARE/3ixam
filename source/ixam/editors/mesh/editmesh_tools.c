@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2004 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -683,7 +685,7 @@ void MESH_OT_delete_loose(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(ot->srna, "use_verts", true, "Vertices", "Remove loose vertices");
@@ -742,7 +744,7 @@ void MESH_OT_edge_collapse(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1115,7 +1117,7 @@ void MESH_OT_mark_seam(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_boolean(ot->srna, "clear", 0, "Clear", "");
   RNA_def_property_flag(prop, PROP_HIDDEN | PROP_SKIP_SAVE);
@@ -1190,7 +1192,7 @@ void MESH_OT_mark_sharp(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_boolean(ot->srna, "clear", false, "Clear", "");
   RNA_def_property_flag(prop, PROP_HIDDEN | PROP_SKIP_SAVE);
@@ -1840,7 +1842,7 @@ void MESH_OT_face_make_planar(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_float(ot->srna, "factor", 1.0f, -10.0f, 10.0f, "Factor", "", 0.0f, 1.0f);
@@ -2000,7 +2002,7 @@ void MESH_OT_edge_split(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   static const EnumPropertyItem merge_type_items[] = {
@@ -3657,7 +3659,7 @@ void MESH_OT_remove_doubles(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float_distance(ot->srna,
                          "threshold",
@@ -3947,7 +3949,7 @@ void MESH_OT_blend_from_shape(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(
@@ -5232,7 +5234,7 @@ void MESH_OT_fill_grid(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_int(ot->srna, "span", 1, 1, 1000, "Span", "Number of grid columns", 1, 100);
@@ -5399,7 +5401,7 @@ void MESH_OT_beautify_fill(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   prop = RNA_def_float_rotation(ot->srna,
@@ -5497,7 +5499,7 @@ void MESH_OT_poke(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float_distance(
       ot->srna, "offset", 0.0f, -1e3f, 1e3f, "Poke Offset", "Poke Offset", -1.0f, 1.0f);
@@ -5933,7 +5935,7 @@ void MESH_OT_decimate(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* NOTE: keep in sync with 'rna_def_modifier_decimate'. */
   RNA_def_float(ot->srna, "ratio", 1.0f, 0.0f, 1.0f, "Ratio", "", 0.0f, 1.0f);
@@ -6438,7 +6440,7 @@ void MESH_OT_dissolve_degenerate(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float_distance(ot->srna,
                          "threshold",
@@ -6529,7 +6531,7 @@ void MESH_OT_delete_edgeloop(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "use_face_split",
@@ -7826,7 +7828,7 @@ void MESH_OT_convex_hull(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(ot->srna,
@@ -8844,7 +8846,7 @@ void MESH_OT_point_normals(struct wmOperatorType *ot)
   ot->cancel = point_normals_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING | OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna,
                           "mode",
@@ -9580,7 +9582,7 @@ void MESH_OT_normals_tools(struct wmOperatorType *ot)
   ot->ui = edbm_normals_tools_ui;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna,
                           "mode",
@@ -9924,7 +9926,7 @@ void MESH_OT_mod_weighted_strength(struct wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_boolean(ot->srna, "set", 0, "Set Value", "Set value of faces");
 

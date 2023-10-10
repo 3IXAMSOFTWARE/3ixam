@@ -1,3 +1,9 @@
+/* SPDX-License-Identifier: MIT
+ * Copyright 2013 Jorge Jimenez <jorge@iryoku.com>
+ *           2013 Jose I. Echevarria <joseignacioechevarria@gmail.com>
+ *           2013 Belen Masia <bmasia@unizar.es>
+ *           2013 Fernando Navarro <fernandn@microsoft.com>
+ *           2013 Diego Gutierrez <diegog@unizar.es> */
 
 
 #include "smaa_textures.h"

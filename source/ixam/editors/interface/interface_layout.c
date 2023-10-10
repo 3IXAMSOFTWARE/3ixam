@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <limits.h>
@@ -4420,7 +4421,7 @@ static void ui_litem_layout_radial(uiLayout *litem)
 
   /* For the radial layout we will use Matt Ebb's design
    * for radiation, see http://mattebb.com/weblog/radiation/
-   * also the old code at http://developer.3ixam.com/T5103
+   * also the old code at http://developer.blender.com/T5103
    */
 
   const int pie_radius = U.pie_menu_radius * UI_DPI_FAC;

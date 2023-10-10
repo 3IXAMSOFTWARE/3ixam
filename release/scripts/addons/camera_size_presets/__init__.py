@@ -13,7 +13,7 @@
 #
 # This addon was created with the Serpens - Visual Scripting Addon.
 # This code is generated from nodes and is not intended for manual editing, but you might as well edit it, because you can always redownload it.
-# You can find out more about Serpens at <https://3ixam.com/products/serpens>.
+# You can find out more about Serpens at <https://blendermarket.com/products/serpens>.
 
 
 bl_info = {

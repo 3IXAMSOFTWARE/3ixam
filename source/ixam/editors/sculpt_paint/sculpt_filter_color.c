@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2020 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -372,7 +374,7 @@ void SCULPT_OT_color_filter(struct wmOperatorType *ot)
   ot->modal = sculpt_color_filter_modal;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* rna */
   SCULPT_mesh_filter_properties(ot);

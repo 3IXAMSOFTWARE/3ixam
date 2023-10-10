@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: Apache-2.0 */
 
 #include <gtest/gtest.h>
 #include <ios>
@@ -160,7 +161,7 @@ TEST(obj_exporter_writer, header)
   }
   const std::string result = read_temp_file_in_string(out_file_path);
   using namespace std::string_literals;
-  ASSERT_EQ(result, "# 3IXAM "s + BKE_ixam_version_string() + "\n" + "# www.3ixam.org\n");
+  ASSERT_EQ(result, "# 3IXAM "s + BKE_ixam_version_string() + "\n" + "# www.blender.org\n");
   BLI_delete(out_file_path.c_str(), false, false);
 }
 

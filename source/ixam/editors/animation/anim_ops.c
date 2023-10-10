@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -338,7 +340,7 @@ static void ANIM_OT_change_frame(wmOperatorType *ot)
   ot->poll = change_frame_poll;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X | OPTYPE_UNDO_GROUPED;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X | OPTYPE_UNDO_GROUPED | OPTYPE_INTERNAL;
   ot->undo_group = "Frame Change";
 
   /* rna */
@@ -582,7 +584,7 @@ static void ANIM_OT_previewrange_clear(wmOperatorType *ot)
   ot->poll = ED_operator_animview_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ************************** registration **********************************/

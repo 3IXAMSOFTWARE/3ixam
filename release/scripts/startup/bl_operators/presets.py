@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import (
@@ -217,6 +218,7 @@ class ExecutePreset(Operator):
     """Execute a preset"""
     bl_idname = "script.execute_preset"
     bl_label = "Execute a Python Preset"
+    bl_options = {'INTERNAL'}
 
     filepath: StringProperty(
         subtype='FILE_PATH',

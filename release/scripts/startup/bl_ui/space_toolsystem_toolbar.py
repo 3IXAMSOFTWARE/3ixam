@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # For documentation on tool definitions: see "bl_ui.space_toolsystem_common.ToolDef"
 # where there are comments for each field and their use.
@@ -3575,7 +3576,12 @@ class VIEW3D_PT_tools_active(ToolSelectPanelHelper, Panel):
         if mode is None:
             mode = context.mode
         
-        target_tools = cls._tools
+        if context.workspace.type == 'PRO_ANIMATE':
+            target_tools = cls._pro_animate_tools
+        elif context.workspace.type == 'VR_HANDS':
+            target_tools = cls._vr_hands_tools
+        else:
+            target_tools = cls._tools
         
         for tools in (target_tools[None], target_tools.get(mode, ())):
             for item in tools:
@@ -3781,6 +3787,52 @@ class VIEW3D_PT_tools_active(ToolSelectPanelHelper, Panel):
         _defs_transform.translate,
     )
 
+    _3ixam_pro_animate_default = (
+        _defs_view3d_select.select,
+        *_tools_select,
+        None,
+        _defs_view3d_generic.folders,  #TODO Folders
+        _defs_view3d_generic.parameters,  #TODO Parameters
+        None,
+        _defs_view3d_select.find,
+        _defs_transform.scale,
+        _defs_transform.rotate,
+        _defs_transform.translate,
+    )
+    
+    _3ixam_vr_hands_default = (
+        _defs_view3d_select.select,
+        *_tools_cube_planar,
+        _defs_view3d_add.add_point,
+        # None,
+        # _defs_view3d_add.shapes2d_icon,
+        None,
+        _defs_view3d_add.torus_add,
+        _defs_view3d_add.add_line,
+        None,
+        _defs_view3d_add.uv_sphere_add,
+        _defs_view3d_add.cylinder_add,
+        _defs_view3d_add.add_arc,
+        None,
+        _defs_view3d_add.tube_add,
+        _defs_view3d_add.add_rectangle,
+        None,
+        _defs_view3d_add.cone_add,
+        _defs_view3d_add.hexagon_add,
+        _defs_view3d_add.add_circle,
+        None,
+        _defs_view3d_add.pyramid_add,
+        _defs_view3d_add.add_polygon,
+        None,
+        _defs_transform.scale,
+        _defs_view3d_add.draw_curve,
+        _defs_view3d_add.add_text2d,
+        None,
+        _defs_transform.rotate,
+        _defs_transform.translate,
+        _defs_view3d_generic.parameters,
+    )
+
     _tools_default = (
         *_tools_select,
         _defs_view3d_generic.cursor,
@@ -3856,6 +3908,136 @@ class VIEW3D_PT_tools_active(ToolSelectPanelHelper, Panel):
         ],
         'VERTEX_GPENCIL': [
             *_3ixam_default
+        ],
+    }
+
+    _pro_animate_tools = {
+        None: [
+            # Don't use this! because of paint modes.
+            # _defs_view3d_generic.cursor,
+            # End group.
+        ],
+        'OBJECT': [
+            *_3ixam_pro_animate_default
+        ],
+        'POSE': [
+            *_3ixam_pro_animate_default
+        ],
+        'EDIT_ARMATURE': [
+            *_3ixam_pro_animate_default
+        ],
+        'EDIT_MESH': [
+            *_3ixam_pro_animate_default
+        ],
+        'EDIT_CURVE': [
+            *_3ixam_pro_animate_default
+        ],
+        'EDIT_SURFACE': [
+            *_3ixam_pro_animate_default
+        ],
+        'EDIT_METABALL': [
+            *_3ixam_pro_animate_default
+        ],
+        'EDIT_LATTICE': [
+            *_3ixam_pro_animate_default
+        ],
+        'EDIT_TEXT': [
+            *_3ixam_pro_animate_default
+        ],
+        'PARTICLE': [
+            *_3ixam_pro_animate_default
+        ],
+        'SCULPT': [
+            *_3ixam_pro_animate_default
+        ],
+        'PAINT_TEXTURE': [
+            *_3ixam_pro_animate_default
+        ],
+        'PAINT_VERTEX': [
+            *_3ixam_pro_animate_default
+        ],
+        'PAINT_WEIGHT': [
+            *_3ixam_pro_animate_default
+        ],
+        'PAINT_GPENCIL': [
+            *_3ixam_pro_animate_default
+        ],
+        'EDIT_GPENCIL': [
+            *_3ixam_pro_animate_default
+        ],
+        'SCULPT_GPENCIL': [
+            *_3ixam_pro_animate_default
+        ],
+        'WEIGHT_GPENCIL': [
+            *_3ixam_pro_animate_default
+        ],
+        'VERTEX_GPENCIL': [
+            *_3ixam_pro_animate_default
+        ],
+    }
+
+    _vr_hands_tools = {
+        None: [
+            # Don't use this! because of paint modes.
+            # _defs_view3d_generic.cursor,
+            # End group.
+        ],
+        'OBJECT': [
+            *_3ixam_vr_hands_default
+        ],
+        'POSE': [
+            *_3ixam_vr_hands_default
+        ],
+        'EDIT_ARMATURE': [
+            *_3ixam_vr_hands_default
+        ],
+        'EDIT_MESH': [
+            *_3ixam_vr_hands_default
+        ],
+        'EDIT_CURVE': [
+            *_3ixam_vr_hands_default
+        ],
+        'EDIT_SURFACE': [
+            *_3ixam_vr_hands_default
+        ],
+        'EDIT_METABALL': [
+            *_3ixam_vr_hands_default
+        ],
+        'EDIT_LATTICE': [
+            *_3ixam_vr_hands_default
+        ],
+        'EDIT_TEXT': [
+            *_3ixam_vr_hands_default
+        ],
+        'PARTICLE': [
+            *_3ixam_vr_hands_default
+        ],
+        'SCULPT': [
+            *_3ixam_vr_hands_default
+        ],
+        'PAINT_TEXTURE': [
+            *_3ixam_vr_hands_default
+        ],
+        'PAINT_VERTEX': [
+            *_3ixam_vr_hands_default
+        ],
+        'PAINT_WEIGHT': [
+            *_3ixam_vr_hands_default
+        ],
+        'PAINT_GPENCIL': [
+            *_3ixam_vr_hands_default
+        ],
+        'EDIT_GPENCIL': [
+            *_3ixam_vr_hands_default
+        ],
+        'SCULPT_GPENCIL': [
+            *_3ixam_vr_hands_default
+        ],
+        'WEIGHT_GPENCIL': [
+            *_3ixam_vr_hands_default
+        ],
+        'VERTEX_GPENCIL': [
+            *_3ixam_vr_hands_default
         ],
     }
 

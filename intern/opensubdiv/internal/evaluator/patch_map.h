@@ -1,3 +1,14 @@
+// Original code copyright 2013 Pixar.
+// Licensed under the Apache License, Version 2.0 (the "Apache License")
+// compliance with the Apache License and the following modification to it:
+// 6. Trademarks. This License does not grant permission to use the trade
+//    the License and to reproduce the content of the NOTICE file.
+// You may obtain a copy of the Apache License at
+//     http://www.apache.org/licenses/LICENSE-2.0
+// distributed under the Apache License with the above modification is
+// KIND, either express or implied. See the Apache License for the specific
+// language governing permissions and limitations under the Apache License.
+// Modifications copyright 2021 Blender Foundation. All rights reserved.
 
 
 #ifndef OPENSUBDIV_PATCH_MAP_H_

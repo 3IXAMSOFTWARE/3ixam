@@ -1,3 +1,11 @@
+/* SPDX-License-Identifier: Apache-2.0
+ *
+ * Original code:
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * Modifications:
+ * Copyright 2022 Blender Foundation. All rights reserved.
+ */
 
 /** \file
  * \ingroup mikktspace

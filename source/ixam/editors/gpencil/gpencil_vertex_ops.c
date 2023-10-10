@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2015 Blender Foundation. */
 
 
 /** \file
@@ -219,7 +221,7 @@ void GPENCIL_OT_vertex_color_brightness_contrast(wmOperatorType *ot)
   ot->poll = gpencil_vertexpaint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* params */
   ot->prop = RNA_def_enum(
@@ -339,7 +341,7 @@ void GPENCIL_OT_vertex_color_hsv(wmOperatorType *ot)
   ot->poll = gpencil_vertexpaint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* params */
   ot->prop = RNA_def_enum(
@@ -432,7 +434,7 @@ void GPENCIL_OT_vertex_color_invert(wmOperatorType *ot)
   ot->poll = gpencil_vertexpaint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* params */
   ot->prop = RNA_def_enum(
@@ -524,7 +526,7 @@ void GPENCIL_OT_vertex_color_levels(wmOperatorType *ot)
   ot->poll = gpencil_vertexpaint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* params */
   ot->prop = RNA_def_enum(
@@ -623,7 +625,7 @@ void GPENCIL_OT_vertex_color_set(wmOperatorType *ot)
   ot->poll = gpencil_vertexpaint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* params */
   ot->prop = RNA_def_enum(
@@ -976,7 +978,7 @@ void GPENCIL_OT_material_to_vertex_color(wmOperatorType *ot)
   ot->poll = gpencil_material_to_vertex_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_boolean(ot->srna,
@@ -1028,7 +1030,7 @@ void GPENCIL_OT_extract_palette_vertex(wmOperatorType *ot)
   ot->poll = gpencil_extract_palette_vertex_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_boolean(
@@ -1139,7 +1141,7 @@ void GPENCIL_OT_stroke_reset_vertex_color(wmOperatorType *ot)
   ot->poll = gpencil_vertexpaint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "mode", mode_types_items, GPPAINT_MODE_BOTH, "Mode", "");

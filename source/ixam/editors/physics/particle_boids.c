@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Janne Karhu. All rights reserved. */
 
 
 /** \file
@@ -72,7 +74,7 @@ void BOID_OT_rule_add(wmOperatorType *ot)
   ot->exec = rule_add_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", rna_enum_boidrule_type_items, 0, "Type", "");
 }
@@ -120,7 +122,7 @@ void BOID_OT_rule_del(wmOperatorType *ot)
   ot->exec = rule_del_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ move up/down boid rule operators *********************/
@@ -158,7 +160,7 @@ void BOID_OT_rule_move_up(wmOperatorType *ot)
   ot->exec = rule_move_up_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int rule_move_down_exec(bContext *C, wmOperator *UNUSED(op))
@@ -195,7 +197,7 @@ void BOID_OT_rule_move_down(wmOperatorType *ot)
   ot->exec = rule_move_down_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ add/del boid state operators *********************/
@@ -232,7 +234,7 @@ void BOID_OT_state_add(wmOperatorType *ot)
   ot->exec = state_add_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 static int state_del_exec(bContext *C, wmOperator *UNUSED(op))
 {
@@ -281,7 +283,7 @@ void BOID_OT_state_del(wmOperatorType *ot)
   ot->exec = state_del_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ move up/down boid state operators *********************/
@@ -318,7 +320,7 @@ void BOID_OT_state_move_up(wmOperatorType *ot)
   ot->exec = state_move_up_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int state_move_down_exec(bContext *C, wmOperator *UNUSED(op))
@@ -355,5 +357,5 @@ void BOID_OT_state_move_down(wmOperatorType *ot)
   ot->exec = state_move_down_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }

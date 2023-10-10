@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2021-2022 Blender Foundation */
 
 
 #include "integrator/path_trace_tile.h"

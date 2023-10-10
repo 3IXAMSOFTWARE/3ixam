@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2021-2022 Intel Corporation */
 
 
 #ifdef WITH_ONEAPI

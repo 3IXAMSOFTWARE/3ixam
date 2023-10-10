@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(IXAM_PLATFORM_ARM)
   set(LLVM_TARGETS AArch64$<SEMICOLON>ARM)

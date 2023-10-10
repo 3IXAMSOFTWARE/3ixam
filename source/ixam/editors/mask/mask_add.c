@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -585,7 +587,7 @@ void MASK_OT_add_vertex(wmOperatorType *ot)
   ot->poll = ED_maskedit_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -681,7 +683,7 @@ void MASK_OT_add_feather_vertex(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -864,7 +866,7 @@ void MASK_OT_primitive_circle_add(wmOperatorType *ot)
   ot->poll = ED_maskedit_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   define_primitive_add_properties(ot);
@@ -899,7 +901,7 @@ void MASK_OT_primitive_square_add(wmOperatorType *ot)
   ot->poll = ED_maskedit_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   define_primitive_add_properties(ot);

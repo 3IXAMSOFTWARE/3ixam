@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2020 Blender Foundation.
+
 # - Find clang-tidy executable
 #
 # Find the native clang-tidy executable

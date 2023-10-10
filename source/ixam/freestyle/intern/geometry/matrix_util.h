@@ -1,3 +1,7 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * The Original Code is:
+ *   GXML/Graphite: Geometry and Graphics Programming Library + Utilities
+ *   Copyright 2000 Bruno Levy <levy@loria.fr> */
 
 
 #pragma once

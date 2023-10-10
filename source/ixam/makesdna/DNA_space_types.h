@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 /** \file
  * \ingroup DNA
@@ -511,6 +513,7 @@ typedef enum eGraphEdit_Flag {
   /* show markers region */
   SIPO_SHOW_MARKERS = (1 << 16),
   SIPO_NO_DRAW_EXTRAPOLATION = (1 << 17),
+  /* show view3d in pro_animate */
   SIPO_SHOWING_VIEW3D = (1 << 18),
 } eGraphEdit_Flag;
 

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import Operator
@@ -572,6 +573,7 @@ class LightMapPack(Operator):
     """Pack each faces UV's into the UV bounds"""
     bl_idname = "uv.lightmap_pack"
     bl_label = "Lightmap Pack"
+    bl_options = {'INTERNAL'}
 
     # Disable REGISTER flag for now because this operator might create new
     # images. This leads to non-proper operator redo because current undo

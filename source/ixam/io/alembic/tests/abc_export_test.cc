@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "exporter/abc_archive.h"
 #include "intern/abc_util.h"

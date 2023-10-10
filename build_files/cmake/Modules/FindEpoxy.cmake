@@ -1,4 +1,5 @@
-# Copyright 2022 3IXAM Foundation.
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2022 Blender Foundation.
 
 # This module defines
 #  Epoxy_INCLUDE_DIRS, where to find epoxy/gl.h

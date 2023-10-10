@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -223,7 +225,7 @@ void ED_operatormacros_mesh(void)
   ot = WM_operatortype_append_macro("MESH_OT_offset_edge_loops_slide",
                                     "Offset Edge Slide",
                                     "Offset edge loop slide",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "MESH_OT_offset_edge_loops");
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_edge_slide");
   RNA_boolean_set(otmacro->ptr, "single_side", true);
@@ -333,7 +335,7 @@ void ED_operatormacros_mesh(void)
   ot = WM_operatortype_append_macro("MESH_OT_polybuild_split_at_cursor_move",
                                     "Split at Cursor Move",
                                     NULL,
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "MESH_OT_polybuild_split_at_cursor");
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   RNA_boolean_set(otmacro->ptr, "use_proportional_edit", false);
@@ -342,7 +344,7 @@ void ED_operatormacros_mesh(void)
   ot = WM_operatortype_append_macro("MESH_OT_polybuild_transform_at_cursor_move",
                                     "Transform at Cursor Move",
                                     NULL,
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "MESH_OT_polybuild_transform_at_cursor");
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   RNA_boolean_set(otmacro->ptr, "use_proportional_edit", false);
@@ -351,7 +353,7 @@ void ED_operatormacros_mesh(void)
   ot = WM_operatortype_append_macro("MESH_OT_polybuild_extrude_at_cursor_move",
                                     "Extrude at Cursor Move",
                                     NULL,
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "MESH_OT_polybuild_transform_at_cursor");
   otmacro = WM_operatortype_macro_define(ot, "MESH_OT_extrude_edges_indiv");
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");

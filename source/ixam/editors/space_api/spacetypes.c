@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. */
 
 
 /** \file
@@ -152,7 +154,6 @@ void ED_spacemacros_init(void)
 {
   /* Macros must go last since they reference other operators.
    * They need to be registered after python operators too. */
-
   ED_operatormacros_armature();
   ED_operatormacros_mesh();
   ED_operatormacros_uvedit();

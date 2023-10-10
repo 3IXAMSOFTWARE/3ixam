@@ -105,7 +105,7 @@ def save_mesh(filepath, bm, use_ascii, use_normals, use_uv, use_color):
 
         fw(b"ply\n")
         fw(b"format %s 1.0\n" % file_format)
-        fw(b"comment Created by Ixam %s - www.3ixam.org\n" % bpy.app.version_string.encode("utf-8"))
+        fw(b"comment Created by Ixam %s - www.blender.org\n" % bpy.app.version_string.encode("utf-8"))
 
         fw(b"element vertex %d\n" % len(ply_verts))
         fw(

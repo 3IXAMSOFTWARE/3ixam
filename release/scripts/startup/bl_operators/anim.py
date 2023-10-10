@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 from __future__ import annotations
 
 if "bpy" in locals():
@@ -22,6 +24,7 @@ class ANIM_OT_keying_set_export(Operator):
     """Export Keying Set to a python script"""
     bl_idname = "anim.keying_set_export"
     bl_label = "Export Keying Set..."
+    bl_options = {'INTERNAL'}
 
     filepath: StringProperty(
         subtype='FILE_PATH',
@@ -184,7 +187,7 @@ class NLA_OT_bake(Operator):
     """Bake all selected objects location/scale/rotation animation to an action"""
     bl_idname = "nla.bake"
     bl_label = "Bake Action"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     frame_start: IntProperty(
         name="Start Frame",
@@ -299,7 +302,7 @@ class ClearUselessActions(Operator):
         """file preserving \"action libraries\""""
     bl_idname = "anim.clear_useless_actions"
     bl_label = "Clear Useless Actions"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     only_unused: BoolProperty(
         name="Only Unused",
@@ -338,7 +341,7 @@ class UpdateAnimatedTransformConstraint(Operator):
     """Update f-curves/drivers affecting Transform constraints (use it with files from 2.70 and earlier)"""
     bl_idname = "anim.update_animated_transform_constraints"
     bl_label = "Update Animated Transform Constraints"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     use_convert_to_radians: BoolProperty(
         name="Convert to Radians",

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -130,7 +132,7 @@ void ED_operatormacros_sequencer(void)
   ot = WM_operatortype_append_macro("SEQUENCER_OT_duplicate_move",
                                     "Duplicate Strips",
                                     "Duplicate selected strips and move them",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
 
   WM_operatortype_macro_define(ot, "SEQUENCER_OT_duplicate");
   WM_operatortype_macro_define(ot, "TRANSFORM_OT_seq_slide");

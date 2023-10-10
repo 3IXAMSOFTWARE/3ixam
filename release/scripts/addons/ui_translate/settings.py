@@ -27,7 +27,7 @@ class UI_OT_i18n_settings_load(Operator):
     """Load translations' settings from a persistent JSon file"""
     bl_idname = "ui.i18n_settings_load"
     bl_label = "I18n Load Settings"
-    bl_option = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     # Operator Arguments
     filepath: StringProperty(
@@ -59,7 +59,7 @@ class UI_OT_i18n_settings_save(Operator):
     """Save translations' settings in a persistent JSon file"""
     bl_idname = "ui.i18n_settings_save"
     bl_label = "I18n Save Settings"
-    bl_option = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     # Operator Arguments
     filepath: StringProperty(

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <ctype.h>
@@ -612,7 +613,7 @@ void TEXT_OT_autocomplete(wmOperatorType *ot)
 
   /* flags */
   /* Undo is handled conditionally by this operator. */
-  ot->flag = OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 }
 
 /** \} */

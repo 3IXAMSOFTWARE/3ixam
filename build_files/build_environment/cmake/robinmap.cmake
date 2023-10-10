@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(ROBINMAP_EXTRA_ARGS
 )

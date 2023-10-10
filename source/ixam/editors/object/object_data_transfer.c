@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2014 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -662,7 +664,7 @@ void OBJECT_OT_data_transfer(wmOperatorType *ot)
   ot->get_description = data_transfer_get_description;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   prop = RNA_def_boolean(ot->srna,
@@ -921,7 +923,7 @@ void OBJECT_OT_datalayout_transfer(wmOperatorType *ot)
   ot->check = data_transfer_check;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   edit_modifier_properties(ot);

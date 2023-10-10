@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # CPE's are used to identify dependencies, for more information on what they
 # are please see https://nvd.nist.gov/products/cpe

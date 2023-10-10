@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/bin/sh
 cd ../../../../
 ./ixam.bin --background -noaudio --python ./release/scripts/modules/rna_info.py 2> source/ixam/makesrna/rna_cleanup/out.txt

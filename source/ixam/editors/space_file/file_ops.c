@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -932,6 +934,8 @@ void FILE_OT_select_walk(wmOperatorType *ot)
   /* Operator works for file or asset browsing */
   ot->poll = ED_operator_file_active;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   WM_operator_properties_select_walk_direction(ot);
   prop = RNA_def_boolean(ot->srna,
@@ -1115,6 +1119,8 @@ void FILE_OT_select_bookmark(wmOperatorType *ot)
   /* Bookmarks are for file browsing only (not asset browsing). */
   ot->poll = ED_operator_file_browsing_active;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   prop = RNA_def_string(ot->srna, "dir", NULL, FILE_MAXDIR, "Directory", "");
   RNA_def_property_flag(prop, PROP_SKIP_SAVE);
@@ -1153,6 +1159,7 @@ void FILE_OT_bookmark_add(wmOperatorType *ot)
   ot->exec = bookmark_add_exec;
   /* Bookmarks are for file browsing only (not asset browsing). */
   ot->poll = ED_operator_file_browsing_active;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1192,6 +1199,8 @@ void FILE_OT_bookmark_delete(wmOperatorType *ot)
   ot->exec = bookmark_delete_exec;
   /* Bookmarks are for file browsing only (not asset browsing). */
   ot->poll = ED_operator_file_browsing_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_int(ot->srna, "index", -1, -1, 20000, "Index", "", -1, 20000);
@@ -1243,6 +1252,8 @@ void FILE_OT_bookmark_cleanup(wmOperatorType *ot)
   ot->exec = bookmark_cleanup_exec;
   /* Bookmarks are for file browsing only (not asset browsing). */
   ot->poll = ED_operator_file_browsing_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
 }
@@ -1339,7 +1350,7 @@ void FILE_OT_bookmark_move(wmOperatorType *ot)
   ot->poll = file_bookmark_move_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER; /* No undo! */
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL; /* No undo! */
 
   RNA_def_enum(ot->srna,
                "direction",
@@ -1461,6 +1472,8 @@ void FILE_OT_highlight(struct wmOperatorType *ot)
   ot->invoke = file_highlight_invoke;
   /* Operator works for file or asset browsing */
   ot->poll = ED_operator_file_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1863,6 +1876,8 @@ void FILE_OT_execute(struct wmOperatorType *ot)
    * Avoid using #file_operator_poll since this is also used for entering directories
    * which is used even when the file manager doesn't have an operator. */
   ot->poll = ED_operator_file_browsing_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /**
@@ -1994,6 +2009,8 @@ void FILE_OT_parent(struct wmOperatorType *ot)
   ot->exec = file_parent_exec;
   /* File browsing only operator (not asset browsing). */
   ot->poll = ED_operator_file_browsing_active; /* <- important, handler is on window level */
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2030,6 +2047,8 @@ void FILE_OT_previous(struct wmOperatorType *ot)
   ot->exec = file_previous_exec;
   /* File browsing only operator (not asset browsing). */
   ot->poll = ED_operator_file_browsing_active; /* <- important, handler is on window level */
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2304,6 +2323,8 @@ void FILE_OT_filepath_drop(wmOperatorType *ot)
   /* File browsing only operator (not asset browsing). */
   ot->poll = ED_operator_file_browsing_active;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   RNA_def_string_file_path(ot->srna, "filepath", "Path", FILE_MAX, "", "");
 }
 
@@ -2438,6 +2459,8 @@ void FILE_OT_directory_new(struct wmOperatorType *ot)
   ot->exec = file_directory_new_exec;
   /* File browsing only operator (not asset browsing). */
   ot->poll = ED_operator_file_browsing_active; /* <- important, handler is on window level */
+
+  ot->flag = OPTYPE_INTERNAL;
 
   prop = RNA_def_string_dir_path(
       ot->srna, "directory", NULL, FILE_MAX, "Directory", "Name of new directory");
@@ -2766,6 +2789,8 @@ void FILE_OT_filenum(struct wmOperatorType *ot)
   ot->exec = file_filenum_exec;
   ot->poll = file_filenum_poll;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* props */
   RNA_def_int(ot->srna, "increment", 1, -100, 100, "Increment", "", -100, 100);
 }
@@ -2915,6 +2940,8 @@ void FILE_OT_delete(struct wmOperatorType *ot)
   ot->description = "Move selected files to the trash or recycle bin";
   ot->idname = "FILE_OT_delete";
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* api callbacks */
   ot->invoke = WM_operator_confirm;
   ot->exec = file_delete_exec;
@@ -2960,6 +2987,8 @@ void FILE_OT_start_filter(struct wmOperatorType *ot)
   ot->exec = file_start_filter_exec;
   /* Operator works for file or asset browsing */
   ot->poll = ED_operator_file_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3000,6 +3029,8 @@ void FILE_OT_edit_directory_path(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = file_edit_directory_path_exec;
   ot->poll = ED_operator_file_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */

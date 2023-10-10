@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2007 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -4880,7 +4882,7 @@ void MESH_OT_knife_tool(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh_view3d;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* Properties. */
   PropertyRNA *prop;

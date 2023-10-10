@@ -1,3 +1,13 @@
+/**
+ * ----------------- STEP 3 ------------------
+ * 3x3 Median Filter
+ * Morgan McGuire and Kyle Whitson
+ * http://graphics.cs.williams.edu
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ * Copyright 2006 Morgan McGuire and Williams College, All rights reserved.
+ */
+
 #pragma IXAM_REQUIRE(common_view_lib.glsl)
 #pragma IXAM_REQUIRE(common_math_lib.glsl)
 

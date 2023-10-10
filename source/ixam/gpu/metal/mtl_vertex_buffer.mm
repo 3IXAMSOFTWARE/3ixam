@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "mtl_vertex_buffer.hh"
 #include "mtl_debug.hh"

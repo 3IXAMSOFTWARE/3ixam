@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "MEM_guardedalloc.h"
@@ -75,7 +76,7 @@ static void BRUSH_OT_add(wmOperatorType *ot)
   ot->exec = brush_add_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static eGPBrush_Presets gpencil_get_brush_preset_from_tool(bToolRef *tool,
@@ -243,7 +244,7 @@ static void BRUSH_OT_add_gpencil(wmOperatorType *ot)
   ot->exec = brush_add_gpencil_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int brush_scale_size_exec(bContext *C, wmOperator *op)
@@ -307,7 +308,7 @@ static void BRUSH_OT_scale_size(wmOperatorType *ot)
   ot->exec = brush_scale_size_exec;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_float(ot->srna, "scalar", 1, 0, 2, "Scalar", "Factor to scale brush size by", 0, 2);
 }
@@ -338,7 +339,7 @@ static void PALETTE_OT_new(wmOperatorType *ot)
   ot->exec = palette_new_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static bool palette_poll(bContext *C)
@@ -394,7 +395,7 @@ static void PALETTE_OT_color_add(wmOperatorType *ot)
   ot->exec = palette_color_add_exec;
   ot->poll = palette_poll;
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int palette_color_delete_exec(bContext *C, wmOperator *UNUSED(op))
@@ -421,7 +422,7 @@ static void PALETTE_OT_color_delete(wmOperatorType *ot)
   ot->exec = palette_color_delete_exec;
   ot->poll = palette_poll;
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* --- Extract Palette from Image. */
@@ -500,7 +501,7 @@ static void PALETTE_OT_extract_from_image(wmOperatorType *ot)
   ot->poll = palette_extract_img_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_int(ot->srna, "threshold", 1, 1, 1, "Threshold", "", 1, 1);
@@ -600,7 +601,7 @@ static void PALETTE_OT_sort(wmOperatorType *ot)
   ot->poll = palette_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", sort_type, 1, "Type", "");
 }
@@ -645,7 +646,7 @@ static void PALETTE_OT_color_move(wmOperatorType *ot)
   ot->poll = palette_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", slot_move, 0, "Type", "");
 }
@@ -711,7 +712,7 @@ static void PALETTE_OT_join(wmOperatorType *ot)
   ot->poll = palette_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_string(ot->srna, "palette", NULL, MAX_ID_NAME - 2, "Palette", "Name of the Palette");
@@ -750,7 +751,7 @@ static void BRUSH_OT_reset(wmOperatorType *ot)
   ot->exec = brush_reset_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int brush_tool(const Brush *brush, size_t tool_offset)
@@ -939,7 +940,7 @@ static void PAINT_OT_brush_select(wmOperatorType *ot)
   ot->exec = brush_select_exec;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* props */
   /* All properties are hidden, so as not to show the redo panel. */
@@ -1236,7 +1237,7 @@ static void BRUSH_OT_stencil_control(wmOperatorType *ot)
   ot->poll = stencil_control_poll;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   PropertyRNA *prop;
   prop = RNA_def_enum(ot->srna, "mode", stencil_control_items, STENCIL_TRANSLATE, "Tool", "");
@@ -1314,7 +1315,7 @@ static void BRUSH_OT_stencil_fit_image_aspect(wmOperatorType *ot)
   ot->poll = stencil_control_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "use_repeat", 1, "Use Repeat", "Use repeat mapping values");
   RNA_def_boolean(ot->srna, "use_scale", 1, "Use Scale", "Use texture scale values");
@@ -1368,7 +1369,7 @@ static void BRUSH_OT_stencil_reset_transform(wmOperatorType *ot)
   ot->poll = stencil_control_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(
       ot->srna, "mask", 0, "Modify Mask Stencil", "Modify either the primary or mask stencil");
@@ -1386,6 +1387,7 @@ void ED_operatormacros_paint(void)
                                     "Add new curve point and slide it",
                                     OPTYPE_UNDO);
   ot->description = "Add new curve point and slide it";
+  ot->flag = OPTYPE_INTERNAL;
   WM_operatortype_macro_define(ot, "PAINTCURVE_OT_add_point");
   otmacro = WM_operatortype_macro_define(ot, "PAINTCURVE_OT_slide");
   RNA_boolean_set(otmacro->ptr, "align", true);

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2007 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -437,7 +439,7 @@ void WM_OT_link(wmOperatorType *ot)
   ot->exec = wm_link_append_exec;
   ot->poll = wm_link_append_poll;
 
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER | FILE_TYPE_IXAM | FILE_TYPE_IXAMLIB,
@@ -461,7 +463,7 @@ void WM_OT_append(wmOperatorType *ot)
   ot->exec = wm_link_append_exec;
   ot->poll = wm_link_append_poll;
 
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER | FILE_TYPE_IXAM | FILE_TYPE_IXAMLIB,
@@ -802,7 +804,7 @@ void WM_OT_lib_relocate(wmOperatorType *ot)
   ot->invoke = wm_lib_relocate_invoke;
   ot->exec = wm_lib_relocate_exec;
 
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_string(ot->srna, "library", NULL, MAX_NAME, "Library", "Library to relocate");
   RNA_def_property_flag(prop, PROP_HIDDEN);

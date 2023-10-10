@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(WIN32)
   # VPX is determined to use pthreads which it will tell ffmpeg to dynamically

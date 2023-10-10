@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup spview3d
@@ -1663,7 +1664,7 @@ void VIEW3D_OT_interactive_add(struct wmOperatorType *ot)
 
   /* NOTE: let the operator we call handle undo and registering itself. */
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/usr/bin/env python3
 
 # This module can get render info without running from inside ixam.

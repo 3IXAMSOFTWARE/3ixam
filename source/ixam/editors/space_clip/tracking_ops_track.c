@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2016 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -423,7 +425,7 @@ void CLIP_OT_track_markers(wmOperatorType *ot)
   ot->get_description = track_markers_desc;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna, "backwards", 0, "Backwards", "Do backwards tracking");
@@ -474,7 +476,7 @@ void CLIP_OT_refine_markers(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna, "backwards", 0, "Backwards", "Do backwards tracking");

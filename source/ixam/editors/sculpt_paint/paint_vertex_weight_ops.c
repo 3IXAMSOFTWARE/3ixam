@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "MEM_guardedalloc.h"
@@ -136,7 +137,7 @@ void PAINT_OT_weight_from_bones(wmOperatorType *ot)
   ot->poll = weight_from_bones_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(
@@ -272,7 +273,7 @@ void PAINT_OT_weight_sample(wmOperatorType *ot)
   ot->poll = weight_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -411,7 +412,7 @@ void PAINT_OT_weight_sample_group(wmOperatorType *ot)
   ot->poll = weight_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Group to use (dynamic enum). */
   prop = RNA_def_enum(
@@ -553,7 +554,7 @@ void PAINT_OT_weight_set(wmOperatorType *ot)
   ot->poll = mask_paint_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -923,7 +924,7 @@ void PAINT_OT_weight_gradient(wmOperatorType *ot)
   ot->cancel = WM_gesture_straightline_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_enum(ot->srna, "type", gradient_types, 0, "Type", "");
   RNA_def_property_flag(prop, PROP_SKIP_SAVE);

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2004 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1723,7 +1725,7 @@ void OUTLINER_OT_item_activate(wmOperatorType *ot)
 
   ot->poll = ED_operator_outliner_active;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   PropertyRNA *prop;
   prop = RNA_def_boolean(ot->srna, "extend", false, "Extend", "Extend selection for activation");
@@ -1828,7 +1830,7 @@ void OUTLINER_OT_select_box(wmOperatorType *ot)
   ot->poll = ED_operator_outliner_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -2058,7 +2060,7 @@ void OUTLINER_OT_select_walk(wmOperatorType *ot)
   ot->invoke = outliner_walk_select_invoke;
   ot->poll = ED_operator_outliner_active;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;

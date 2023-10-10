@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -702,6 +704,8 @@ void FLUID_OT_bake_all(wmOperatorType *ot)
   ot->invoke = fluid_bake_invoke;
   ot->modal = fluid_bake_modal;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_free_all(wmOperatorType *ot)
@@ -714,6 +718,8 @@ void FLUID_OT_free_all(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = fluid_free_exec;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_bake_data(wmOperatorType *ot)
@@ -728,6 +734,8 @@ void FLUID_OT_bake_data(wmOperatorType *ot)
   ot->invoke = fluid_bake_invoke;
   ot->modal = fluid_bake_modal;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_free_data(wmOperatorType *ot)
@@ -740,6 +748,8 @@ void FLUID_OT_free_data(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = fluid_free_exec;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_bake_noise(wmOperatorType *ot)
@@ -754,6 +764,8 @@ void FLUID_OT_bake_noise(wmOperatorType *ot)
   ot->invoke = fluid_bake_invoke;
   ot->modal = fluid_bake_modal;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_free_noise(wmOperatorType *ot)
@@ -766,6 +778,8 @@ void FLUID_OT_free_noise(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = fluid_free_exec;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_bake_mesh(wmOperatorType *ot)
@@ -780,6 +794,8 @@ void FLUID_OT_bake_mesh(wmOperatorType *ot)
   ot->invoke = fluid_bake_invoke;
   ot->modal = fluid_bake_modal;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_free_mesh(wmOperatorType *ot)
@@ -792,6 +808,8 @@ void FLUID_OT_free_mesh(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = fluid_free_exec;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_bake_particles(wmOperatorType *ot)
@@ -806,6 +824,8 @@ void FLUID_OT_bake_particles(wmOperatorType *ot)
   ot->invoke = fluid_bake_invoke;
   ot->modal = fluid_bake_modal;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_free_particles(wmOperatorType *ot)
@@ -818,6 +838,8 @@ void FLUID_OT_free_particles(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = fluid_free_exec;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_bake_guides(wmOperatorType *ot)
@@ -832,6 +854,8 @@ void FLUID_OT_bake_guides(wmOperatorType *ot)
   ot->invoke = fluid_bake_invoke;
   ot->modal = fluid_bake_modal;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_free_guides(wmOperatorType *ot)
@@ -844,6 +868,8 @@ void FLUID_OT_free_guides(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = fluid_free_exec;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void FLUID_OT_pause_bake(wmOperatorType *ot)
@@ -856,4 +882,6 @@ void FLUID_OT_pause_bake(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = fluid_pause_exec;
   ot->poll = ED_operator_object_active_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }

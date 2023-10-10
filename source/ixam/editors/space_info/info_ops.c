@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -65,7 +67,7 @@ void FILE_OT_pack_libraries(wmOperatorType *ot)
   ot->exec = pack_libraries_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int unpack_libraries_exec(bContext *C, wmOperator *op)
@@ -101,7 +103,7 @@ void FILE_OT_unpack_libraries(wmOperatorType *ot)
   ot->exec = unpack_libraries_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -277,7 +279,7 @@ void FILE_OT_unpack_all(wmOperatorType *ot)
   ot->invoke = unpack_all_invoke;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(
@@ -364,7 +366,7 @@ void FILE_OT_unpack_item(wmOperatorType *ot)
   ot->invoke = unpack_item_invoke;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(
@@ -417,7 +419,7 @@ void FILE_OT_make_paths_relative(wmOperatorType *ot)
   ot->exec = make_paths_relative_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -455,7 +457,7 @@ void FILE_OT_make_paths_absolute(wmOperatorType *ot)
   ot->exec = make_paths_absolute_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -485,7 +487,7 @@ void FILE_OT_report_missing_files(wmOperatorType *ot)
   ot->exec = report_missing_files_exec;
 
   /* flags */
-  ot->flag = 0; /* only reports so no need to undo/register */
+  ot->flag = OPTYPE_INTERNAL; /* only reports so no need to undo/register */
 }
 
 /** \} */
@@ -525,7 +527,7 @@ void FILE_OT_find_missing_files(wmOperatorType *ot)
   ot->invoke = find_missing_files_invoke;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna,
@@ -645,7 +647,7 @@ void INFO_OT_reports_display_update(wmOperatorType *ot)
   ot->invoke = update_reports_display_invoke;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
 }

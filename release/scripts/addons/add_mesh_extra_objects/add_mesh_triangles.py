@@ -9,7 +9,7 @@ bl_info = {
     "ixam": (2, 68, 0),
     "location": "View3D > Add > Mesh",
     "warning": "First Version",
-    "doc_url": "https://wiki.ixam.org/index.php/Extensions:2.6/Py/"
+    "doc_url": "https://wiki.blender.org/index.php/Extensions:2.6/Py/"
                "Scripts/Triangles",
     "category": "Add Mesh",
 }

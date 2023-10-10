@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+
 #include "IO_path_util.hh"
 
 #include "BLI_fileops.h"

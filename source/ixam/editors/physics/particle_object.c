@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -94,7 +96,7 @@ void OBJECT_OT_particle_system_add(wmOperatorType *ot)
   ot->exec = particle_system_add_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int particle_system_remove_exec(bContext *C, wmOperator *UNUSED(op))
@@ -143,7 +145,7 @@ void OBJECT_OT_particle_system_remove(wmOperatorType *ot)
   ot->exec = particle_system_remove_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /********************** new particle settings operator *********************/
@@ -204,7 +206,7 @@ void PARTICLE_OT_new(wmOperatorType *ot)
   ot->poll = psys_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /********************** keyed particle target operators *********************/
@@ -253,7 +255,7 @@ void PARTICLE_OT_new_target(wmOperatorType *ot)
   ot->exec = new_particle_target_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int remove_particle_target_exec(bContext *C, wmOperator *UNUSED(op))
@@ -302,7 +304,7 @@ void PARTICLE_OT_target_remove(wmOperatorType *ot)
   ot->exec = remove_particle_target_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ move up particle target operator *********************/
@@ -342,7 +344,7 @@ void PARTICLE_OT_target_move_up(wmOperatorType *ot)
   ot->exec = target_move_up_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ move down particle target operator *********************/
@@ -381,7 +383,7 @@ void PARTICLE_OT_target_move_down(wmOperatorType *ot)
   ot->exec = target_move_down_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ refresh dupli objects *********************/
@@ -411,7 +413,7 @@ void PARTICLE_OT_dupliob_refresh(wmOperatorType *ot)
   ot->exec = dupliob_refresh_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ move up particle dupliweight operator *********************/
@@ -451,7 +453,7 @@ void PARTICLE_OT_dupliob_move_up(wmOperatorType *ot)
   ot->exec = dupliob_move_up_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /********************** particle dupliweight operators *********************/
@@ -494,7 +496,7 @@ void PARTICLE_OT_dupliob_copy(wmOperatorType *ot)
   ot->exec = copy_particle_dupliob_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int remove_particle_dupliob_exec(bContext *C, wmOperator *UNUSED(op))
@@ -539,7 +541,7 @@ void PARTICLE_OT_dupliob_remove(wmOperatorType *ot)
   ot->exec = remove_particle_dupliob_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ move down particle dupliweight operator *********************/
@@ -579,7 +581,7 @@ void PARTICLE_OT_dupliob_move_down(wmOperatorType *ot)
   ot->exec = dupliob_move_down_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************ connect/disconnect hair operators *********************/
@@ -676,7 +678,7 @@ void PARTICLE_OT_disconnect_hair(wmOperatorType *ot)
 
   /* flags */
   /* No REGISTER, redo does not work due to missing update, see T47750. */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(
       ot->srna, "all", 0, "All Hair", "Disconnect all hair systems from the emitter mesh");
@@ -979,7 +981,7 @@ void PARTICLE_OT_connect_hair(wmOperatorType *ot)
 
   /* flags */
   /* No REGISTER, redo does not work due to missing update, see T47750. */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "all", 0, "All Hair", "Connect all hair systems to the emitter mesh");
 }
@@ -1296,7 +1298,7 @@ void PARTICLE_OT_copy_particle_systems(wmOperatorType *ot)
   ot->exec = copy_particle_systems_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "space",
@@ -1354,7 +1356,7 @@ void PARTICLE_OT_duplicate_particle_system(wmOperatorType *ot)
   ot->exec = duplicate_particle_systems_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "use_duplicate_settings",

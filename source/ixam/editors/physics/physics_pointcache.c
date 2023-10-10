@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2007 by Janne Karhu. All rights reserved. */
 
 
 /** \file
@@ -299,7 +301,7 @@ void PTCACHE_OT_bake_all(wmOperatorType *ot)
   ot->poll = ptcache_bake_all_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "bake", 1, "Bake", "");
 }
@@ -315,7 +317,7 @@ void PTCACHE_OT_free_bake_all(wmOperatorType *ot)
   ot->poll = ptcache_bake_all_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int ptcache_free_bake_exec(bContext *C, wmOperator *UNUSED(op))
@@ -357,7 +359,7 @@ void PTCACHE_OT_bake(wmOperatorType *ot)
   ot->poll = ptcache_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "bake", 0, "Bake", "");
 }
@@ -373,7 +375,7 @@ void PTCACHE_OT_free_bake(wmOperatorType *ot)
   ot->poll = ptcache_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 void PTCACHE_OT_bake_from_cache(wmOperatorType *ot)
 {
@@ -387,7 +389,7 @@ void PTCACHE_OT_bake_from_cache(wmOperatorType *ot)
   ot->poll = ptcache_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int ptcache_add_new_exec(bContext *C, wmOperator *UNUSED(op))
@@ -442,7 +444,7 @@ void PTCACHE_OT_add(wmOperatorType *ot)
   ot->poll = ptcache_add_remove_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 void PTCACHE_OT_remove(wmOperatorType *ot)
 {
@@ -456,5 +458,5 @@ void PTCACHE_OT_remove(wmOperatorType *ot)
   ot->poll = ptcache_add_remove_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }

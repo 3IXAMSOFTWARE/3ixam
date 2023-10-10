@@ -78,6 +78,7 @@ class UI_OT_i18n_addon_translation_invoke(Operator):
     bl_idname = "ui.i18n_addon_translation_invoke"
     bl_label = "Update I18n Add-on"
     bl_property = "module_name"
+    bl_options = {'INTERNAL'}
 
     # Operator Arguments
     module_name: EnumProperty(
@@ -115,6 +116,7 @@ class UI_OT_i18n_addon_translation_update(Operator):
     """Update given add-on's translation data (found as a py tuple in the add-on's source code)"""
     bl_idname = "ui.i18n_addon_translation_update"
     bl_label = "Update I18n Add-on"
+    bl_options = {'INTERNAL'}
 
     # Operator Arguments
     module_name: EnumProperty(
@@ -175,6 +177,7 @@ class UI_OT_i18n_addon_translation_import(Operator):
     """Import given add-on's translation data from PO files"""
     bl_idname = "ui.i18n_addon_translation_import"
     bl_label = "I18n Add-on Import"
+    bl_options = {'INTERNAL'}
 
     # Operator Arguments
     module_name: EnumProperty(
@@ -265,6 +268,7 @@ class UI_OT_i18n_addon_translation_export(Operator):
 
     bl_idname = "ui.i18n_addon_translation_export"
     bl_label = "I18n Add-on Export"
+    bl_options = {'INTERNAL'}
 
     # Operator Arguments
     module_name: EnumProperty(

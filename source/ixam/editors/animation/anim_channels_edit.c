@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation, Joshua Leung. All rights reserved. */
 
 
 /** \file
@@ -2341,7 +2343,7 @@ static void ANIM_OT_channels_collapse(wmOperatorType *ot)
   ot->poll = animedit_poll_channels_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   ot->prop = RNA_def_boolean(

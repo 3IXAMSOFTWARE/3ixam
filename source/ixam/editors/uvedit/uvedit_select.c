@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -2924,7 +2926,7 @@ void UV_OT_select_edge_ring(wmOperatorType *ot)
   ot->name = "Edge Ring Select";
   ot->description = "Select an edge ring of connected UV vertices";
   ot->idname = "UV_OT_select_edge_ring";
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = uv_select_edge_ring_exec;

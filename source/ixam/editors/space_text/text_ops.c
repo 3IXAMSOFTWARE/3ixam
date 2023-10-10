@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -410,7 +412,7 @@ void TEXT_OT_open(wmOperatorType *ot)
   ot->poll = text_new_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_filesel(ot,
@@ -539,7 +541,7 @@ void TEXT_OT_unlink(wmOperatorType *ot)
   ot->poll = text_unlink_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -574,7 +576,7 @@ void TEXT_OT_make_internal(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -890,6 +892,8 @@ void TEXT_OT_refresh_pyconstraints(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = text_refresh_pyconstraints_exec;
   ot->poll = text_edit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -996,7 +1000,7 @@ void TEXT_OT_duplicate_line(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1082,7 +1086,7 @@ void TEXT_OT_cut(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1117,7 +1121,7 @@ void TEXT_OT_indent_or_autocomplete(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1162,7 +1166,7 @@ void TEXT_OT_indent(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1202,7 +1206,7 @@ void TEXT_OT_unindent(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1321,7 +1325,7 @@ void TEXT_OT_comment_toggle(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -1473,7 +1477,7 @@ void TEXT_OT_convert_whitespace(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,
@@ -1542,6 +1546,8 @@ void TEXT_OT_select_line(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = text_select_line_exec;
   ot->poll = text_edit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1621,7 +1627,7 @@ void TEXT_OT_move_lines(wmOperatorType *ot)
   ot->poll = text_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "direction", direction_items, 1, "Direction", "");
@@ -2267,6 +2273,8 @@ void TEXT_OT_move(wmOperatorType *ot)
   ot->exec = text_move_exec;
   ot->poll = text_edit_poll;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   RNA_def_enum(ot->srna, "type", move_type_items, LINE_BEGIN, "Type", "Where to move cursor to");
 }
@@ -2294,6 +2302,8 @@ void TEXT_OT_move_select(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = text_move_select_exec;
   ot->poll = text_space_edit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,
@@ -2350,6 +2360,8 @@ void TEXT_OT_jump(wmOperatorType *ot)
   ot->invoke = text_jump_invoke;
   ot->exec = text_jump_exec;
   ot->poll = text_edit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_int(ot->srna, "line", 1, 1, INT_MAX, "Line", "Line number to jump to", 1, 10000);
@@ -3313,6 +3325,8 @@ void TEXT_OT_selection_set(wmOperatorType *ot)
   ot->modal = text_selection_set_modal;
   ot->cancel = text_selection_set_cancel;
   ot->poll = text_region_edit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3361,6 +3375,8 @@ void TEXT_OT_cursor_set(wmOperatorType *ot)
   ot->invoke = text_cursor_set_invoke;
   ot->exec = text_cursor_set_exec;
   ot->poll = text_region_edit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int(ot->srna, "x", 0, INT_MIN, INT_MAX, "X", "", INT_MIN, INT_MAX);
@@ -3643,6 +3659,8 @@ void TEXT_OT_find(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = text_find_exec;
   ot->poll = text_space_edit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3714,7 +3732,7 @@ void TEXT_OT_replace(wmOperatorType *ot)
   ot->poll = text_space_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -3755,6 +3773,8 @@ void TEXT_OT_find_set_selected(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = text_find_set_selected_exec;
   ot->poll = text_space_edit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3788,7 +3808,7 @@ void TEXT_OT_replace_set_selected(wmOperatorType *ot)
   ot->poll = text_space_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3909,6 +3929,8 @@ void TEXT_OT_resolve_conflict(wmOperatorType *ot)
   ot->exec = text_resolve_conflict_exec;
   ot->invoke = text_resolve_conflict_invoke;
   ot->poll = text_resolve_conflict_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,

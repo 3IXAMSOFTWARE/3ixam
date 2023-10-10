@@ -11,7 +11,7 @@ bl_info = {
     "location": "View3D > Edit Mode Context Menu > Relax ",
     "description": "Relax the selected verts while retaining the shape",
     "warning": "",
-    "doc_url": "http://wiki.ixam.org/index.php/Extensions:2.6/Py/"
+    "doc_url": "http://wiki.blender.org/index.php/Extensions:2.6/Py/"
                "Scripts/Modeling/Relax",
     "category": "Mesh",
 }

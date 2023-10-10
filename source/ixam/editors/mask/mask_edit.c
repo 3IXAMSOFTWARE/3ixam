@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -173,7 +175,7 @@ void ED_operatormacros_mask(void)
   ot = WM_operatortype_append_macro("MASK_OT_add_vertex_slide",
                                     "Add Vertex and Slide",
                                     "Add new vertex and slide it",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   ot->description = "Add new vertex and slide it";
   WM_operatortype_macro_define(ot, "MASK_OT_add_vertex");
   otmacro = WM_operatortype_macro_define(ot, "MASK_OT_slide_point");
@@ -182,7 +184,7 @@ void ED_operatormacros_mask(void)
   ot = WM_operatortype_append_macro("MASK_OT_add_feather_vertex_slide",
                                     "Add Feather Vertex and Slide",
                                     "Add new vertex to feather and slide it",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   ot->description = "Add new feather vertex and slide it";
   WM_operatortype_macro_define(ot, "MASK_OT_add_feather_vertex");
   otmacro = WM_operatortype_macro_define(ot, "MASK_OT_slide_point");

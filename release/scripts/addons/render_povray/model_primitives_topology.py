@@ -1017,7 +1017,7 @@ def pov_parametric_define(context, op, ob):
         bpy.ops.mesh.select_all(action="SELECT")
         # extra work:
         bpy.ops.transform.translate(value=(obloc - curloc), proportional_size=1)
-        # XXX TODO : https://devtalk.ixam.org/t/bpy-ops-transform-rotate-option-axis/6235/7
+        # XXX TODO : https://devtalk.blender.org/t/bpy-ops-transform-rotate-option-axis/6235/7
         # to complete necessary extra work rotation, after updating from ixam version > 2.92
         # update and uncomment below, but simple axis deprecated since 2.8
         # bpy.ops.transform.rotate(axis=obrot, proportional_size=1)

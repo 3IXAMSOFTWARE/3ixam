@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2011 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -121,7 +123,7 @@ void CLIP_OT_add_marker(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -202,7 +204,7 @@ void CLIP_OT_add_marker_at_click(wmOperatorType *ot)
   ot->modal = add_marker_at_click_modal;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -259,7 +261,7 @@ void CLIP_OT_delete_track(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -330,7 +332,7 @@ void CLIP_OT_delete_marker(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -923,7 +925,7 @@ void CLIP_OT_slide_marker(wmOperatorType *ot)
   ot->modal = slide_marker_modal;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_GRAB_CURSOR_XY | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_GRAB_CURSOR_XY | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -997,7 +999,7 @@ void CLIP_OT_clear_track_path(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,
@@ -1077,7 +1079,7 @@ void CLIP_OT_disable_markers(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "action", actions_items, 0, "Action", "Disable action to execute");
@@ -1121,7 +1123,7 @@ void CLIP_OT_set_center_principal(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1189,7 +1191,7 @@ void CLIP_OT_hide_tracks(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna, "unselected", 0, "Unselected", "Hide unselected tracks");
@@ -1239,7 +1241,7 @@ void CLIP_OT_hide_tracks_clear(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1336,7 +1338,7 @@ void CLIP_OT_frame_jump(wmOperatorType *ot)
   ot->poll = frame_jump_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "position", position_items, 0, "Position", "Position to jump to");
@@ -1439,7 +1441,7 @@ void CLIP_OT_join_tracks(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1528,7 +1530,7 @@ void CLIP_OT_average_tracks(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   PropertyRNA *prop;
@@ -1598,7 +1600,7 @@ void CLIP_OT_lock_tracks(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "action", actions_items, 0, "Action", "Lock action to execute");
@@ -1654,7 +1656,7 @@ void CLIP_OT_set_solver_keyframe(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "keyframe", keyframe_items, 0, "Keyframe", "Keyframe to set");
@@ -1706,7 +1708,7 @@ void CLIP_OT_track_copy_color(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1926,7 +1928,7 @@ void CLIP_OT_clean_tracks(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int(ot->srna,
@@ -1983,7 +1985,7 @@ void CLIP_OT_tracking_object_new(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2026,7 +2028,7 @@ void CLIP_OT_tracking_object_remove(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2061,7 +2063,7 @@ void CLIP_OT_copy_tracks(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2107,7 +2109,7 @@ void CLIP_OT_paste_tracks(wmOperatorType *ot)
   ot->poll = paste_tracks_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2186,7 +2188,7 @@ void CLIP_OT_keyframe_insert(wmOperatorType *ot)
   ot->exec = keyframe_insert_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2213,7 +2215,7 @@ void CLIP_OT_keyframe_delete(wmOperatorType *ot)
   ot->exec = keyframe_delete_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2296,7 +2298,7 @@ void CLIP_OT_new_image_from_plane_marker(wmOperatorType *ot)
   ot->exec = new_image_from_plane_marker_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static bool update_image_from_plane_marker_poll(bContext *C)
@@ -2354,7 +2356,7 @@ void CLIP_OT_update_image_from_plane_marker(wmOperatorType *ot)
   ot->exec = update_image_from_plane_marker_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

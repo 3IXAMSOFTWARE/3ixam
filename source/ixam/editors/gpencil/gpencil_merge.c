@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2019 Blender Foundation. */
 
 
 /** \file
@@ -538,7 +540,7 @@ void GPENCIL_OT_stroke_merge(wmOperatorType *ot)
   ot->poll = gpencil_strokes_merge_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "mode", mode_type, GP_MERGE_STROKE, "Mode", "");
@@ -606,7 +608,7 @@ void GPENCIL_OT_stroke_merge_material(wmOperatorType *ot)
   ot->poll = gpencil_stroke_merge_material_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_float(

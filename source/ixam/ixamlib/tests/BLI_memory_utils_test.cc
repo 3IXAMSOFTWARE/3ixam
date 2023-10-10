@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: Apache-2.0 */
 
 #include "BLI_math_vec_types.hh"
 #include "BLI_memory_utils.hh"

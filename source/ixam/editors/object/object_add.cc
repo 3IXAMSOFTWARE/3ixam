@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 /** \file
  * \ingroup edobj
@@ -715,7 +717,7 @@ void OBJECT_OT_add(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ED_object_add_unit_props_radius(ot);
@@ -1034,7 +1036,7 @@ void OBJECT_OT_metaball_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", rna_enum_metaelem_type_items, 0, "Primitive", "");
 
@@ -1269,7 +1271,7 @@ void OBJECT_OT_drop_named_image(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_string(ot->srna, "filepath", nullptr, FILE_MAX, "Filepath", "Path to image file");
@@ -1520,7 +1522,7 @@ void OBJECT_OT_gpencil_add(wmOperatorType *ot)
   ot->poll = object_gpencil_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* ui */
   ot->ui = object_add_ui;
@@ -1766,7 +1768,7 @@ void OBJECT_OT_collection_instance_add(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_string(
@@ -1955,7 +1957,7 @@ void OBJECT_OT_data_instance_add(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_id_lookup(ot, true);
@@ -2021,7 +2023,7 @@ void OBJECT_OT_speaker_add(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_generic_props(ot, true);
 }
@@ -2063,7 +2065,7 @@ void OBJECT_OT_curves_random_add(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_generic_props(ot, false);
 }
@@ -2132,7 +2134,7 @@ void OBJECT_OT_curves_empty_hair_add(wmOperatorType *ot)
   ot->exec = object_curves_empty_hair_add_exec;
   ot->poll = object_curves_empty_hair_add_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_generic_props(ot, false);
 }
@@ -2178,7 +2180,7 @@ void OBJECT_OT_pointcloud_add(wmOperatorType *ot)
   ot->poll = object_pointcloud_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_generic_props(ot, false);
 }
@@ -3994,7 +3996,7 @@ void OBJECT_OT_add_named(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode_poll_msg;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   PropertyRNA *prop;
   RNA_def_boolean(ot->srna,

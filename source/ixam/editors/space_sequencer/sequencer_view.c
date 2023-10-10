@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -53,7 +55,7 @@ void SEQUENCER_OT_sample(wmOperatorType *ot)
   ot->poll = ED_imbuf_sample_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* Not implemented. */
   PropertyRNA *prop;
@@ -111,7 +113,7 @@ void SEQUENCER_OT_view_all(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -140,7 +142,7 @@ void SEQUENCER_OT_view_frame(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -210,7 +212,7 @@ void SEQUENCER_OT_view_all_preview(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -251,6 +253,8 @@ void SEQUENCER_OT_view_zoom_ratio(wmOperatorType *ot)
   /* Api callbacks. */
   ot->exec = sequencer_view_zoom_ratio_exec;
   ot->poll = ED_operator_sequencer_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* Properties. */
   RNA_def_float(ot->srna,
@@ -375,7 +379,7 @@ void SEQUENCER_OT_view_selected(wmOperatorType *ot)
   ot->poll = sequencer_editing_initialized_and_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -433,7 +437,7 @@ void SEQUENCER_OT_view_ghost_border(wmOperatorType *ot)
   ot->cancel = WM_gesture_box_cancel;
 
   /* Flags. */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_gesture_box(ot);

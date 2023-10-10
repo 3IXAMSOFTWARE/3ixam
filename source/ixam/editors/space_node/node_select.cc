@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -472,7 +474,7 @@ void NODE_OT_select_grouped(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_boolean(ot->srna,
@@ -722,7 +724,7 @@ void NODE_OT_select(wmOperatorType *ot)
   ot->get_name = ED_select_pick_get_name;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_mouse_select(ot);
@@ -830,7 +832,7 @@ void NODE_OT_select_box(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna,
@@ -918,7 +920,7 @@ void NODE_OT_select_circle(wmOperatorType *ot)
   ot->get_name = ED_select_circle_get_name;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_circle(ot);
@@ -1042,7 +1044,7 @@ void NODE_OT_select_lasso(wmOperatorType *ot)
   ot->cancel = WM_gesture_lasso_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_UNDO | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna,
@@ -1122,7 +1124,7 @@ void NODE_OT_select_all(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -1174,7 +1176,7 @@ void NODE_OT_select_linked_to(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1224,7 +1226,7 @@ void NODE_OT_select_linked_from(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1328,7 +1330,7 @@ void NODE_OT_select_same_type_step(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "prev", false, "Previous", "");
 }
@@ -1467,7 +1469,7 @@ void NODE_OT_find_node(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "prev", false, "Previous", "");
 }

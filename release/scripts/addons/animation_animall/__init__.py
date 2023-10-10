@@ -233,7 +233,7 @@ class ANIM_OT_insert_keyframe_animall(Operator):
     bl_label = "Insert Key"
     bl_idname = "anim.insert_keyframe_animall"
     bl_description = "Insert a Keyframe"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     def execute(self, context):
         animall_properties = context.scene.animall_properties

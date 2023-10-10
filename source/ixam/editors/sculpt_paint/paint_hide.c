@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2010 by Nicholas Bishop. All rights reserved. */
 
 
 /** \file
@@ -433,7 +435,7 @@ void PAINT_OT_hide_show(struct wmOperatorType *ot)
   /* Sculpt-only for now. */
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* RNA. */
   RNA_def_enum(ot->srna,

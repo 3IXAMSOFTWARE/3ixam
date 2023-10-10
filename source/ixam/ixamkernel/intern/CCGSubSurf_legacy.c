@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "BLI_sys_types.h" /* for intptr_t support */

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2011 Peter Schlaile <peter [at] schlaile [dot] de>. */
 
 
 /** \file

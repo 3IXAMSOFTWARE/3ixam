@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. */
 
 
 /** \file
@@ -3952,7 +3954,7 @@ void GPENCIL_OT_draw(wmOperatorType *ot)
   ot->poll = gpencil_draw_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* settings for drawing */
   ot->prop = RNA_def_enum(
@@ -4027,7 +4029,7 @@ void GPENCIL_OT_guide_rotate(wmOperatorType *ot)
   ot->exec = gpencil_guide_rotate;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   PropertyRNA *prop;
 

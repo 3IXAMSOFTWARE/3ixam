@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(WITH_IXAM)
   if(WITH_INPUT_NDOF)

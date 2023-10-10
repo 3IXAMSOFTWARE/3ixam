@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import requests
 
 r = requests.get("https://3ixam.com/", verify=True)

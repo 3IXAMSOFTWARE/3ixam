@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import bpy
 from bpy.types import Panel, Menu
 from rna_prop_ui import PropertyPanel
@@ -163,7 +165,7 @@ class DATA_PT_pose_library(ArmatureButtonsPanel, Panel):
 
     @staticmethod
     def get_manual_url():
-        url_fmt = "https://docs.ixam.org/manual/en/%d.%d/animation/armatures/posing/editing/pose_library.html"
+        url_fmt = "https://docs.blender.org/manual/en/%d.%d/animation/armatures/posing/editing/pose_library.html"
         return url_fmt % bpy.app.version[:2]
 
     def draw(self, context):

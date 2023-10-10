@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -101,7 +103,7 @@ void LATTICE_OT_make_regular(wmOperatorType *ot)
   ot->poll = make_regular_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -346,7 +348,7 @@ void LATTICE_OT_flip(wmOperatorType *ot)
   ot->exec = lattice_flip_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna,

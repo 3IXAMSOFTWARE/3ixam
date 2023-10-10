@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(WITH_PYTHON_MODULE)
   add_definitions(-DPy_ENABLE_SHARED)

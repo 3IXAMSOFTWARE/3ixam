@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2005 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -176,7 +178,7 @@ void NODE_OT_group_edit(wmOperatorType *ot)
   ot->poll = node_group_operator_active_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "exit", false, "Exit", "");
 }
@@ -423,7 +425,7 @@ void NODE_OT_group_ungroup(wmOperatorType *ot)
   ot->poll = node_group_operator_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -632,7 +634,7 @@ void NODE_OT_group_separate(wmOperatorType *ot)
   ot->poll = node_group_operator_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "type", node_group_separate_types, NODE_GS_COPY, "Type", "");
 }
@@ -1122,7 +1124,7 @@ void NODE_OT_group_make(wmOperatorType *ot)
   ot->poll = node_group_operator_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1172,7 +1174,7 @@ void NODE_OT_group_insert(wmOperatorType *ot)
   ot->poll = node_group_operator_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

@@ -521,6 +521,7 @@ class FlipColorsAll(Operator):
     bl_label = "Flip Colors"
     bl_idname = "view3d.sv3_flip_colors_all"
     bl_description = "Switch between Foreground and Background colors"
+    bl_options = {'INTERNAL'}
 
     is_tex: BoolProperty(
                 default=False,

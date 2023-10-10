@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Adapted from code copyright 2009-2010 NVIDIA Corporation
+ * Modifications Copyright 2011-2022 Blender Foundation. */
 
 
 #include "bvh/node.h"

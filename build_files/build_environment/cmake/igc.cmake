@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 unpack_only(igc_vcintrinsics)
 unpack_only(igc_spirv_headers)

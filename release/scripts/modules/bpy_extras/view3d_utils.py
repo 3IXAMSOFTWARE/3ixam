@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 __all__ = (
     "region_2d_to_vector_3d",

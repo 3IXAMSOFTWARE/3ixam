@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #ifndef __BLI_MEMORY_UTILS_H__
 #define __BLI_MEMORY_UTILS_H__

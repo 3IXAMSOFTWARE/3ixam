@@ -78,7 +78,7 @@ bl_info = {
     "description": "A collection of tools and settings to improve productivity",
     "warning": "",
     "doc_url": "{IXAM_MANUAL_URL}/addons/interface/amaranth.html",
-    "tracker_url": "https://developer.ixam.org/maniphest/task/edit/form/2/",
+    "tracker_url": "https://developer.blender.org/maniphest/task/edit/form/2/",
     "category": "Interface",
 }
 

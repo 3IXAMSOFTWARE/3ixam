@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation, Joshua Leung. */
 
 
 /** \file
@@ -1459,7 +1461,7 @@ void POSE_OT_push(wmOperatorType *ot)
   ot->poll = ED_operator_posemode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X | OPTYPE_INTERNAL;
 
   /* Properties */
   pose_slide_opdef_properties(ot);
@@ -1572,7 +1574,7 @@ void POSE_OT_push_rest(wmOperatorType *ot)
   ot->poll = ED_operator_posemode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X | OPTYPE_INTERNAL;
 
   /* Properties */
   pose_slide_opdef_properties(ot);
@@ -1686,7 +1688,7 @@ void POSE_OT_breakdown(wmOperatorType *ot)
   ot->poll = ED_operator_posemode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_X | OPTYPE_INTERNAL;
 
   /* Properties */
   pose_slide_opdef_properties(ot);
@@ -2143,7 +2145,7 @@ void POSE_OT_propagate(wmOperatorType *ot)
   ot->poll = ED_operator_posemode; /* XXX: needs selected bones! */
 
   /* flag */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   /* TODO: add "fade out" control for tapering off amount of propagation as time goes by? */

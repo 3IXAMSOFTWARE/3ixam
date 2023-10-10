@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2016 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -118,6 +120,8 @@ void CACHEFILE_OT_open(wmOperatorType *ot)
   ot->exec = cachefile_open_exec;
   ot->cancel = open_cancel;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_ALEMBIC | FILE_TYPE_FOLDER,
                                  FILE_IXAM,
@@ -152,7 +156,7 @@ void CACHEFILE_OT_reload(wmOperatorType *ot)
   ot->exec = cachefile_reload_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ***************************** Add Layer Operator **************************** */
@@ -216,6 +220,8 @@ void CACHEFILE_OT_layer_add(wmOperatorType *ot)
   ot->invoke = cachefile_layer_open_invoke;
   ot->exec = cachefile_layer_add_exec;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_ALEMBIC | FILE_TYPE_FOLDER,
                                  FILE_IXAM,
@@ -253,7 +259,7 @@ void CACHEFILE_OT_layer_remove(wmOperatorType *ot)
   ot->exec = cachefile_layer_remove_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ***************************** Move Layer Operator **************************** */
@@ -302,7 +308,7 @@ void CACHEFILE_OT_layer_move(wmOperatorType *ot)
   ot->exec = cachefile_layer_move_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "direction",

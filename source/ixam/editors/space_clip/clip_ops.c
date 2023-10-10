@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2011 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -304,7 +306,7 @@ void CLIP_OT_open(wmOperatorType *ot)
   ot->cancel = open_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_filesel(ot,
@@ -347,6 +349,8 @@ void CLIP_OT_reload(wmOperatorType *ot)
 
   /* api callbacks */
   ot->exec = reload_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -507,7 +511,7 @@ void CLIP_OT_view_pan(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_XY | OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_XY | OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -712,7 +716,7 @@ void CLIP_OT_view_zoom(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_XY | OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_XY | OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_float(ot->srna,
@@ -776,7 +780,7 @@ void CLIP_OT_view_zoom_in(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_float_vector(ot->srna,
@@ -833,7 +837,7 @@ void CLIP_OT_view_zoom_out(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_float_vector(ot->srna,
@@ -882,7 +886,7 @@ void CLIP_OT_view_zoom_ratio(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float(ot->srna,
@@ -967,7 +971,7 @@ void CLIP_OT_view_all(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_boolean(ot->srna, "fit_view", 0, "Fit View", "Fit frame to the viewport");
@@ -1002,6 +1006,8 @@ void CLIP_OT_view_center_cursor(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = view_center_cursor_exec;
   ot->poll = ED_space_clip_maskedit_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1036,7 +1042,7 @@ void CLIP_OT_view_selected(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1154,7 +1160,7 @@ void CLIP_OT_change_frame(wmOperatorType *ot)
   ot->poll = change_frame_poll;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING | OPTYPE_UNDO;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* rna */
   RNA_def_int(ot->srna, "frame", 0, MINAFRAME, MAXFRAME, "Frame", "", MINAFRAME, MAXFRAME);
@@ -1571,7 +1577,7 @@ void CLIP_OT_rebuild_proxy(wmOperatorType *ot)
   ot->poll = ED_space_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1608,6 +1614,8 @@ void CLIP_OT_mode_set(wmOperatorType *ot)
   ot->exec = mode_set_exec;
 
   ot->poll = ED_space_clip_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(
@@ -1668,7 +1676,7 @@ void CLIP_OT_view_ndof(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1716,6 +1724,8 @@ void CLIP_OT_prefetch(wmOperatorType *ot)
   ot->poll = ED_space_clip_view_clip_poll;
   ot->invoke = clip_prefetch_invoke;
   ot->modal = clip_prefetch_modal;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1756,6 +1766,8 @@ void CLIP_OT_set_scene_frames(wmOperatorType *ot)
   /* api callbacks */
   ot->poll = ED_space_clip_view_clip_poll;
   ot->exec = clip_set_scene_frames_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1809,7 +1821,7 @@ void CLIP_OT_cursor_set(wmOperatorType *ot)
   ot->poll = ED_space_clip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -1858,7 +1870,7 @@ void CLIP_OT_lock_selection_toggle(wmOperatorType *ot)
   ot->exec = lock_selection_toggle_exec;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1875,7 +1887,7 @@ void ED_operatormacros_clip(void)
   ot = WM_operatortype_append_macro("CLIP_OT_add_marker_move",
                                     "Add Marker and Move",
                                     "Add new marker and move it on movie",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "CLIP_OT_add_marker");
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   RNA_struct_idprops_unset(otmacro->ptr, "release_confirm");
@@ -1884,7 +1896,7 @@ void ED_operatormacros_clip(void)
       "CLIP_OT_add_marker_slide",
       "Add Marker and Slide",
       "Add new marker and slide it with mouse until mouse button release",
-      OPTYPE_UNDO | OPTYPE_REGISTER);
+      OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "CLIP_OT_add_marker");
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   RNA_boolean_set(otmacro->ptr, "release_confirm", true);

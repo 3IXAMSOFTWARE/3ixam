@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2007 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1695,6 +1697,8 @@ static void WM_OT_debug_menu(wmOperatorType *ot)
   ot->exec = wm_debug_menu_exec;
   ot->poll = WM_operator_winactive;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   RNA_def_int(ot->srna, "debug_value", 0, SHRT_MIN, SHRT_MAX, "Debug Value", "", -10000, 10000);
 }
 
@@ -3384,6 +3388,8 @@ static void WM_OT_redraw_timer(wmOperatorType *ot)
   ot->exec = redraw_timer_exec;
   ot->poll = redraw_timer_poll;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   ot->prop = RNA_def_enum(ot->srna, "type", redraw_timer_type_items, eRTDrawRegion, "Type", "");
   RNA_def_int(
       ot->srna, "iterations", 10, 1, INT_MAX, "Iterations", "Number of times to redraw", 1, 1000);
@@ -3511,6 +3517,8 @@ static void WM_OT_previews_ensure(wmOperatorType *ot)
       "(to be saved in .ixam file, only for some types like materials, textures, etc.)";
 
   ot->exec = previews_ensure_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3646,6 +3654,8 @@ static void WM_OT_previews_clear(wmOperatorType *ot)
   ot->exec = previews_clear_exec;
   ot->invoke = WM_menu_invoke;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   ot->prop = RNA_def_enum_flag(ot->srna,
                                "id_type",
                                preview_id_type_items,
@@ -3716,6 +3726,8 @@ static void WM_OT_stereo3d_set(wmOperatorType *ot)
   ot->ui = wm_stereo3d_set_draw;
   ot->check = wm_stereo3d_set_check;
   ot->cancel = wm_stereo3d_set_cancel;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   prop = RNA_def_enum(ot->srna,
                       "display_mode",

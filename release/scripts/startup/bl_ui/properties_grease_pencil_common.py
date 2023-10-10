@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import Menu, UIList, Operator
@@ -856,6 +857,7 @@ class GreasePencilFlipTintColors(Operator):
     bl_label = "Flip Colors"
     bl_idname = "gpencil.tint_flip"
     bl_description = "Switch tint colors"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):

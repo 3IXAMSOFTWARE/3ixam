@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 /* NOTE: this is included multiple times with different #defines for DEF_ENUM. */

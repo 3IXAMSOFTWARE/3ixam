@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #define GPENCIL_MATERIAL_BUFFER_LEN 256
 

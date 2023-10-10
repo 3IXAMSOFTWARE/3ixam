@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import Operator
@@ -101,7 +102,7 @@ class ProjectEdit(Operator):
     """Edit a snapshot of the 3D Viewport in an external image editor"""
     bl_idname = "image.project_edit"
     bl_label = "Project Edit"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     _proj_hack = [""]
 
@@ -173,7 +174,7 @@ class ProjectApply(Operator):
     """Project edited image back onto the object"""
     bl_idname = "image.project_apply"
     bl_label = "Project Apply"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     def execute(self, _context):
         image_name = ProjectEdit._proj_hack[0]  # TODO, deal with this nicer

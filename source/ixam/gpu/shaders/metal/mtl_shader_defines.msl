@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 /** Special header for mapping commonly defined tokens to API-specific variations.

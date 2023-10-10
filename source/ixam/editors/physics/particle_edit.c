@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2007 by Janne Karhu. All rights reserved. */
 
 
 /** \file
@@ -1816,7 +1818,7 @@ void PARTICLE_OT_select_all(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -2002,7 +2004,7 @@ void PARTICLE_OT_select_roots(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_select_action(ot, SEL_SELECT, false);
@@ -2077,7 +2079,7 @@ void PARTICLE_OT_select_tips(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_select_action(ot, SEL_SELECT, false);
@@ -2162,7 +2164,7 @@ void PARTICLE_OT_select_random(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_select_random(ot);
@@ -2206,7 +2208,7 @@ void PARTICLE_OT_select_linked(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
 }
@@ -2253,7 +2255,7 @@ void PARTICLE_OT_select_linked_pick(wmOperatorType *ot)
   ot->poll = PE_poll_view3d;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(
@@ -2538,7 +2540,7 @@ void PARTICLE_OT_hide(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(ot->srna, "unselected", 0, "Unselected", "Hide unselected rather than selected");
@@ -2589,7 +2591,7 @@ void PARTICLE_OT_reveal(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(ot->srna, "select", true, "Select", "");
@@ -2659,7 +2661,7 @@ void PARTICLE_OT_select_less(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2731,7 +2733,7 @@ void PARTICLE_OT_select_more(wmOperatorType *ot)
   ot->poll = PE_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2836,7 +2838,7 @@ void PARTICLE_OT_rekey(wmOperatorType *ot)
   ot->poll = PE_hair_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int(ot->srna, "keys_number", 2, 2, INT_MAX, "Number of Keys", "", 2, 100);
@@ -3202,7 +3204,7 @@ void PARTICLE_OT_subdivide(wmOperatorType *ot)
   ot->poll = PE_hair_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3300,7 +3302,7 @@ void PARTICLE_OT_remove_doubles(wmOperatorType *ot)
   ot->poll = PE_hair_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float(ot->srna,
@@ -3359,7 +3361,7 @@ void PARTICLE_OT_weight_set(wmOperatorType *ot)
   ot->poll = PE_hair_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float(ot->srna,
                 "factor",
@@ -3491,7 +3493,7 @@ void PARTICLE_OT_delete(wmOperatorType *ot)
   ot->poll = PE_hair_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna,
@@ -3714,7 +3716,7 @@ void PARTICLE_OT_mirror(wmOperatorType *ot)
   ot->poll = mirror_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5053,7 +5055,7 @@ void PARTICLE_OT_brush_edit(wmOperatorType *ot)
   ot->poll = brush_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -5268,7 +5270,7 @@ void PARTICLE_OT_shape_cut(wmOperatorType *ot)
   ot->poll = shape_cut_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5533,7 +5535,7 @@ void PARTICLE_OT_particle_edit_toggle(wmOperatorType *ot)
   ot->poll = particle_edit_toggle_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5587,7 +5589,7 @@ void PARTICLE_OT_edited_clear(wmOperatorType *ot)
   ot->poll = particle_edit_toggle_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5704,7 +5706,7 @@ void PARTICLE_OT_unify_length(struct wmOperatorType *ot)
   ot->poll = PE_poll_view3d;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

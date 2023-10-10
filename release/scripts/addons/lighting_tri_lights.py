@@ -10,7 +10,7 @@ bl_info = {
     "location": "View3D > Add > Lights",
     "description": "Add 3 Point Lighting to Selected / Active Object",
     "warning": "",
-    "tracker_url": "https://developer.ixam.org/maniphest/task/edit/form/2/",
+    "tracker_url": "https://developer.blender.org/maniphest/task/edit/form/2/",
     "doc_url": "{IXAM_MANUAL_URL}/addons/lighting/trilighting.html",
     "category": "Lighting",
 }

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2019 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -346,7 +348,7 @@ void MESH_OT_paint_mask_extract(wmOperatorType *ot)
   ot->invoke = paint_mask_extract_invoke;
   ot->exec = paint_mask_extract_exec;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float(
       ot->srna,
@@ -430,7 +432,7 @@ void MESH_OT_face_set_extract(wmOperatorType *ot)
   ot->invoke = face_set_extract_invoke;
   ot->modal = face_set_extract_modal;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   geometry_extract_props(ot->srna);
 }
@@ -601,7 +603,7 @@ void MESH_OT_paint_mask_slice(wmOperatorType *ot)
   ot->poll = geometry_extract_poll;
   ot->exec = paint_mask_slice_exec;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float(
       ot->srna,

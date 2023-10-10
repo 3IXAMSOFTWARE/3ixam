@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/usr/bin/python3
 
 # Created by Robert Wenzlaff (Det. Thorn).

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: BSD-3-Clause
 
 # - Find OpenXR-SDK libraries
 # Find the native OpenXR-SDK includes and libraries

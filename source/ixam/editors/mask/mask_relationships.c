@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -64,7 +66,7 @@ void MASK_OT_parent_clear(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int mask_parent_set_exec(bContext *C, wmOperator *UNUSED(op))
@@ -166,5 +168,5 @@ void MASK_OT_parent_set(wmOperatorType *ot)
   ot->poll = ED_space_clip_maskedit_mask_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }

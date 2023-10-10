@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -166,7 +168,7 @@ void ED_operatormacros_armature(void)
   ot = WM_operatortype_append_macro("ARMATURE_OT_extrude_forked",
                                     "Extrude Forked",
                                     "Create new joints from the selected joints and move them",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   otmacro = WM_operatortype_macro_define(ot, "ARMATURE_OT_extrude");
   RNA_boolean_set(otmacro->ptr, "forked", true);
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");

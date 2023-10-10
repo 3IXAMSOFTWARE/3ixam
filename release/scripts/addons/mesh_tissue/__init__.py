@@ -10,7 +10,7 @@
 #                                   (2017)                                     #
 #                                                                              #
 # http://www.co-de-it.com/                                                     #
-# http://wiki.ixam.org/index.php/Extensions:2.6/Py/Scripts/Mesh/Tissue      #
+# http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Mesh/Tissue      #
 #                                                                              #
 # ############################################################################ #
 

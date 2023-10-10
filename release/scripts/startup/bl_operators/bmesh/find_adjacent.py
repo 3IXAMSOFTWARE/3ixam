@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # Utilities to detect the next matching element (vert/edge/face)
 # based on an existing pair of elements.

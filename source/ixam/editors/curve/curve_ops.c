@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -134,7 +136,7 @@ void ED_operatormacros_curve(void)
   ot = WM_operatortype_append_macro("CURVE_OT_extrude_move",
                                     "Extrude Curve and Move",
                                     "Extrude curve and move result",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "CURVE_OT_extrude");
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   RNA_boolean_set(otmacro->ptr, "use_proportional_edit", false);

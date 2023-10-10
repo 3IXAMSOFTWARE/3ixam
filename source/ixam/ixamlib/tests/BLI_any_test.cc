@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: Apache-2.0 */
 
 #include "BLI_any.hh"
 #include "BLI_map.hh"

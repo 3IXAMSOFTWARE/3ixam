@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -410,7 +412,7 @@ void OBJECT_OT_shape_key_clear(wmOperatorType *ot)
   ot->exec = shape_key_clear_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* starting point and step size could be optional */
@@ -448,7 +450,7 @@ void OBJECT_OT_shape_key_retime(wmOperatorType *ot)
   ot->exec = shape_key_retime_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -484,7 +486,7 @@ void OBJECT_OT_shape_key_mirror(wmOperatorType *ot)
   ot->exec = shape_key_mirror_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(
@@ -562,7 +564,7 @@ void OBJECT_OT_shape_key_move(wmOperatorType *ot)
   ot->exec = shape_key_move_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "type", slot_move, 0, "Type", "");
 }

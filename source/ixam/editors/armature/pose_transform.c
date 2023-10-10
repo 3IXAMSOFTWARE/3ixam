@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -472,7 +474,7 @@ void POSE_OT_armature_apply(wmOperatorType *ot)
   ot->ui = apply_armature_pose2bones_ui;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "selected",
@@ -565,7 +567,7 @@ void POSE_OT_visual_transform_apply(wmOperatorType *ot)
   ot->poll = ED_operator_posemode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -813,7 +815,7 @@ void POSE_OT_copy(wmOperatorType *ot)
   ot->poll = ED_operator_posemode;
 
   /* flag */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */

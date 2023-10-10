@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(UNIX)
   set(THEORA_CONFIGURE_ENV ${CONFIGURE_ENV} && export HAVE_PDFLATEX=no)

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <atomic>
@@ -384,7 +385,7 @@ static void CURVES_OT_convert_to_particle_system(wmOperatorType *ot)
   ot->poll = curves_with_surface_poll;
   ot->exec = convert_to_particle_system::curves_convert_to_particle_system_exec;
 
-  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER;
+  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 namespace convert_from_particle_system {
@@ -518,7 +519,7 @@ static void CURVES_OT_convert_from_particle_system(wmOperatorType *ot)
   ot->poll = convert_from_particle_system::curves_convert_from_particle_system_poll;
   ot->exec = convert_from_particle_system::curves_convert_from_particle_system_exec;
 
-  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER;
+  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 namespace snap_curves_to_surface {
@@ -707,7 +708,7 @@ static void CURVES_OT_snap_curves_to_surface(wmOperatorType *ot)
   ot->poll = editable_curves_with_surface_poll;
   ot->exec = snap_curves_to_surface_exec;
 
-  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER;
+  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   static const EnumPropertyItem attach_mode_items[] = {
       {int(AttachMode::Nearest),

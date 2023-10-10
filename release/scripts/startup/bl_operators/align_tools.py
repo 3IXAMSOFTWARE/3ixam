@@ -1,6 +1,17 @@
-# -*- coding: utf-8 -*-
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Contributed to by gabhead, Lell, Anfeo, meta-androcto.
 
-# Contributed to by gabhead, Lell, Anfeo, meta-androcto
+bl_info = {
+    "name": "Align Tools",
+    "author": "gabhead, Lell, Anfeo",
+    "version": (0, 3, 4),
+    "blender": (2, 80, 0),
+    "location": "View3D > Sidebar > Item Tab",
+    "description": "Align Selected Objects to Active Object",
+    "warning": "",
+    "doc_url": "{BLENDER_MANUAL_URL}/addons/object/align_tools.html",
+    "category": "Object",
+}
 
 import bpy
 from bpy.types import (

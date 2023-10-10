@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup ixamloader
@@ -69,7 +70,7 @@ static bool blo_is_builtin_template(const char *app_template)
   /* For all builtin templates shipped with 3IXAM. */
   return (
       !app_template ||
-      STR_ELEM(app_template, N_("2D_Animation"), N_("Sculpting"), N_("VFX"), N_("Video_Editing")));
+      STR_ELEM(app_template, N_("2D_Animation"), N_("Sculpting"), N_("VFX"), N_("Video_Editing"), N_("Pro_Animate")));
 }
 
 static void blo_update_defaults_screen(bScreen *screen,

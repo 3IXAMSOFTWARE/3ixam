@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -1027,7 +1029,7 @@ void CONSTRAINT_OT_childof_clear_inverse(wmOperatorType *ot)
   ot->poll = edit_constraint_liboverride_allowed_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   edit_constraint_properties(ot);
@@ -1289,7 +1291,7 @@ void CONSTRAINT_OT_objectsolver_clear_inverse(wmOperatorType *ot)
   ot->poll = edit_constraint_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   edit_constraint_properties(ot);
@@ -1827,7 +1829,7 @@ void CONSTRAINT_OT_copy_to_selected(wmOperatorType *ot)
   ot->poll = constraint_copy_to_selected_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
   edit_constraint_properties(ot);
 }
 
@@ -1881,7 +1883,7 @@ void CONSTRAINT_OT_move_down(wmOperatorType *ot)
   ot->poll = edit_constraint_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   edit_constraint_properties(ot);
@@ -1937,7 +1939,7 @@ void CONSTRAINT_OT_move_up(wmOperatorType *ot)
   ot->poll = edit_constraint_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
   edit_constraint_properties(ot);
 }
 
@@ -1992,7 +1994,7 @@ void CONSTRAINT_OT_move_to_index(wmOperatorType *ot)
   ot->poll = edit_constraint_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
   edit_constraint_properties(ot);
   RNA_def_int(ot->srna,
               "index",
@@ -2048,6 +2050,8 @@ void POSE_OT_constraints_clear(wmOperatorType *ot)
   ot->exec = pose_constraints_clear_exec;
   /* XXX: do we want to ensure there are selected bones too? */
   ot->poll = ED_operator_object_active_local_editable_posemode_exclusive;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int object_constraints_clear_exec(bContext *C, wmOperator *UNUSED(op))
@@ -2086,6 +2090,8 @@ void OBJECT_OT_constraints_clear(wmOperatorType *ot)
   /* callbacks */
   ot->exec = object_constraints_clear_exec;
   ot->poll = ED_operator_object_active_local_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2144,7 +2150,7 @@ void POSE_OT_constraints_copy(wmOperatorType *ot)
   ot->poll = ED_operator_posemode_exclusive;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2189,7 +2195,7 @@ void OBJECT_OT_constraints_copy(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

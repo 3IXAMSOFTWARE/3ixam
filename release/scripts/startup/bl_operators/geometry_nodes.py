@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import Operator
@@ -62,7 +63,7 @@ class NewGeometryNodeTreeAssign(Operator):
 
     bl_idname = "node.new_geometry_node_group_assign"
     bl_label = "Assign New Geometry Node Group"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):

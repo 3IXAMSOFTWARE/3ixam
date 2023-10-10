@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "BKE_node.h"
 #include "BKE_node_runtime.hh"

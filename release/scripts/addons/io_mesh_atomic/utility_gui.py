@@ -281,6 +281,7 @@ class SeparateAtom(Operator):
     bl_label = "Separate"
     bl_description = ("Separate selected atoms in a dupliverts structure. "
                       "You have to be in the 'Edit Mode'")
+    bl_options = {'INTERNAL'}
 
     # Are we in the EDIT mode?
     @classmethod

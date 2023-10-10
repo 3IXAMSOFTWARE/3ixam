@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2020 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -147,7 +149,7 @@ void GEOMETRY_OT_attribute_add(wmOperatorType *ot)
   ot->invoke = WM_operator_props_popup_confirm;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -208,7 +210,7 @@ void GEOMETRY_OT_attribute_remove(wmOperatorType *ot)
   ot->poll = geometry_attributes_remove_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int geometry_color_attribute_add_exec(bContext *C, wmOperator *op)
@@ -377,7 +379,7 @@ void GEOMETRY_OT_color_attribute_add(wmOperatorType *ot)
   ot->ui = geometry_color_attribute_add_ui;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -504,7 +506,7 @@ void GEOMETRY_OT_color_attribute_remove(wmOperatorType *ot)
   ot->poll = geometry_color_attributes_remove_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int geometry_color_attribute_duplicate_exec(bContext *C, wmOperator *op)
@@ -562,7 +564,7 @@ void GEOMETRY_OT_color_attribute_duplicate(wmOperatorType *ot)
   ot->poll = geometry_color_attributes_duplicate_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static void geometry_attribute_convert_ui(bContext * /*C*/, wmOperator *op)
@@ -600,7 +602,7 @@ void GEOMETRY_OT_attribute_convert(wmOperatorType *ot)
   ot->poll = geometry_attribute_convert_poll;
   ot->ui = geometry_attribute_convert_ui;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   static EnumPropertyItem mode_items[] = {
       {int(ConvertAttributeMode::Generic), "GENERIC", 0, "Generic", ""},

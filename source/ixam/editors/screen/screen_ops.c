@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1394,7 +1396,7 @@ static void SCREEN_OT_area_swap(wmOperatorType *ot)
   ot->poll = screen_active_editable;
   ot->cancel = area_swap_cancel;
 
-  ot->flag = OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* rna */
   RNA_def_int_vector(
@@ -1460,6 +1462,8 @@ static void SCREEN_OT_area_dupli(wmOperatorType *ot)
   ot->name = "Duplicate Area into New Window";
   ot->description = "Duplicate selected area into new window";
   ot->idname = "SCREEN_OT_area_dupli";
+
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->invoke = area_dupli_invoke;
   ot->poll = ED_operator_areaactive;
@@ -1552,6 +1556,8 @@ static void SCREEN_OT_area_close(wmOperatorType *ot)
   ot->idname = "SCREEN_OT_area_close";
   ot->exec = area_close_exec;
   ot->poll = area_close_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* rna */
   RNA_def_int(ot->srna, "spacetype", SPACE_EMPTY, SPACE_EMPTY, SPACE_TYPE_LAST - 1, "Spacetype", "", SPACE_EMPTY, SPACE_TYPE_LAST - 1);
@@ -3314,6 +3320,8 @@ static void SCREEN_OT_screen_set(wmOperatorType *ot)
   ot->exec = screen_set_exec;
   ot->poll = ED_operator_screenactive;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* rna */
   RNA_def_int(ot->srna, "delta", 1, -1, 1, "Delta", "", -1, 1);
 }
@@ -3786,6 +3794,8 @@ static void SCREEN_OT_spacedata_cleanup(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = spacedata_cleanup_exec;
   ot->poll = WM_operator_winactive;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -4166,7 +4176,7 @@ static void SCREEN_OT_region_toggle(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = region_toggle_exec;
   ot->poll = region_toggle_poll;
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "region_type",
@@ -4234,7 +4244,7 @@ static void SCREEN_OT_region_flip(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = region_flip_exec;
   ot->poll = region_flip_poll;
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -4266,7 +4276,7 @@ static void SCREEN_OT_header_toggle_menus(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = header_toggle_menus_exec;
   ot->poll = ED_operator_areaactive;
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5105,6 +5115,8 @@ static void SCREEN_OT_back_to_previous(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = fullscreen_back_exec;
   ot->poll = ED_operator_screenactive;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5436,6 +5448,8 @@ static void SCREEN_OT_drivers_editor_show(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = drivers_editor_show_exec;
   ot->poll = ED_operator_screenactive_nobackground; /* Not in background as this opens a window. */
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5481,6 +5495,8 @@ static void SCREEN_OT_info_log_show(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = info_log_show_exec;
   ot->poll = ED_operator_screenactive_nobackground;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5513,6 +5529,8 @@ static void SCREEN_OT_new(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = screen_new_exec;
   ot->poll = WM_operator_winactive;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -5538,6 +5556,8 @@ static void SCREEN_OT_delete(wmOperatorType *ot)
   ot->name = "Delete Screen";
   ot->description = "Delete active screen";
   ot->idname = "SCREEN_OT_delete";
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = screen_delete_exec;
@@ -5755,7 +5775,7 @@ static void SCREEN_OT_space_type_set_or_cycle(wmOperatorType *ot)
   ot->exec = space_type_set_or_cycle_exec;
   ot->poll = space_type_set_or_cycle_poll;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "space_type", rna_enum_space_type_items, SPACE_EMPTY, "Type", "");
 }
@@ -5834,7 +5854,7 @@ static void SCREEN_OT_space_context_cycle(wmOperatorType *ot)
   ot->invoke = space_context_cycle_invoke;
   ot->poll = space_context_cycle_poll;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "direction",
@@ -5905,7 +5925,7 @@ static void SCREEN_OT_workspace_cycle(wmOperatorType *ot)
   ot->invoke = space_workspace_cycle_invoke;
   ot->poll = ED_operator_screenactive;
 
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "direction",

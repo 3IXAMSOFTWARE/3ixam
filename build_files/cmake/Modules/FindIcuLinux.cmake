@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2012 Blender Foundation.
+
 # - Find static icu libraries
 # Find the native static icu libraries (needed for static boost_locale :/ ).
 # This module defines

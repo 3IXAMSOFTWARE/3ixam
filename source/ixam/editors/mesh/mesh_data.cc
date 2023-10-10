@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -697,7 +699,7 @@ void MESH_OT_customdata_mask_clear(wmOperatorType *ot)
   ot->poll = mesh_customdata_mask_clear_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /**
@@ -748,7 +750,7 @@ void MESH_OT_customdata_skin_add(wmOperatorType *ot)
   ot->poll = mesh_customdata_skin_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static bool mesh_customdata_skin_clear_poll(bContext *C)
@@ -773,7 +775,7 @@ void MESH_OT_customdata_skin_clear(wmOperatorType *ot)
   ot->poll = mesh_customdata_skin_clear_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* Clear custom loop normals */
@@ -837,7 +839,7 @@ void MESH_OT_customdata_custom_splitnormals_add(wmOperatorType *ot)
   ot->poll = ED_operator_editable_mesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int mesh_customdata_custom_splitnormals_clear_exec(bContext *C, wmOperator * /*op*/)
@@ -866,7 +868,7 @@ void MESH_OT_customdata_custom_splitnormals_clear(wmOperatorType *ot)
   ot->poll = ED_operator_editable_mesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* Vertex bevel weight. */
@@ -926,7 +928,7 @@ void MESH_OT_customdata_bevel_weight_vertex_clear(wmOperatorType *ot)
   ot->exec = mesh_customdata_bevel_weight_vertex_clear_exec;
   ot->poll = mesh_customdata_bevel_weight_vertex_clear_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* Edge bevel weight. */
@@ -986,7 +988,7 @@ void MESH_OT_customdata_bevel_weight_edge_clear(wmOperatorType *ot)
   ot->exec = mesh_customdata_bevel_weight_edge_clear_exec;
   ot->poll = mesh_customdata_bevel_weight_edge_clear_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* Edge crease. */
@@ -1046,7 +1048,7 @@ void MESH_OT_customdata_crease_edge_clear(wmOperatorType *ot)
   ot->exec = mesh_customdata_crease_edge_clear_exec;
   ot->poll = mesh_customdata_crease_edge_clear_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* Vertex crease. */
@@ -1106,7 +1108,7 @@ void MESH_OT_customdata_crease_vertex_clear(wmOperatorType *ot)
   ot->exec = mesh_customdata_crease_vertex_clear_exec;
   ot->poll = mesh_customdata_crease_vertex_clear_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************** Add Geometry Layers *************************/

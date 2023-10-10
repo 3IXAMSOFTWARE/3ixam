@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2020 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -855,7 +857,7 @@ void SCULPT_OT_mesh_filter(struct wmOperatorType *ot)
   ot->modal = sculpt_mesh_filter_modal;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* RNA. */
   SCULPT_mesh_filter_properties(ot);

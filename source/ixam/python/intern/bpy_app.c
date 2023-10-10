@@ -313,7 +313,6 @@ static int bpy_app_debug_value_set(PyObject *UNUSED(self), PyObject *value, void
 }
 
 
-
 PyDoc_STRVAR(bpy_app_tempdir_doc, "String, the temp directory used by ixam (read-only)");
 static PyObject *bpy_app_tempdir_get(PyObject *UNUSED(self), void *UNUSED(closure))
 {

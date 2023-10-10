@@ -378,7 +378,6 @@ static void iterate_files_and_encrypt(const char* dirpath) {
 
 int main(int argc, char **argv)
 {
-  // encrypt "/Users/ingame/Documents/recursive_encrypt_test/" "/Users/ingame/Documents/zipencryptest.zip" 
   if (argc < 2) {
     printf("Usage: encrypt <directory_from> <data_file_to>\n");
     return 1;

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright 2009 Blender Foundation. All rights reserved.
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 

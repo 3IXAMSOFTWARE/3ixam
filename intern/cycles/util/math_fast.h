@@ -1,3 +1,21 @@
+/* SPDX-License-Identifier: BSD-3-Clause
+ *
+ * Adapted from OpenImageIO
+ * Copyright 2008-2014 Larry Gritz and the other authors and contributors.
+ * All Rights Reserved.
+ *
+ * A few bits here are based upon code from NVIDIA that was also released
+ * under the same modified BSD license, and marked as:
+ *    Copyright 2004 NVIDIA Corporation. All Rights Reserved.
+ *
+ * Some parts of this file were first open-sourced in Open Shading Language,
+ * then later moved here. The original copyright notice was:
+ *    Copyright (c) 2009-2014 Sony Pictures Imageworks Inc., et al.
+ *
+ * Many of the math functions were copied from or inspired by other
+ * public domain sources or open source packages with compatible licenses.
+ * The individual functions give references were applicable.
+ */
 
 #ifndef __UTIL_FAST_MATH__
 #define __UTIL_FAST_MATH__

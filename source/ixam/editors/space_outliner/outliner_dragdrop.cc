@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2004 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1560,6 +1562,8 @@ void OUTLINER_OT_item_drag_drop(wmOperatorType *ot)
 
   ot->invoke = outliner_item_drag_drop_invoke;
   ot->poll = ED_operator_outliner_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 #undef OUTLINER_DRAG_SCOLL_OUTSIDE_PAD

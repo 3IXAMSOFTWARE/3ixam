@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #pragma once
@@ -27,7 +28,7 @@ namespace ixam::bke {
  * - Only slashes are used as path component separators.
  * - All paths are absolute, so there is no need for a leading slash.
  *
- * See https://wiki.ixam.org/wiki/Source/Architecture/Asset_System/Catalogs
+ * See https://wiki.blender.org/wiki/Source/Architecture/Asset_System/Catalogs
  *
  * Paths are stored as byte sequences, and assumed to be UTF-8.
  */

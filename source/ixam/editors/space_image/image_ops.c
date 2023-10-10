@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -789,7 +791,7 @@ void IMAGE_OT_view_ndof(wmOperatorType *ot)
   ot->poll = space_image_main_region_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -879,6 +881,8 @@ void IMAGE_OT_view_cursor_center(wmOperatorType *ot)
   ot->exec = view_cursor_center_exec;
   ot->poll = ED_space_image_cursor_poll;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   prop = RNA_def_boolean(ot->srna, "fit_view", 0, "Fit View", "Fit frame to the viewport");
   RNA_def_property_flag(prop, PROP_SKIP_SAVE);
@@ -912,6 +916,8 @@ void IMAGE_OT_view_center_cursor(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = view_center_cursor_exec;
   ot->poll = ED_space_image_cursor_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1144,7 +1150,7 @@ void IMAGE_OT_view_zoom_ratio(wmOperatorType *ot)
   ot->poll = space_image_main_region_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float(ot->srna,
@@ -1651,7 +1657,7 @@ void IMAGE_OT_file_browse(wmOperatorType *ot)
   ot->poll = image_file_browse_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_filesel(ot,
@@ -3366,7 +3372,7 @@ void IMAGE_OT_sample_line(wmOperatorType *ot)
   ot->cancel = WM_gesture_straightline_cancel;
 
   /* flags */
-  ot->flag = 0; /* no undo/register since this operates on the space */
+  ot->flag = OPTYPE_INTERNAL; /* no undo/register since this operates on the space */
 
   WM_operator_properties_gesture_straightline(ot, WM_CURSOR_EDIT);
 }
@@ -3454,7 +3460,7 @@ void IMAGE_OT_cycle_render_slot(wmOperatorType *ot)
   ot->poll = image_cycle_render_slot_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "reverse", 0, "Cycle in Reverse", "");
 }
@@ -3491,7 +3497,7 @@ void IMAGE_OT_clear_render_slot(wmOperatorType *ot)
   ot->poll = image_cycle_render_slot_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3524,7 +3530,7 @@ void IMAGE_OT_add_render_slot(wmOperatorType *ot)
   ot->poll = image_cycle_render_slot_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3559,7 +3565,7 @@ void IMAGE_OT_remove_render_slot(wmOperatorType *ot)
   ot->poll = image_cycle_render_slot_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3678,7 +3684,7 @@ void IMAGE_OT_change_frame(wmOperatorType *ot)
   ot->poll = change_frame_poll;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING | OPTYPE_UNDO;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* rna */
   RNA_def_int(ot->srna, "frame", 0, MINAFRAME, MAXFRAME, "Frame", "", MINAFRAME, MAXFRAME);
@@ -3798,7 +3804,7 @@ void IMAGE_OT_render_border(wmOperatorType *ot)
   ot->poll = image_cycle_render_slot_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* rna */
   WM_operator_properties_border(ot);
@@ -3831,7 +3837,7 @@ void IMAGE_OT_clear_render_border(wmOperatorType *ot)
   ot->poll = image_cycle_render_slot_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -4027,7 +4033,7 @@ void IMAGE_OT_tile_add(wmOperatorType *ot)
   ot->ui = tile_add_draw;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna,
               "number",
@@ -4086,7 +4092,7 @@ void IMAGE_OT_tile_remove(wmOperatorType *ot)
   ot->exec = tile_remove_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

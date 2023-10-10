@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2011-2013 Intel Corporation
+ * Modifications Copyright 2014-2022 Blender Foundation. */
 
 
 #if (defined(WITH_KERNEL_SSE2)) || (defined(WITH_KERNEL_NATIVE) && defined(__SSE2__))

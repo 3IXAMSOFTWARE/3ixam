@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2006 by Nicholas Bishop. All rights reserved. */
 
 
 /** \file
@@ -5862,7 +5864,7 @@ void SCULPT_OT_brush_stroke(wmOperatorType *ot)
   ot->ui = sculpt_redo_empty_ui;
 
   /* Flags (sculpt does own undo? (ton)). */
-  ot->flag = OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* Properties. */
 

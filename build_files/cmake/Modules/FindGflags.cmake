@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2015 Google Inc. All rights reserved.
 
 # Ceres Solver - A fast non-linear least squares minimizer http://ceres-solver.org/
 # Author: Alex Stewart <alexs.mac@gmail.com>

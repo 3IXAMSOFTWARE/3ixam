@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import bpy
 from bpy.types import Menu, Panel, UIList
 from rna_prop_ui import PropertyPanel
@@ -34,6 +36,7 @@ class DATA_PT_context_pointcloud(DataButtonsPanel, Panel):
 
 class POINTCLOUD_MT_add_attribute(Menu):
     bl_label = "Add Attribute"
+    bl_options = {'INTERNAL'}
 
     @staticmethod
     def add_standard_attribute(layout, pointcloud, name, data_type, domain):

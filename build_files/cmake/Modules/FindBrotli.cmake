@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2022 Blender Foundation.
+
 # - Find Brotli library (compression for freetype/woff2).
 # This module defines
 #  BROTLI_INCLUDE_DIRS, where to find Brotli headers, Set when

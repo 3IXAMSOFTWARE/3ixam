@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -2900,7 +2902,7 @@ void OBJECT_OT_vertex_group_add(wmOperatorType *ot)
   ot->exec = vertex_group_add_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2946,7 +2948,7 @@ void OBJECT_OT_vertex_group_remove(wmOperatorType *ot)
   /* redo operator will fail in this case because vertex groups aren't stored
    * in local edit mode stack and toggling "all" property will lead to
    * all groups deleted without way to restore them (see T29527, sergey) */
-  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO;
+  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop = RNA_def_boolean(ot->srna, "all", false, "All", "Remove all vertex groups");
@@ -2989,7 +2991,7 @@ void OBJECT_OT_vertex_group_assign(wmOperatorType *ot)
   /* redo operator will fail in this case because vertex group assignment
    * isn't stored in local edit mode stack and toggling "new" property will
    * lead to creating plenty of new vertex groups (see T29527, sergey) */
-  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO;
+  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3024,7 +3026,7 @@ void OBJECT_OT_vertex_group_assign_new(wmOperatorType *ot)
   /* redo operator will fail in this case because vertex group assignment
    * isn't stored in local edit mode stack and toggling "new" property will
    * lead to creating plenty of new vertex groups (see T29527, sergey) */
-  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO;
+  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3120,7 +3122,7 @@ void OBJECT_OT_vertex_group_select(wmOperatorType *ot)
   ot->exec = vertex_group_select_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3152,7 +3154,7 @@ void OBJECT_OT_vertex_group_deselect(wmOperatorType *ot)
   ot->exec = vertex_group_deselect_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3186,7 +3188,7 @@ void OBJECT_OT_vertex_group_copy(wmOperatorType *ot)
   ot->exec = vertex_group_copy_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3231,7 +3233,7 @@ void OBJECT_OT_vertex_group_levels(wmOperatorType *ot)
   ot->exec = vertex_group_levels_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   vgroup_operator_subset_select_props(ot, true);
   RNA_def_float(
@@ -3276,7 +3278,7 @@ void OBJECT_OT_vertex_group_normalize(wmOperatorType *ot)
   ot->exec = vertex_group_normalize_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3326,7 +3328,7 @@ void OBJECT_OT_vertex_group_normalize_all(wmOperatorType *ot)
   ot->exec = vertex_group_normalize_all_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   vgroup_operator_subset_select_props(ot, false);
   RNA_def_boolean(ot->srna,
@@ -3510,7 +3512,7 @@ void OBJECT_OT_vertex_group_lock(wmOperatorType *ot)
   ot->get_description = vertex_group_lock_description;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "action",
@@ -3568,7 +3570,7 @@ void OBJECT_OT_vertex_group_invert(wmOperatorType *ot)
   ot->exec = vertex_group_invert_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   vgroup_operator_subset_select_props(ot, true);
   RNA_def_boolean(ot->srna,
@@ -3697,7 +3699,7 @@ void OBJECT_OT_vertex_group_clean(wmOperatorType *ot)
   ot->exec = vertex_group_clean_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   vgroup_operator_subset_select_props(ot, true);
   RNA_def_float(ot->srna,
@@ -3756,7 +3758,7 @@ void OBJECT_OT_vertex_group_quantize(wmOperatorType *ot)
   ot->exec = vertex_group_quantize_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   vgroup_operator_subset_select_props(ot, true);
   RNA_def_int(ot->srna, "steps", 4, 1, 1000, "Steps", "Number of steps between 0 and 1", 1, 100);
@@ -3873,7 +3875,7 @@ void OBJECT_OT_vertex_group_mirror(wmOperatorType *ot)
   ot->exec = vertex_group_mirror_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna, "mirror_weights", true, "Mirror Weights", "Mirror weights");
@@ -3939,7 +3941,7 @@ void OBJECT_OT_vertex_group_copy_to_selected(wmOperatorType *ot)
   ot->exec = vertex_group_copy_to_selected_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -4011,7 +4013,7 @@ void OBJECT_OT_vertex_group_set_active(wmOperatorType *ot)
   ot->invoke = WM_menu_invoke;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(
@@ -4244,7 +4246,7 @@ void OBJECT_OT_vertex_group_sort(wmOperatorType *ot)
   ot->exec = vertex_group_sort_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "sort_type", vgroup_sort_type, SORT_TYPE_NAME, "Sort Type", "Sort type");
 }
@@ -4307,7 +4309,7 @@ void OBJECT_OT_vertex_group_move(wmOperatorType *ot)
   ot->exec = vgroup_move_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "direction",
@@ -4487,7 +4489,7 @@ void OBJECT_OT_vertex_weight_delete(wmOperatorType *ot)
   ot->exec = vertex_weight_delete_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_int(ot->srna,
                      "weight_group",
@@ -4584,7 +4586,7 @@ void OBJECT_OT_vertex_weight_normalize_active_vertex(wmOperatorType *ot)
   ot->exec = vertex_weight_normalize_active_vertex_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -4619,7 +4621,7 @@ void OBJECT_OT_vertex_weight_copy(wmOperatorType *ot)
   ot->exec = vertex_weight_copy_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2009-2020 Intel Corporation. Adapted from Embree with
+ * with modifications. */
 
 
 #pragma once

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import Operator
@@ -298,7 +299,7 @@ class ShapeTransfer(Operator):
 
     bl_idname = "object.shape_key_transfer"
     bl_label = "Transfer Shape Key"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     mode: EnumProperty(
         items=(
@@ -488,7 +489,7 @@ class JoinUVs(Operator):
         """(needs matching geometry)"""
     bl_idname = "object.join_uvs"
     bl_label = "Transfer UV Maps"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -571,7 +572,7 @@ class MakeDupliFace(Operator):
     """Convert objects into instanced faces"""
     bl_idname = "object.make_dupli_face"
     bl_label = "Make Instance Face"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @staticmethod
     def _main(context):
@@ -673,7 +674,7 @@ class ClearAllRestrictRender(Operator):
     """Reveal all render objects by setting the hide render flag"""
     bl_idname = "object.hide_render_clear_all"
     bl_label = "Clear All Restrict Render"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     def execute(self, context):
         for obj in context.scene.objects:
@@ -761,7 +762,7 @@ class TransformsToDeltasAnim(Operator):
     """Convert object animation for normal transforms to delta transforms"""
     bl_idname = "object.anim_transforms_to_deltas"
     bl_label = "Animated Transforms to Deltas"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -948,6 +949,7 @@ class LoadBackgroundImage(LoadImageAsEmpty, Operator):
     """Add a reference image into the background behind objects"""
     bl_idname = "object.load_background_image"
     bl_label = "Load Background Image"
+    bl_options = {'INTERNAL'}
 
     def set_settings(self, context, obj):
         obj.empty_image_depth = 'BACK'
@@ -962,6 +964,7 @@ class LoadReferenceImage(LoadImageAsEmpty, Operator):
     """Add a reference image into the scene between objects"""
     bl_idname = "object.load_reference_image"
     bl_label = "Load Reference Image"
+    bl_options = {'INTERNAL'}
 
     def set_settings(self, context, obj):
         pass
@@ -972,7 +975,7 @@ class OBJECT_OT_assign_property_defaults(Operator):
         """for use as part of the rest pose state in NLA track mixing"""
     bl_idname = "object.assign_property_defaults"
     bl_label = "Assign Custom Property Values as Default"
-    bl_options = {'UNDO', 'REGISTER'}
+    bl_options = {'UNDO', 'REGISTER', 'INTERNAL'}
 
     process_data: BoolProperty(name="Process data properties", default=True)
     process_bones: BoolProperty(name="Process joint properties", default=True)

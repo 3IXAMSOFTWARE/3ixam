@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # shorthand to only unpack a certain dependency
 macro(unpack_only name)

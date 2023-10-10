@@ -278,7 +278,7 @@ def write_file(filepath, objects, depsgraph, scene,
 
             # Write Header
             fw('# Ixam v%s OBJ File: %r\n' % (bpy.app.version_string, os.path.basename(bpy.data.filepath)))
-            fw('# www.3ixam.org\n')
+            fw('# www.blender.org\n')
 
             # Tell the obj file what material file to use.
             if EXPORT_MTL:

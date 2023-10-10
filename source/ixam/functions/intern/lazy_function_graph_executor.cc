@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /**
  * This file implements the evaluation of a lazy-function graph. It's main objectives are:

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2005 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1158,7 +1160,7 @@ void NODE_OT_resize(wmOperatorType *ot)
   ot->cancel = node_resize_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1494,7 +1496,7 @@ void NODE_OT_duplicate(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(
       ot->srna, "keep_inputs", false, "Keep Inputs", "Keep the input links to duplicated nodes");
@@ -1555,7 +1557,7 @@ void NODE_OT_read_viewlayers(wmOperatorType *ot)
   ot->poll = composite_node_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 int node_render_changed_exec(bContext *C, wmOperator * /*op*/)
@@ -1607,7 +1609,7 @@ void NODE_OT_render_changed(wmOperatorType *ot)
   ot->poll = composite_node_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1693,7 +1695,7 @@ void NODE_OT_hide_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int node_preview_toggle_exec(bContext *C, wmOperator * /*op*/)
@@ -1726,7 +1728,7 @@ void NODE_OT_preview_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int node_deactivate_viewer_exec(bContext *C, wmOperator * /*op*/)
@@ -1766,7 +1768,7 @@ void NODE_OT_deactivate_viewer(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int node_options_toggle_exec(bContext *C, wmOperator * /*op*/)
@@ -1797,7 +1799,7 @@ void NODE_OT_options_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int node_socket_toggle_exec(bContext *C, wmOperator * /*op*/)
@@ -1847,7 +1849,7 @@ void NODE_OT_hide_socket_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1887,7 +1889,7 @@ void NODE_OT_mute_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1926,7 +1928,7 @@ void NODE_OT_delete(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1974,7 +1976,7 @@ void NODE_OT_switch_view_update(wmOperatorType *ot)
   ot->poll = node_switch_view_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2014,7 +2016,7 @@ void NODE_OT_delete_reconnect(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2065,7 +2067,7 @@ void NODE_OT_output_file_add_socket(wmOperatorType *ot)
   ot->poll = composite_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_string(
       ot->srna, "file_path", "Image", MAX_NAME, "File Path", "Subpath of the output file");
@@ -2118,7 +2120,7 @@ void NODE_OT_output_file_remove_active_socket(wmOperatorType *ot)
   ot->poll = composite_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2192,7 +2194,7 @@ void NODE_OT_output_file_move_active_socket(wmOperatorType *ot)
   ot->poll = composite_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "direction", direction_items, 2, "Direction", "");
 }
@@ -2242,7 +2244,7 @@ void NODE_OT_node_copy_color(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2325,7 +2327,7 @@ void NODE_OT_clipboard_copy(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2461,7 +2463,7 @@ void NODE_OT_clipboard_paste(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2533,7 +2535,7 @@ void NODE_OT_tree_socket_add(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "in_out", rna_enum_node_socket_in_out_items, SOCK_IN, "Socket Type", "");
 }
@@ -2584,7 +2586,7 @@ void NODE_OT_tree_socket_remove(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
   RNA_def_enum(ot->srna, "in_out", rna_enum_node_socket_in_out_items, SOCK_IN, "Socket Type", "");
 }
 
@@ -2684,7 +2686,7 @@ void NODE_OT_tree_socket_change_type(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "in_out", rna_enum_node_socket_in_out_items, SOCK_IN, "Socket Type", "");
   prop = RNA_def_enum(ot->srna, "socket_type", DummyRNA_DEFAULT_items, 0, "Socket Type", "");
@@ -2764,7 +2766,7 @@ void NODE_OT_tree_socket_move(wmOperatorType *ot)
   ot->poll = ED_operator_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "direction", move_direction_items, 1, "Direction", "");
   RNA_def_enum(ot->srna, "in_out", rna_enum_node_socket_in_out_items, SOCK_IN, "Socket Type", "");
@@ -2916,7 +2918,7 @@ void NODE_OT_shader_script_update(wmOperatorType *ot)
   ot->poll = node_shader_script_update_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3012,7 +3014,7 @@ void NODE_OT_viewer_border(wmOperatorType *ot)
   ot->poll = composite_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_box(ot);
@@ -3042,7 +3044,7 @@ void NODE_OT_clear_viewer_border(wmOperatorType *ot)
   ot->poll = composite_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3090,7 +3092,7 @@ void NODE_OT_cryptomatte_layer_add(wmOperatorType *ot)
   ot->poll = composite_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -3140,7 +3142,7 @@ void NODE_OT_cryptomatte_layer_remove(wmOperatorType *ot)
   ot->poll = composite_node_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

@@ -42,6 +42,7 @@ class UI_OT_i18n_updatetranslation_svn_branches(Operator):
     """Update i18n svn's branches (po files)"""
     bl_idname = "ui.i18n_updatetranslation_svn_branches"
     bl_label = "Update I18n Branches"
+    bl_options = {'INTERNAL'}
 
     use_skip_pot_gen: BoolProperty(
         name="Skip POT",
@@ -117,6 +118,7 @@ class UI_OT_i18n_cleanuptranslation_svn_branches(Operator):
     """Clean up i18n svn's branches (po files)"""
     bl_idname = "ui.i18n_cleanuptranslation_svn_branches"
     bl_label = "Clean up I18n Branches"
+    bl_options = {'INTERNAL'}
 
     def execute(self, context):
         if not hasattr(self, "settings"):
@@ -166,6 +168,7 @@ class UI_OT_i18n_updatetranslation_svn_trunk(Operator):
     """Update i18n svn's branches (po files)"""
     bl_idname = "ui.i18n_updatetranslation_svn_trunk"
     bl_label = "Update I18n Trunk"
+    bl_options = {'INTERNAL'}
 
     def execute(self, context):
         if not hasattr(self, "settings"):
@@ -209,6 +212,7 @@ class UI_OT_i18n_updatetranslation_svn_statistics(Operator):
     """(it will contain statistics and checks about current branches and/or trunk)"""
     bl_idname = "ui.i18n_updatetranslation_svn_statistics"
     bl_label = "Update I18n Statistics"
+    bl_options = {'INTERNAL'}
 
     use_branches: BoolProperty(
         name="Check Branches",

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/usr/bin/env python3
 
 """
@@ -15,7 +17,7 @@ import subprocess
 SOURCE_FILE = sys.argv[-2]
 SOURCE_ROW = sys.argv[-1]
 
-BASE_URL = "https://developer.3ixam.com/diffusion/B/browse"
+BASE_URL = "https://developer.blender.com/diffusion/B/browse"
 
 
 def main():

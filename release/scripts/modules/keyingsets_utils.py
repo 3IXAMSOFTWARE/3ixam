@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # This file defines a set of methods that are useful for various
 # Relative Keying Set (RKS) related operations, such as: callbacks

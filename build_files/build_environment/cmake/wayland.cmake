@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 ExternalProject_Add(external_wayland
   URL file://${PACKAGE_DIR}/${WAYLAND_FILE}

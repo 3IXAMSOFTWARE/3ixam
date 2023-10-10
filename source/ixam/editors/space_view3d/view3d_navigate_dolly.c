@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "BLI_math.h"
@@ -333,7 +334,7 @@ void VIEW3D_OT_dolly(wmOperatorType *ot)
   ot->cancel = viewdolly_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_XY | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_XY | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* properties */
   view3d_operator_properties_common(

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -1208,7 +1210,7 @@ void OBJECT_OT_track_clear(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", prop_clear_track_types, 0, "Type", "");
 }
@@ -1634,7 +1636,7 @@ void OBJECT_OT_make_links_scene(wmOperatorType *ot)
   /* better not run the poll check */
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(ot->srna, "scene", DummyRNA_NULL_items, 0, "Scene", "");
@@ -1680,7 +1682,7 @@ void OBJECT_OT_make_links_data(wmOperatorType *ot)
   ot->poll = ED_operator_object_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "type", make_links_items, 0, "Type", "");
@@ -2244,7 +2246,7 @@ void OBJECT_OT_make_local(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "type", type_items, 0, "Type", "");
@@ -2543,7 +2545,7 @@ void OBJECT_OT_make_override_library(wmOperatorType *ot)
   ot->poll = make_override_library_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -2682,7 +2684,7 @@ void OBJECT_OT_clear_override_library(wmOperatorType *ot)
   ot->poll = reset_clear_override_library_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2771,7 +2773,7 @@ void OBJECT_OT_make_single_user(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "type", type_items, MAKE_SINGLE_USER_SELECTED, "Type", "");

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2011-2022 Blender Foundation
+
 #
 
 #
@@ -16,6 +19,7 @@ class CYCLES_OT_use_shading_nodes(Operator):
     """Enable nodes on a material, world or light"""
     bl_idname = "cycles.use_shading_nodes"
     bl_label = "Use Nodes"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -39,6 +43,7 @@ class CYCLES_OT_denoise_animation(Operator):
         "OpenEXR multilayer files"
     bl_idname = "cycles.denoise_animation"
     bl_label = "Denoise Animation"
+    bl_options = {'INTERNAL'}
 
     input_filepath: StringProperty(
         name='Input Filepath',
@@ -121,6 +126,7 @@ class CYCLES_OT_merge_images(Operator):
         "ranges into one image with reduced noise"
     bl_idname = "cycles.merge_images"
     bl_label = "Merge Images"
+    bl_options = {'INTERNAL'}
 
     input_filepath1: StringProperty(
         name='Input Filepath',

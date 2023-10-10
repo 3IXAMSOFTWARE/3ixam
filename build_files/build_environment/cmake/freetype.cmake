@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(FREETYPE_EXTRA_ARGS
   -DCMAKE_RELEASE_POSTFIX:STRING=2ST

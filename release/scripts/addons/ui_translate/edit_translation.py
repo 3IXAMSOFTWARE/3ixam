@@ -33,6 +33,7 @@ class UI_OT_i18n_edittranslation_update_mo(Operator):
     """(WARNING: it will replace the official mo file in your user dir!)"""
     bl_idname = "ui.i18n_edittranslation_update_mo"
     bl_label = "Edit Translation Update Mo"
+    bl_options = {'INTERNAL'}
 
     # Operator Arguments
     lang: StringProperty(
@@ -77,6 +78,7 @@ class UI_OT_i18n_edittranslation(Operator):
     """Translate the label and tooltip of the given property"""
     bl_idname = "ui.edittranslation"
     bl_label = "Edit Translation"
+    bl_options = {'INTERNAL'}
 
     # Operator Arguments
     but_label: StringProperty(

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(ZSTD_EXTRA_ARGS
   -DZSTD_BUILD_PROGRAMS=OFF

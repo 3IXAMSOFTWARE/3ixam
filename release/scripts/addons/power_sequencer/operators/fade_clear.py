@@ -29,7 +29,7 @@ class POWER_SEQUENCER_OT_fade_clear(bpy.types.Operator):
     bl_idname = doc_idname(__qualname__)
     bl_label = doc["name"]
     bl_description = doc_brief(doc["description"])
-    bl_options = {"REGISTER", "UNDO"}
+    bl_options = {"REGISTER", "UNDO", 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):

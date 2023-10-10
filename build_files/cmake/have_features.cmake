@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright 2022 Blender Foundation. All rights reserved.
 
 # This file is used to test the system for headers & symbols.
 # Variables should use the `HAVE_` prefix.

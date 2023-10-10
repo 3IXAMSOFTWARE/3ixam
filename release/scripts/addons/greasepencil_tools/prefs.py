@@ -59,7 +59,7 @@ class GreasePencilAddonPrefs(bpy.types.AddonPreferences):
                ),
         name='Starting Interpolation', default='KEY_LINEAR', description='Choose default interpolation when entering mode')
 
-    # About interpolation : https://docs.ixam.org/manual/en/2.83/animation/shape_keys/shape_keys_panel.html#fig-interpolation-type
+    # About interpolation : https://docs.blender.org/manual/en/2.83/animation/shape_keys/shape_keys_panel.html#fig-interpolation-type
 
     auto_swap_deform_type : BoolProperty(
         name='Auto swap interpolation mode',

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2011 Blender Foundation.
+
 # - Find JACK library
 # Find the native JACK includes and library
 # This module defines

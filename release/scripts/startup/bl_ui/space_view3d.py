@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import bpy
 import bmesh
 from bpy.types import (
@@ -1141,6 +1143,7 @@ class VIEW3D_MT_mirror_tool(Menu):
 class VIEW3D_OT_blank_operator(Operator):
     bl_idname = "builtin.blank_operator"
     bl_label = "Work in progress"
+    bl_options = {'INTERNAL'}
 
     def execute(self, context):
         return {'FINISHED'}

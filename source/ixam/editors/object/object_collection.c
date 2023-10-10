@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -183,7 +185,7 @@ void COLLECTION_OT_objects_add_active(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(ot->srna,
@@ -407,7 +409,7 @@ void COLLECTION_OT_create(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_string(
       ot->srna, "name", "Collection", MAX_ID_NAME - 2, "Name", "Name of the new collection");
@@ -448,7 +450,7 @@ void OBJECT_OT_collection_add(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int collection_link_exec(bContext *C, wmOperator *op)
@@ -518,7 +520,7 @@ void OBJECT_OT_collection_link(wmOperatorType *ot)
   ot->poll = ED_operator_objectmode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(ot->srna, "collection", DummyRNA_NULL_items, 0, "Collection", "");

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <cstring>
@@ -266,7 +267,7 @@ void OUTLINER_OT_collection_new(wmOperatorType *ot)
   ot->poll = collection_edit_in_active_scene_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop = RNA_def_boolean(
@@ -439,7 +440,7 @@ void OUTLINER_OT_collection_hierarchy_delete(wmOperatorType *ot)
   ot->poll = collection_edit_in_active_scene_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -519,7 +520,7 @@ void OUTLINER_OT_collection_objects_select(wmOperatorType *ot)
   ot->poll = ED_outliner_collections_editor_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_objects_deselect(wmOperatorType *ot)
@@ -534,7 +535,7 @@ void OUTLINER_OT_collection_objects_deselect(wmOperatorType *ot)
   ot->poll = ED_outliner_collections_editor_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -655,7 +656,7 @@ void OUTLINER_OT_collection_duplicate_linked(wmOperatorType *ot)
   ot->poll = ED_outliner_collections_editor_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_duplicate(wmOperatorType *ot)
@@ -671,7 +672,7 @@ void OUTLINER_OT_collection_duplicate(wmOperatorType *ot)
   ot->poll = ED_outliner_collections_editor_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -742,7 +743,7 @@ void OUTLINER_OT_collection_link(wmOperatorType *ot)
   ot->poll = collection_edit_in_active_scene_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -820,7 +821,7 @@ void OUTLINER_OT_collection_instance(wmOperatorType *ot)
   ot->poll = collection_edit_in_active_scene_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -978,7 +979,7 @@ void OUTLINER_OT_collection_exclude_set(wmOperatorType *ot)
   ot->poll = collections_exclude_set_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_exclude_clear(wmOperatorType *ot)
@@ -993,7 +994,7 @@ void OUTLINER_OT_collection_exclude_clear(wmOperatorType *ot)
   ot->poll = collections_exclude_clear_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_holdout_set(wmOperatorType *ot)
@@ -1008,7 +1009,7 @@ void OUTLINER_OT_collection_holdout_set(wmOperatorType *ot)
   ot->poll = collections_holdout_set_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_holdout_clear(wmOperatorType *ot)
@@ -1023,7 +1024,7 @@ void OUTLINER_OT_collection_holdout_clear(wmOperatorType *ot)
   ot->poll = collections_holdout_clear_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_indirect_only_set(wmOperatorType *ot)
@@ -1040,7 +1041,7 @@ void OUTLINER_OT_collection_indirect_only_set(wmOperatorType *ot)
   ot->poll = collections_indirect_only_set_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_indirect_only_clear(wmOperatorType *ot)
@@ -1055,7 +1056,7 @@ void OUTLINER_OT_collection_indirect_only_clear(wmOperatorType *ot)
   ot->poll = collections_indirect_only_clear_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1136,7 +1137,7 @@ void OUTLINER_OT_collection_isolate(wmOperatorType *ot)
   ot->poll = ED_outliner_collections_editor_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop = RNA_def_boolean(
@@ -1210,7 +1211,7 @@ void OUTLINER_OT_collection_show(wmOperatorType *ot)
   ot->poll = collection_show_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_hide(wmOperatorType *ot)
@@ -1225,7 +1226,7 @@ void OUTLINER_OT_collection_hide(wmOperatorType *ot)
   ot->poll = collection_hide_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_show_inside(wmOperatorType *ot)
@@ -1240,7 +1241,7 @@ void OUTLINER_OT_collection_show_inside(wmOperatorType *ot)
   ot->poll = collection_inside_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_hide_inside(wmOperatorType *ot)
@@ -1255,7 +1256,7 @@ void OUTLINER_OT_collection_hide_inside(wmOperatorType *ot)
   ot->poll = collection_inside_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1404,7 +1405,7 @@ void OUTLINER_OT_collection_enable(wmOperatorType *ot)
   ot->poll = collection_enable_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_disable(wmOperatorType *ot)
@@ -1419,7 +1420,7 @@ void OUTLINER_OT_collection_disable(wmOperatorType *ot)
   ot->poll = collection_disable_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_enable_render(wmOperatorType *ot)
@@ -1434,7 +1435,7 @@ void OUTLINER_OT_collection_enable_render(wmOperatorType *ot)
   ot->poll = collection_enable_render_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void OUTLINER_OT_collection_disable_render(wmOperatorType *ot)
@@ -1449,7 +1450,7 @@ void OUTLINER_OT_collection_disable_render(wmOperatorType *ot)
   ot->poll = collection_disable_render_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 struct OutlinerHideEditData {
@@ -1551,7 +1552,7 @@ void OUTLINER_OT_hide(wmOperatorType *ot)
   ot->poll = outliner_view_layer_collections_editor_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int outliner_unhide_all_exec(bContext *C, wmOperator * /*op*/)
@@ -1590,7 +1591,7 @@ void OUTLINER_OT_unhide_all(wmOperatorType *ot)
   ot->poll = outliner_view_layer_collections_editor_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1648,7 +1649,7 @@ void OUTLINER_OT_collection_color_tag_set(wmOperatorType *ot)
   ot->poll = ED_outliner_collections_editor_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(
       ot->srna, "color", rna_enum_collection_color_items, COLLECTION_COLOR_NONE, "Color Tag", "");

@@ -167,7 +167,7 @@ class NA_OT_NodeButton(Operator):
         return {'FINISHED'}
 
     # not sure this is doing what you expect.
-    # ixam.org/api/ixam_python_api_current/bpy.types.Operator.html#invoke
+    # blender.org/api/ixam_python_api_current/bpy.types.Operator.html#invoke
     def invoke(self, context, value):
         values.mat_name = bpy.context.space_data.node_tree
         nodemargin(self, context)

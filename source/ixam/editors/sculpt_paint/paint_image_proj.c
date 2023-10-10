@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -6160,7 +6162,7 @@ void PAINT_OT_project_image(wmOperatorType *ot)
   ot->exec = texture_paint_camera_project_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_enum(ot->srna, "image", DummyRNA_NULL_items, 0, "Image", "");
   RNA_def_enum_funcs(prop, RNA_image_itemf);
@@ -6302,7 +6304,7 @@ void PAINT_OT_image_from_view(wmOperatorType *ot)
   ot->poll = texture_paint_image_from_view_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   RNA_def_string_file_name(ot->srna, "filepath", NULL, FILE_MAX, "File Path", "Name of the file");
 }
@@ -6845,7 +6847,7 @@ void PAINT_OT_add_texture_paint_slot(wmOperatorType *ot)
   ot->ui = texture_paint_add_texture_paint_slot_ui;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Shared Properties */
   prop = RNA_def_enum(ot->srna,
@@ -6942,5 +6944,5 @@ void PAINT_OT_add_simple_uvs(wmOperatorType *ot)
   ot->poll = add_simple_uvs_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }

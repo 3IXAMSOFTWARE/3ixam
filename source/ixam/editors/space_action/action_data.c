@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2015 Blender Foundation. */
 
 
 /** \file
@@ -456,7 +458,7 @@ void ACTION_OT_push_down(wmOperatorType *ot)
   ot->poll = action_pushdown_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ******************* Action Stash Operator ******************** */
@@ -511,7 +513,7 @@ void ACTION_OT_stash(wmOperatorType *ot)
   ot->poll = action_pushdown_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_boolean(ot->srna,
@@ -622,7 +624,7 @@ void ACTION_OT_stash_and_create(wmOperatorType *ot)
   ot->poll = action_stash_create_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ************************************************************************** */
@@ -1071,7 +1073,7 @@ void ACTION_OT_layer_prev(wmOperatorType *ot)
   ot->poll = action_layer_prev_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ************************************************************************** */

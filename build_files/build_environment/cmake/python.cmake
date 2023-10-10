@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(PYTHON_POSTFIX)
 if(BUILD_MODE STREQUAL Debug)

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2013 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -138,7 +140,7 @@ void RIGIDBODY_OT_object_add(wmOperatorType *ot)
   ot->poll = ED_operator_rigidbody_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna,
@@ -233,7 +235,7 @@ void RIGIDBODY_OT_objects_add(wmOperatorType *ot)
   ot->poll = ED_operator_rigidbody_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna,
@@ -337,7 +339,7 @@ void RIGIDBODY_OT_shape_change(wmOperatorType *ot)
   ot->poll = ED_operator_rigidbody_active_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna,
@@ -549,7 +551,7 @@ void RIGIDBODY_OT_mass_calculate(wmOperatorType *ot)
   ot->poll_property = mass_calculate_poll_property;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = prop = RNA_def_enum(

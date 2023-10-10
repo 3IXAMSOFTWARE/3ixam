@@ -1202,7 +1202,7 @@ class OBJECT_OT_curvegrow(Operator):
     bl_idname = "curve.btgrow"
     bl_label = "Run Script"
     bl_description = "Keyframe points radius"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):

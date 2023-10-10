@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 
 # <pep8-80 compliant>
@@ -65,6 +66,6 @@ def url_prefill_from_ixam(*, addon_info=None):
 
     form_number = 2 if addon_info else 1
     return (
-        "https://developer.3ixam.com/maniphest/task/edit/form/%i?description=" % form_number +
+        "https://developer.blender.com/maniphest/task/edit/form/%i?description=" % form_number +
         urllib.parse.quote(fh.read())
     )

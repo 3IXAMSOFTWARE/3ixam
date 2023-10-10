@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "BKE_asset_library.hh"
@@ -221,7 +222,7 @@ static void ASSET_OT_mark(wmOperatorType *ot)
   ot->exec = asset_mark_exec;
   ot->poll = asset_mark_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* -------------------------------------------------------------------- */
@@ -366,7 +367,7 @@ static void ASSET_OT_clear(wmOperatorType *ot)
   ot->exec = asset_clear_exec;
   ot->poll = asset_clear_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "set_fake_user",
@@ -425,6 +426,8 @@ static void ASSET_OT_library_refresh(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = asset_library_refresh_exec;
   ot->poll = asset_library_refresh_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /* -------------------------------------------------------------------- */
@@ -467,6 +470,8 @@ static void ASSET_OT_catalog_new(struct wmOperatorType *ot)
   ot->exec = asset_catalog_new_exec;
   ot->poll = asset_catalog_operator_poll;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   RNA_def_string(ot->srna,
                  "parent_path",
                  nullptr,
@@ -507,6 +512,8 @@ static void ASSET_OT_catalog_delete(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = asset_catalog_delete_exec;
   ot->poll = asset_catalog_operator_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_string(ot->srna, "catalog_id", nullptr, 0, "Catalog ID", "ID of the catalog to delete");
 }
@@ -550,6 +557,8 @@ static void ASSET_OT_catalog_undo(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = asset_catalog_undo_exec;
   ot->poll = asset_catalog_undo_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int asset_catalog_redo_exec(bContext *C, wmOperator * /*op*/)
@@ -580,6 +589,8 @@ static void ASSET_OT_catalog_redo(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = asset_catalog_redo_exec;
   ot->poll = asset_catalog_redo_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int asset_catalog_undo_push_exec(bContext *C, wmOperator * /*op*/)
@@ -660,6 +671,8 @@ static void ASSET_OT_catalogs_save(struct wmOperatorType *ot)
   /* api callbacks */
   ot->exec = asset_catalogs_save_exec;
   ot->poll = asset_catalogs_save_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /* -------------------------------------------------------------------- */
@@ -797,6 +810,8 @@ static void ASSET_OT_bundle_install(struct wmOperatorType *ot)
   ot->exec = asset_bundle_install_exec;
   ot->invoke = asset_bundle_install_invoke;
   ot->poll = asset_bundle_install_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_property(ot->srna, "asset_library_ref", PROP_ENUM, PROP_NONE);
   RNA_def_property_flag(ot->prop, PROP_HIDDEN);

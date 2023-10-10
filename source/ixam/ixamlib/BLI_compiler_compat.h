@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 /* #define typeof() triggers a bug in some clang-format versions, disable format

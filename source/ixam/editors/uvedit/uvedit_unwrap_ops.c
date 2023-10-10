@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -1145,7 +1147,7 @@ void UV_OT_pack_islands(wmOperatorType *ot)
   ot->description =
       "Transform all islands so that they fill up the UV/UDIM space as much as possible";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = pack_islands_exec;
@@ -2970,7 +2972,7 @@ void UV_OT_cylinder_project(wmOperatorType *ot)
   ot->idname = "UV_OT_cylinder_project";
   ot->description = "Project the UV vertices of the mesh over the curved wall of a cylinder";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = cylinder_project_exec;
@@ -3111,7 +3113,7 @@ void UV_OT_cube_project(wmOperatorType *ot)
   ot->idname = "UV_OT_cube_project";
   ot->description = "Project the UV vertices of the mesh over the six faces of a cube";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = cube_project_exec;

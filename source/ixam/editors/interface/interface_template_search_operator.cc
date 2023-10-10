@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup edinterface
@@ -57,6 +58,7 @@ static void operator_search_update_fn(const bContext *C,
   const int words_len = BLI_string_find_split_words(
       str, str_len, ' ', (int(*)[2])words.data(), words_max);
 
+  printf("=============================\n");
   for (WM_operatortype_iter(&iter); !BLI_ghashIterator_done(&iter);
        BLI_ghashIterator_step(&iter)) {
     wmOperatorType *ot = static_cast<wmOperatorType *>(BLI_ghashIterator_getValue(&iter));
@@ -66,6 +68,7 @@ static void operator_search_update_fn(const bContext *C,
       continue;
     }
 
+    printf("%s\n", ot->name);
     if (BLI_string_all_words_matched(ot_ui_name, str, (int(*)[2])words.data(), words_len)) {
       if (WM_operator_poll((bContext *)C, ot)) {
         char name[256];
@@ -93,6 +96,7 @@ static void operator_search_update_fn(const bContext *C,
       }
     }
   }
+  printf("=============================\n");
 }
 
 /** \} */

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -170,7 +172,7 @@ static void UI_OT_copy_data_path_button(wmOperatorType *ot)
   ot->poll = copy_data_path_button_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_boolean(ot->srna, "full_path", false, "full_path", "Copy full data path");
@@ -249,7 +251,7 @@ static void UI_OT_copy_as_driver_button(wmOperatorType *ot)
   ot->poll = copy_as_driver_button_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -302,7 +304,7 @@ static void UI_OT_copy_python_command_button(wmOperatorType *ot)
   ot->poll = copy_python_command_button_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -451,7 +453,7 @@ static void UI_OT_assign_default_button(wmOperatorType *ot)
   ot->exec = assign_default_button_exec;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -631,7 +633,7 @@ static void UI_OT_override_type_set_button(wmOperatorType *ot)
   ot->invoke = override_type_set_button_invoke;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(
@@ -739,7 +741,7 @@ static void UI_OT_override_remove_button(wmOperatorType *ot)
   ot->exec = override_remove_button_exec;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(
@@ -858,7 +860,7 @@ static void UI_OT_override_idtemplate_make(wmOperatorType *ot)
   ot->exec = override_idtemplate_make_exec;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static bool override_idtemplate_reset_poll(bContext *C)
@@ -986,7 +988,7 @@ static void UI_OT_override_idtemplate_clear(wmOperatorType *ot)
   ot->exec = override_idtemplate_clear_exec;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static bool override_idtemplate_menu_poll(const bContext *C_const, MenuType * /*mt*/)
@@ -1460,7 +1462,7 @@ static void UI_OT_copy_to_selected_button(wmOperatorType *ot)
   ot->exec = copy_to_selected_button_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna, "all", true, "All", "Copy to selected all elements of the array");
@@ -1618,7 +1620,7 @@ static void UI_OT_jump_to_target_button(wmOperatorType *ot)
   ot->exec = jump_to_target_button_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1833,6 +1835,8 @@ static void UI_OT_editsource(wmOperatorType *ot)
 
   /* callbacks */
   ot->exec = editsource_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2017,6 +2021,8 @@ static void UI_OT_edittranslation_init(wmOperatorType *ot)
 
   /* callbacks */
   ot->exec = edittranslation_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 #endif /* WITH_PYTHON */
@@ -2045,6 +2051,8 @@ static void UI_OT_reloadtranslation(wmOperatorType *ot)
 
   /* callbacks */
   ot->exec = reloadtranslation_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2343,6 +2351,8 @@ static void UI_OT_list_start_filter(wmOperatorType *ot)
 
   ot->invoke = ui_list_start_filter_invoke;
   ot->poll = ui_list_focused_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */

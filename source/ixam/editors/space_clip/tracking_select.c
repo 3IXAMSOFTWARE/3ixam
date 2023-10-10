@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2011 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -431,7 +433,7 @@ void CLIP_OT_select(wmOperatorType *ot)
   ot->poll = select_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -564,7 +566,7 @@ void CLIP_OT_select_box(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_box(ot);
@@ -697,7 +699,7 @@ void CLIP_OT_select_lasso(wmOperatorType *ot)
   ot->cancel = WM_gesture_lasso_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_UNDO | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_lasso(ot);
@@ -830,7 +832,7 @@ void CLIP_OT_select_circle(wmOperatorType *ot)
   ot->get_name = ED_select_circle_get_name;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_circle(ot);
@@ -877,7 +879,7 @@ void CLIP_OT_select_all(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -979,7 +981,7 @@ void CLIP_OT_select_grouped(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,

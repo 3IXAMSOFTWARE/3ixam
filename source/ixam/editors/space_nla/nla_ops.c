@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation, Joshua Leung. All rights reserved. */
 
 
 /** \file
@@ -155,7 +157,7 @@ void ED_operatormacros_nla()
   ot = WM_operatortype_append_macro("NLA_OT_duplicate_linked_move",
                                     "Duplicate Linked",
                                     "Duplicate selected strips and move them",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   otmacro = WM_operatortype_macro_define(ot, "NLA_OT_duplicate");
   RNA_boolean_set(otmacro->ptr, "linked", true);
   WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");

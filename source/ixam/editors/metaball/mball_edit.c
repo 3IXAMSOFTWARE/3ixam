@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -190,7 +192,7 @@ void MBALL_OT_select_all(wmOperatorType *ot)
   ot->poll = ED_operator_editmball;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -444,7 +446,7 @@ void MBALL_OT_select_similar(wmOperatorType *ot)
   ot->description = "Select similar metaballs by property types";
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "type", prop_similar_types, 0, "Type", "");
@@ -516,7 +518,7 @@ void MBALL_OT_select_random_metaelems(struct wmOperatorType *ot)
   ot->poll = ED_operator_editmball;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_select_random(ot);
@@ -576,7 +578,7 @@ void MBALL_OT_duplicate_metaelems(wmOperatorType *ot)
   ot->poll = ED_operator_editmball;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -637,7 +639,7 @@ void MBALL_OT_delete_metaelems(wmOperatorType *ot)
   ot->poll = ED_operator_editmball;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -681,7 +683,7 @@ void MBALL_OT_hide_metaelems(wmOperatorType *ot)
   ot->poll = ED_operator_editmball;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(
@@ -728,7 +730,7 @@ void MBALL_OT_reveal_metaelems(wmOperatorType *ot)
   ot->poll = ED_operator_editmball;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(ot->srna, "select", true, "Select", "");

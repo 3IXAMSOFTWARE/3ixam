@@ -1,9 +1,10 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup editorui
  *
  * Base class for all views (UIs to display data sets) and view items, supporting common features.
- * https://wiki.ixam.org/wiki/Source/Interface/Views
+ * https://wiki.blender.org/wiki/Source/Interface/Views
  *
  * One of the most important responsibilities of the base class is managing reconstruction,
  * enabling state that is persistent over reconstructions/redraws. Other features:

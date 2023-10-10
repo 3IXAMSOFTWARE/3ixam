@@ -283,7 +283,7 @@ class SCENE_OT_POV_Import(bpy.types.Operator, ImportHelper):
                                     # todo: test and search where to add the below currently commented
                                     # since Ixam defers the evaluation until the results are needed.
                                     # bpy.context.view_layer.update()
-                                    # as explained here: https://docs.ixam.org/api/current/info_gotcha.html?highlight=gotcha#no-updates-after-setting-values
+                                    # as explained here: https://docs.blender.org/api/current/info_gotcha.html?highlight=gotcha#no-updates-after-setting-values
                                     ob.rotation_euler = rot.to_euler()
                                     ob.scale = (1, 1, scale_z)
 

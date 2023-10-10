@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 ExternalProject_Add(external_zlib
   URL file://${PACKAGE_DIR}/${ZLIB_FILE}

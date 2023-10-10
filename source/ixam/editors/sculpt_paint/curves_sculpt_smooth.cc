@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "BKE_brush.h"
 #include "BKE_context.h"

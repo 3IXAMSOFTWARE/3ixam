@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -365,7 +367,7 @@ void UI_OT_eyedropper_gpencil_color(wmOperatorType *ot)
   ot->poll = eyedropper_gpencil_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "mode", items_mode, 0, "Mode", "");

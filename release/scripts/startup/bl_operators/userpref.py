@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import (
@@ -54,6 +55,7 @@ def _module_filesystem_remove(path_base, module_name):
 class PREFERENCES_OT_keyconfig_activate(Operator):
     bl_idname = "preferences.keyconfig_activate"
     bl_label = "Activate Keyconfig"
+    bl_options = {'INTERNAL'}
 
     filepath: StringProperty(
         subtype='FILE_PATH',
@@ -70,6 +72,7 @@ class PREFERENCES_OT_copy_prev(Operator):
     """Copy settings from previous version"""
     bl_idname = "preferences.copy_prev"
     bl_label = "Copy Previous Settings"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def _old_version_path(cls, version):
@@ -158,6 +161,7 @@ class PREFERENCES_OT_keyconfig_test(Operator):
     """Test key configuration for conflicts"""
     bl_idname = "preferences.keyconfig_test"
     bl_label = "Test Key Configuration for Conflicts"
+    bl_options = {'INTERNAL'}
 
     def execute(self, context):
         from bpy_extras import keyconfig_utils
@@ -175,6 +179,7 @@ class PREFERENCES_OT_keyconfig_import(Operator):
     """Import key configuration from a python script"""
     bl_idname = "preferences.keyconfig_import"
     bl_label = "Import Key Configuration..."
+    bl_options = {'INTERNAL'}
 
     filepath: StringProperty(
         subtype='FILE_PATH',
@@ -246,6 +251,7 @@ class PREFERENCES_OT_keyconfig_export(Operator):
     """Export key configuration to a python script"""
     bl_idname = "preferences.keyconfig_export"
     bl_label = "Export Key Configuration..."
+    bl_options = {'INTERNAL'}
 
     all: BoolProperty(
         name="All Keymaps",
@@ -308,6 +314,7 @@ class PREFERENCES_OT_keymap_restore(Operator):
     """Restore key map(s)"""
     bl_idname = "preferences.keymap_restore"
     bl_label = "Restore Key Map(s)"
+    bl_options = {'INTERNAL'}
 
     all: BoolProperty(
         name="All Keymaps",
@@ -332,6 +339,7 @@ class PREFERENCES_OT_keyitem_restore(Operator):
     """Restore key map item"""
     bl_idname = "preferences.keyitem_restore"
     bl_label = "Restore Key Map Item"
+    bl_options = {'INTERNAL'}
 
     item_id: IntProperty(
         name="Item Identifier",
@@ -380,6 +388,7 @@ class PREFERENCES_OT_keyitem_remove(Operator):
     """Remove key map item"""
     bl_idname = "preferences.keyitem_remove"
     bl_label = "Remove Key Map Item"
+    bl_options = {'INTERNAL'}
 
     item_id: IntProperty(
         name="Item Identifier",
@@ -403,6 +412,7 @@ class PREFERENCES_OT_keyconfig_remove(Operator):
     """Remove key config"""
     bl_idname = "preferences.keyconfig_remove"
     bl_label = "Remove Key Config"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -424,6 +434,7 @@ class PREFERENCES_OT_addon_enable(Operator):
     """Enable an add-on"""
     bl_idname = "preferences.addon_enable"
     bl_label = "Enable Add-on"
+    bl_options = {'INTERNAL'}
 
     module: StringProperty(
         name="Module",
@@ -470,6 +481,7 @@ class PREFERENCES_OT_addon_disable(Operator):
     """Disable an add-on"""
     bl_idname = "preferences.addon_disable"
     bl_label = "Disable Add-on"
+    bl_options = {'INTERNAL'}
 
     module: StringProperty(
         name="Module",
@@ -580,6 +592,7 @@ class PREFERENCES_OT_addon_install(Operator):
     """Install an add-on"""
     bl_idname = "preferences.addon_install"
     bl_label = "Install Add-on"
+    bl_options = {'INTERNAL'}
 
     overwrite: BoolProperty(
         name="Overwrite",
@@ -738,6 +751,7 @@ class PREFERENCES_OT_addon_remove(Operator):
     """Delete the add-on from the file system"""
     bl_idname = "preferences.addon_remove"
     bl_label = "Remove Add-on"
+    bl_options = {'INTERNAL'}
 
     module: StringProperty(
         name="Module",
@@ -855,6 +869,7 @@ class PREFERENCES_OT_app_template_install(Operator):
     """Install an application template"""
     bl_idname = "preferences.app_template_install"
     bl_label = "Install Template from File..."
+    bl_options = {'INTERNAL'}
 
     overwrite: BoolProperty(
         name="Overwrite",
@@ -958,6 +973,7 @@ class PREFERENCES_OT_studiolight_install(Operator):
     """Install a user defined light"""
     bl_idname = "preferences.studiolight_install"
     bl_label = "Install Light"
+    bl_options = {'INTERNAL'}
 
     files: CollectionProperty(
         name="File Path",
@@ -1022,6 +1038,7 @@ class PREFERENCES_OT_studiolight_new(Operator):
     """Save custom studio light from the studio light editor settings"""
     bl_idname = "preferences.studiolight_new"
     bl_label = "Save Custom Studio Light"
+    bl_options = {'INTERNAL'}
 
     filename: StringProperty(
         name="Name",
@@ -1082,6 +1099,7 @@ class PREFERENCES_OT_studiolight_uninstall(Operator):
     """Delete Studio Light"""
     bl_idname = "preferences.studiolight_uninstall"
     bl_label = "Uninstall Studio Light"
+    bl_options = {'INTERNAL'}
     index: IntProperty()
 
     def execute(self, context):
@@ -1105,6 +1123,7 @@ class PREFERENCES_OT_studiolight_copy_settings(Operator):
     """Copy Studio Light settings to the Studio Light editor"""
     bl_idname = "preferences.studiolight_copy_settings"
     bl_label = "Copy Studio Light Settings"
+    bl_options = {'INTERNAL'}
     index: IntProperty()
 
     def execute(self, context):

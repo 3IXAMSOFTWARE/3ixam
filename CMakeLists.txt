@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright 2006 Blender Foundation. All rights reserved.
 
 #-----------------------------------------------------------------------------
 # We don't allow in-source builds. This causes no end of troubles because
@@ -153,7 +155,6 @@ enable_testing()
 # -----------------------------------------------------------------------------
 # Test Compiler Support
 #
-# Keep in sync with: https://wiki.ixam.org/wiki/Building_Ixam
 
 if(CMAKE_COMPILER_IS_GNUCC)
   if("${CMAKE_C_COMPILER_VERSION}" VERSION_LESS "9.3.1")
@@ -1875,7 +1876,6 @@ endif()
 # -----------------------------------------------------------------------------
 # Add Testing Directory
 
-# add_subdirectory(tests)
 
 
 # -----------------------------------------------------------------------------

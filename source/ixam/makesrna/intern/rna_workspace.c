@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "RNA_define.h"
@@ -19,6 +20,8 @@
 
 const EnumPropertyItem rna_enum_workspace_type_items[] = {
   {WORKSPACE_TYPE_NONE, "NONE", 0, "None", ""},
+  {WORKSPACE_TYPE_PRO_ANIMATE, "PRO_ANIMATE", 0, "Pro Animate", ""},
+  {WORKSPACE_TYPE_VR_HANDS, "VR_HANDS", 0, "VR Hands", ""},
   {0, NULL, 0, NULL, NULL},
 };
 

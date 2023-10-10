@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -148,7 +150,7 @@ void SEQUENCER_OT_rebuild_proxy(wmOperatorType *ot)
   ot->exec = sequencer_rebuild_proxy_exec;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -242,7 +244,7 @@ void SEQUENCER_OT_enable_proxies(wmOperatorType *ot)
   ot->exec = sequencer_enable_proxies_exec;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "proxy_25", false, "25%", "");
   RNA_def_boolean(ot->srna, "proxy_50", false, "50%", "");

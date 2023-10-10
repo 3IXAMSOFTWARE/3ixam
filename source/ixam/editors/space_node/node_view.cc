@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -133,7 +135,7 @@ void NODE_OT_view_all(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -166,7 +168,7 @@ void NODE_OT_view_selected(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -292,7 +294,7 @@ void NODE_OT_backimage_move(wmOperatorType *ot)
   ot->cancel = snode_bg_viewmove_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_XY;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_GRAB_CURSOR_XY | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -393,7 +395,7 @@ void NODE_OT_backimage_fit(wmOperatorType *ot)
   ot->poll = composite_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -702,7 +704,7 @@ void NODE_OT_backimage_sample(wmOperatorType *ot)
   ot->poll = ED_operator_node_active;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 }
 
 /** \} */

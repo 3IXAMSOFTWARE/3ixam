@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -475,7 +477,7 @@ void SEQUENCER_OT_scene_strip_add(struct wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active_editable;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   sequencer_generic_props__internal(ot, SEQPROP_STARTFRAME);
   prop = RNA_def_enum(ot->srna, "scene", DummyRNA_NULL_items, 0, "Scene", "");
@@ -594,7 +596,7 @@ void SEQUENCER_OT_scene_strip_add_new(struct wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active_editable;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   sequencer_generic_props__internal(ot, SEQPROP_STARTFRAME);
 
@@ -657,7 +659,7 @@ void SEQUENCER_OT_movieclip_strip_add(struct wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active_editable;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   sequencer_generic_props__internal(ot, SEQPROP_STARTFRAME);
   prop = RNA_def_enum(ot->srna, "clip", DummyRNA_NULL_items, 0, "Clip", "");
@@ -721,7 +723,7 @@ void SEQUENCER_OT_mask_strip_add(struct wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active_editable;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   sequencer_generic_props__internal(ot, SEQPROP_STARTFRAME);
   prop = RNA_def_enum(ot->srna, "mask", DummyRNA_NULL_items, 0, "Mask", "");
@@ -1047,7 +1049,7 @@ void SEQUENCER_OT_movie_strip_add(struct wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active_editable;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER | FILE_TYPE_MOVIE,
@@ -1177,7 +1179,7 @@ void SEQUENCER_OT_sound_strip_add(struct wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active_editable;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER | FILE_TYPE_SOUND,
@@ -1380,7 +1382,7 @@ void SEQUENCER_OT_image_strip_add(struct wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active_editable;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER | FILE_TYPE_IMAGE,
@@ -1541,7 +1543,7 @@ void SEQUENCER_OT_effect_strip_add(struct wmOperatorType *ot)
   ot->get_description = sequencer_add_effect_strip_desc;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "type",

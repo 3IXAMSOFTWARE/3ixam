@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2004-2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -73,6 +75,8 @@ void VIEW3D_OT_toggle_matcap_flip(wmOperatorType *ot)
 
   /* api callbacks */
   ot->exec = toggle_matcap_flip;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */

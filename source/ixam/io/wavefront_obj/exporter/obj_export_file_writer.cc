@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <algorithm>
@@ -158,7 +159,7 @@ void OBJWriter::write_header() const
   using namespace std::string_literals;
   FormatHandler fh;
   fh.write_string("# 3IXAM "s + BKE_ixam_version_string());
-  fh.write_string("# www.3ixam.org");
+  fh.write_string("# www.blender.org");
   fh.write_to_file(outfile_);
 }
 
@@ -544,7 +545,7 @@ void MTLWriter::write_header(const char *blen_filepath)
                                   "None";
   fmt_handler_.write_string("# 3IXAM "s + BKE_ixam_version_string() + " MTL File: '" +
                             blen_basename + "'");
-  fmt_handler_.write_string("# www.3ixam.org");
+  fmt_handler_.write_string("# www.blender.org");
 }
 
 StringRefNull MTLWriter::mtl_file_path() const

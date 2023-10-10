@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(OCLOC_EXTRA_ARGS
   -DNEO_SKIP_UNIT_TESTS=1

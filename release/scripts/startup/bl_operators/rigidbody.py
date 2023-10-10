@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import Operator
@@ -11,7 +12,7 @@ class CopyRigidbodySettings(Operator):
     '''Copy Rigid Body settings from active object to selected'''
     bl_idname = "rigidbody.object_settings_copy"
     bl_label = "Copy Rigid Body Settings"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     _attrs = (
         "type",

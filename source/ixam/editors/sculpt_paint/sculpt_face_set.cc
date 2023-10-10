@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2020 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -442,7 +444,7 @@ void SCULPT_OT_face_sets_create(wmOperatorType *ot)
   ot->exec = sculpt_face_set_create_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(
       ot->srna, "mode", prop_sculpt_face_set_create_types, SCULPT_FACE_SET_MASKED, "Mode", "");
@@ -759,7 +761,7 @@ void SCULPT_OT_face_sets_init(wmOperatorType *ot)
   ot->exec = sculpt_face_set_init_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(
       ot->srna, "mode", prop_sculpt_face_sets_init_types, SCULPT_FACE_SET_MASKED, "Mode", "");
@@ -979,7 +981,7 @@ void SCULPT_OT_face_sets_change_visibility(wmOperatorType *ot)
   ot->invoke = sculpt_face_sets_change_visibility_invoke;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna,
                "mode",
@@ -1041,7 +1043,7 @@ void SCULPT_OT_face_sets_randomize_colors(wmOperatorType *ot)
   ot->exec = sculpt_face_sets_randomize_colors_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 enum eSculptFaceSetEditMode {
@@ -1470,7 +1472,7 @@ void SCULPT_OT_face_sets_edit(struct wmOperatorType *ot)
   ot->invoke = sculpt_face_set_edit_invoke;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(
       ot->srna, "mode", prop_sculpt_face_sets_edit_types, SCULPT_FACE_SET_EDIT_GROW, "Mode", "");

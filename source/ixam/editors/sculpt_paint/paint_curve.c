@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <limits.h>
@@ -163,7 +164,7 @@ void PAINTCURVE_OT_new(wmOperatorType *ot)
   ot->poll = paint_curve_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static void paintcurve_point_add(bContext *C, wmOperator *op, const int loc[2])
@@ -262,7 +263,7 @@ void PAINTCURVE_OT_add_point(wmOperatorType *ot)
   ot->poll = paint_curve_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER;
+  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int_vector(ot->srna,
@@ -353,7 +354,7 @@ void PAINTCURVE_OT_delete_point(wmOperatorType *ot)
   ot->poll = paint_curve_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static bool paintcurve_point_select(
@@ -500,7 +501,7 @@ void PAINTCURVE_OT_select(wmOperatorType *ot)
   ot->poll = paint_curve_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER;
+  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int_vector(ot->srna,
@@ -644,7 +645,7 @@ void PAINTCURVE_OT_slide(wmOperatorType *ot)
   ot->poll = paint_curve_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(
@@ -694,7 +695,7 @@ void PAINTCURVE_OT_draw(wmOperatorType *ot)
   ot->poll = paint_curve_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int paintcurve_cursor_invoke(bContext *C, wmOperator *UNUSED(op), const wmEvent *event)
@@ -737,5 +738,5 @@ void PAINTCURVE_OT_cursor(wmOperatorType *ot)
   ot->poll = paint_curve_poll;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -592,7 +594,7 @@ void FONT_OT_text_paste_from_file(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_filesel(ot,
@@ -794,7 +796,7 @@ void FONT_OT_style_set(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(
@@ -838,7 +840,7 @@ void FONT_OT_style_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(
@@ -881,7 +883,7 @@ void FONT_OT_select_all(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -935,6 +937,8 @@ void FONT_OT_text_copy(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = copy_text_exec;
   ot->poll = ED_operator_editfont;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -972,7 +976,7 @@ void FONT_OT_text_cut(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1075,7 +1079,7 @@ void FONT_OT_text_paste(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1241,7 +1245,7 @@ void FONT_OT_move(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "type", move_type_items, LINE_BEGIN, "Type", "Where to move cursor to");
@@ -1272,7 +1276,7 @@ void FONT_OT_move_select(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,
@@ -1337,7 +1341,7 @@ void FONT_OT_change_spacing(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int(ot->srna,
@@ -1395,7 +1399,7 @@ void FONT_OT_change_character(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int(ot->srna,
@@ -1442,7 +1446,7 @@ void FONT_OT_line_break(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1588,7 +1592,7 @@ void FONT_OT_delete(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,
@@ -1781,7 +1785,7 @@ void FONT_OT_textbox_add(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_editable_font;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1825,7 +1829,7 @@ void FONT_OT_textbox_remove(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_editable_font;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna, "index", 0, 0, INT_MAX, "Index", "The current text box", 0, INT_MAX);
 }
@@ -1976,7 +1980,7 @@ void FONT_OT_case_set(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(ot->srna, "case", case_items, CASE_LOWER, "Case", "Lower or upper case");
@@ -2022,7 +2026,7 @@ void FONT_OT_case_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_editfont;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* **************** Open Font ************** */
@@ -2174,6 +2178,8 @@ void FONT_OT_unlink(wmOperatorType *ot)
 
   /* api callbacks */
   ot->exec = font_unlink_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 bool ED_curve_editfont_select_pick(

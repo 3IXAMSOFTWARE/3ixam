@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 /* Implementation based in part off the paper "B-Mesh: A Fast Modeling

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2017 Blender Foundation. */
 
 
 /** \file
@@ -2046,7 +2048,7 @@ void GPENCIL_OT_primitive_box(wmOperatorType *ot)
   ot->poll = gpencil_primitive_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   gpencil_primitive_common_props(ot, 3, GP_STROKE_BOX);
@@ -2066,7 +2068,7 @@ void GPENCIL_OT_primitive_line(wmOperatorType *ot)
   ot->poll = gpencil_primitive_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   gpencil_primitive_common_props(ot, 6, GP_STROKE_LINE);
@@ -2086,7 +2088,7 @@ void GPENCIL_OT_primitive_polyline(wmOperatorType *ot)
   ot->poll = gpencil_primitive_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   gpencil_primitive_common_props(ot, 6, GP_STROKE_POLYLINE);
@@ -2106,7 +2108,7 @@ void GPENCIL_OT_primitive_circle(wmOperatorType *ot)
   ot->poll = gpencil_primitive_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   gpencil_primitive_common_props(ot, 94, GP_STROKE_CIRCLE);
@@ -2126,7 +2128,7 @@ void GPENCIL_OT_primitive_curve(wmOperatorType *ot)
   ot->poll = gpencil_primitive_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   gpencil_primitive_common_props(ot, 62, GP_STROKE_CURVE);

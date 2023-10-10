@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2020 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -512,7 +514,7 @@ void GRAPH_OT_decimate(wmOperatorType *ot)
   ot->poll = graphop_editable_keyframes_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties */
   RNA_def_enum(ot->srna,
@@ -658,7 +660,7 @@ void GRAPH_OT_blend_to_neighbor(wmOperatorType *ot)
   ot->poll = graphop_editable_keyframes_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float_factor(ot->srna,
                        "factor",
@@ -912,7 +914,7 @@ void GRAPH_OT_blend_to_default(wmOperatorType *ot)
   ot->poll = graphop_editable_keyframes_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float_factor(ot->srna,
                        "factor",

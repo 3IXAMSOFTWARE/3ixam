@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2020 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -499,7 +501,7 @@ void SCULPT_OT_set_pivot_position(wmOperatorType *ot)
   ot->exec = sculpt_set_pivot_position_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
   RNA_def_enum(ot->srna,
                "mode",
                prop_sculpt_pivot_position_types,

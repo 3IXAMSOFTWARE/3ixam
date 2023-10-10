@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 
 # <pep8 compliant>
@@ -127,7 +128,7 @@ class CLIP_OT_filter_tracks(Operator):
     """Filter tracks which has weirdly looking spikes in motion curves"""
     bl_label = "Filter Tracks"
     bl_idname = "clip.filter_tracks"
-    bl_options = {'UNDO', 'REGISTER'}
+    bl_options = {'UNDO', 'REGISTER', 'INTERNAL'}
 
     track_threshold: FloatProperty(
         name="Track Threshold",
@@ -203,6 +204,7 @@ class CLIP_OT_filter_tracks(Operator):
 class CLIP_OT_set_active_clip(Operator):
     bl_label = "Set Active Clip"
     bl_idname = "clip.set_active_clip"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -223,7 +225,7 @@ class CLIP_OT_track_to_empty(Operator):
 
     bl_idname = "clip.track_to_empty"
     bl_label = "Link Empty to Track"
-    bl_options = {'UNDO', 'REGISTER'}
+    bl_options = {'UNDO', 'REGISTER', 'INTERNAL'}
 
     @staticmethod
     def _link_track(context, clip, tracking_object, track):
@@ -273,7 +275,7 @@ class CLIP_OT_bundles_to_mesh(Operator):
 
     bl_idname = "clip.bundles_to_mesh"
     bl_label = "3D Markers to Mesh"
-    bl_options = {'UNDO', 'REGISTER'}
+    bl_options = {'UNDO', 'REGISTER', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -322,7 +324,7 @@ class CLIP_OT_delete_proxy(Operator):
 
     bl_idname = "clip.delete_proxy"
     bl_label = "Delete Proxy"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -401,7 +403,7 @@ class CLIP_OT_set_viewport_background(Operator):
 
     bl_idname = "clip.set_viewport_background"
     bl_label = "Set as Background"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -421,7 +423,7 @@ class CLIP_OT_constraint_to_fcurve(Operator):
 
     bl_idname = "clip.constraint_to_fcurve"
     bl_label = "Constraint to F-Curve"
-    bl_options = {'UNDO', 'REGISTER'}
+    bl_options = {'UNDO', 'REGISTER', 'INTERNAL'}
 
     def _bake_object(self, scene, ob):
         con = None
@@ -535,7 +537,7 @@ class CLIP_OT_setup_tracking_scene(Operator):
 
     bl_idname = "clip.setup_tracking_scene"
     bl_label = "Setup Tracking Scene"
-    bl_options = {'UNDO', 'REGISTER'}
+    bl_options = {'UNDO', 'REGISTER', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -988,7 +990,7 @@ class CLIP_OT_track_settings_as_default(Operator):
 
     bl_idname = "clip.track_settings_as_default"
     bl_label = "Track Settings as Default"
-    bl_options = {'UNDO', 'REGISTER'}
+    bl_options = {'UNDO', 'REGISTER', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -1016,7 +1018,7 @@ class CLIP_OT_track_settings_to_track(Operator):
 
     bl_label = "Copy Track Settings"
     bl_idname = "clip.track_settings_to_track"
-    bl_options = {'UNDO', 'REGISTER'}
+    bl_options = {'UNDO', 'REGISTER', 'INTERNAL'}
 
     _attrs_track = (
         "correlation_min",

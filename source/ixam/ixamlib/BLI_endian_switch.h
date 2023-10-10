@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #ifndef __BLI_ENDIAN_SWITCH_H__
 #define __BLI_ENDIAN_SWITCH_H__

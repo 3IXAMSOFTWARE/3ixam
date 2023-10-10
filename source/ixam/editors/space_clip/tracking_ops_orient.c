@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2016 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -228,7 +230,7 @@ void CLIP_OT_set_origin(wmOperatorType *ot)
   ot->poll = set_orientation_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(
@@ -506,7 +508,7 @@ void CLIP_OT_set_plane(wmOperatorType *ot)
   ot->poll = set_orientation_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "plane", plane_items, 0, "Plane", "Plane to be used for orientation");
@@ -577,7 +579,7 @@ void CLIP_OT_set_axis(wmOperatorType *ot)
   ot->poll = set_orientation_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "axis", axis_actions, 0, "Axis", "Axis to use to align bundle along");
@@ -711,7 +713,7 @@ void CLIP_OT_set_scale(wmOperatorType *ot)
   ot->poll = set_orientation_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float(ot->srna,
@@ -773,7 +775,7 @@ void CLIP_OT_set_solution_scale(wmOperatorType *ot)
   ot->poll = set_solution_scale_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float(ot->srna,
@@ -833,7 +835,7 @@ void CLIP_OT_apply_solution_scale(wmOperatorType *ot)
   ot->poll = apply_solution_scale_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float(ot->srna,

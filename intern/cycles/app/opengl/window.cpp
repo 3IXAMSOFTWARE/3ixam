@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2011-2022 Blender Foundation */
 
 
 #include <stdio.h>
@@ -118,7 +120,7 @@ void window_display_help()
   string info = string("Real Renderer ") + CYCLES_VERSION_STRING;
 
   window_display_text(x1 + 20, y2 - 20, info.c_str());
-  window_display_text(x1 + 20, y2 - 40, "(C) 2011-2016 3IXAM Foundation");
+  window_display_text(x1 + 20, y2 - 40, "(C) 2011-2016 Blender Foundation");
   window_display_text(x1 + 20, y2 - 80, "Controls:");
   window_display_text(x1 + 20, y2 - 100, "h:  Info/Help");
   window_display_text(x1 + 20, y2 - 120, "r:  Reset");

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2021 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -162,7 +164,7 @@ void SCULPT_OT_mask_init(wmOperatorType *ot)
   ot->exec = sculpt_mask_init_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
   RNA_def_enum(ot->srna,
                "mode",
                prop_sculpt_mask_init_mode_types,

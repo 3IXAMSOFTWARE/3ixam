@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "draw_defines.h"
 #include "gpu_shader_create_info.hh"

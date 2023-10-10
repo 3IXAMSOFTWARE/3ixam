@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 /* COLLADABU_ASSERT, may be able to remove later */

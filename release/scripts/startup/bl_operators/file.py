@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import (
@@ -18,7 +19,7 @@ class WM_OT_previews_batch_generate(Operator):
     """Generate selected .ixam file's previews"""
     bl_idname = "wm.previews_batch_generate"
     bl_label = "Batch-Generate Previews"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     # -----------
     # File props.
@@ -136,7 +137,7 @@ class WM_OT_previews_batch_clear(Operator):
     """Clear selected .ixam file's previews"""
     bl_idname = "wm.previews_batch_clear"
     bl_label = "Batch-Clear Previews"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     # -----------
     # File props.
@@ -248,7 +249,7 @@ class WM_OT_ixam_strings_utf8_validate(Operator):
     """(needed for some old, 2.4x area files)"""
     bl_idname = "wm.ixam_strings_utf8_validate"
     bl_label = "Validate .ixam strings"
-    bl_options = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     def validate_strings(self, item, done_items):
         if item is None:

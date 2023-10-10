@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2020 Blender Foundation.
+
 # - Find potrace library
 # Find the potrace include and library
 # This module defines

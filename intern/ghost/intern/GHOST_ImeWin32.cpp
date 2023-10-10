@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * The Original Code is Copyright 2010 The Chromium Authors. All rights reserved. */
 
 
 /** \file

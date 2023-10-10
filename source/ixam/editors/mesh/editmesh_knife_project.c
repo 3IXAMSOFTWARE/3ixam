@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2013 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -170,7 +172,7 @@ void MESH_OT_knife_project(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh_region_view3d;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* parameters */
   RNA_def_boolean(ot->srna,

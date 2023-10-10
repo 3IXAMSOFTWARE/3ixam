@@ -846,7 +846,7 @@ class NWLazyMix(Operator, NWBase):
     """Add a Mix RGB/Shader node by interactively drawing lines between nodes"""
     bl_idname = "node.nw_lazy_mix"
     bl_label = "Mix Nodes"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     def modal(self, context, event):
         context.area.tag_redraw()
@@ -922,7 +922,7 @@ class NWLazyConnect(Operator, NWBase):
     """Connect two nodes without clicking a specific socket (automatically determined"""
     bl_idname = "node.nw_lazy_connect"
     bl_label = "Lazy Connect"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
     with_menu: BoolProperty()
 
     def modal(self, context, event):
@@ -1133,7 +1133,7 @@ class NWSwapLinks(Operator, NWBase):
     """Swap the output connections of the two selected nodes, or two similar inputs of a single node"""
     bl_idname = 'node.nw_swap_links'
     bl_label = 'Swap Links'
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -1249,7 +1249,7 @@ class NWResetBG(Operator, NWBase):
     """Reset the zoom and position of the background image"""
     bl_idname = 'node.nw_bg_reset'
     bl_label = 'Reset Backdrop'
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -1270,7 +1270,7 @@ class NWAddAttrNode(Operator, NWBase):
     """Add an Attribute node with this name"""
     bl_idname = 'node.nw_add_attr_node'
     bl_label = 'Add UV map'
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     attr_name: StringProperty()
 
@@ -1284,7 +1284,7 @@ class NWPreviewNode(Operator, NWBase):
     bl_idname = "node.nw_preview_node"
     bl_label = "Preview Node"
     bl_description = "Connect active node to the Node Group output or the Material Output"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     # If false, the operator is not executed if the current node group happens to be a geometry nodes group.
     # This is needed because geometry nodes has its own viewer node that uses the same shortcut as in the compositor.
@@ -1615,7 +1615,7 @@ class NWFrameSelected(Operator, NWBase):
     bl_idname = "node.nw_frame_selected"
     bl_label = "Frame Selected"
     bl_description = "Add a frame node and parent the selected nodes to it"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     label_prop: StringProperty(
         name='Label',
@@ -1666,6 +1666,7 @@ class NWReloadImages(Operator):
     bl_idname = "node.nw_reload_images"
     bl_label = "Reload Images"
     bl_description = "Update all the image nodes to match their files on disk"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -1709,7 +1710,7 @@ class NWSwitchNodeType(Operator, NWBase):
     """Switch type of selected nodes """
     bl_idname = "node.nw_swtch_node_type"
     bl_label = "Switch Node Type"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     to_type: StringProperty(
         name="Switch to type",
@@ -1896,7 +1897,7 @@ class NWMergeNodes(Operator, NWBase):
     bl_idname = "node.nw_merge_nodes"
     bl_label = "Merge Nodes"
     bl_description = "Merge Selected Nodes"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     mode: EnumProperty(
         name="mode",
@@ -2273,7 +2274,7 @@ class NWBatchChangeNodes(Operator, NWBase):
     bl_idname = "node.nw_batch_change"
     bl_label = "Batch Change"
     bl_description = "Batch Change Blend Type and Math Operation"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     blend_type: EnumProperty(
         name="Blend Type",
@@ -2334,7 +2335,7 @@ class NWChangeMixFactor(Operator, NWBase):
     bl_idname = "node.nw_factor"
     bl_label = "Change Factor"
     bl_description = "Change Factors of Mix Nodes and Mix Shader Nodes"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     # option: Change factor.
     # If option is 1.0 or 0.0 - set to 1.0 or 0.0
@@ -2365,7 +2366,7 @@ class NWCopySettings(Operator, NWBase):
     bl_idname = "node.nw_copy_settings"
     bl_label = "Copy Settings"
     bl_description = "Copy Settings of Active Node to Selected Nodes"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -2476,7 +2477,7 @@ class NWCopySettings(Operator, NWBase):
 class NWCopyLabel(Operator, NWBase):
     bl_idname = "node.nw_copy_label"
     bl_label = "Copy Label"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     option: EnumProperty(
         name="option",
@@ -2520,7 +2521,7 @@ class NWCopyLabel(Operator, NWBase):
 class NWClearLabel(Operator, NWBase):
     bl_idname = "node.nw_clear_label"
     bl_label = "Clear Label"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     option: BoolProperty()
 
@@ -2542,7 +2543,7 @@ class NWModifyLabels(Operator, NWBase):
     """Modify Labels of all selected nodes"""
     bl_idname = "node.nw_modify_labels"
     bl_label = "Modify Labels"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     prepend: StringProperty(
         name="Add to Beginning"
@@ -2575,7 +2576,7 @@ class NWAddTextureSetup(Operator, NWBase):
     bl_idname = "node.nw_add_texture"
     bl_label = "Texture Setup"
     bl_description = "Add Texture Node Setup to Selected Shaders"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     add_mapping: BoolProperty(name="Add Mapping Nodes", description="Create coordinate and mapping nodes for the texture (ignored for selected texture nodes)", default=True)
 
@@ -2952,7 +2953,7 @@ class NWAddReroutes(Operator, NWBase):
     bl_idname = "node.nw_add_reroutes"
     bl_label = "Add Reroutes"
     bl_description = "Add Reroutes to Outputs"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     option: EnumProperty(
         name="option",
@@ -3051,7 +3052,7 @@ class NWLinkActiveToSelected(Operator, NWBase):
     """Link active node to selected nodes basing on various criteria"""
     bl_idname = "node.nw_link_active_to_selected"
     bl_label = "Link Active Node to Selected"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     replace: BoolProperty()
     use_node_name: BoolProperty()
@@ -3132,7 +3133,7 @@ class NWAlignNodes(Operator, NWBase):
     '''Align the selected nodes neatly in a row/column'''
     bl_idname = "node.nw_align_nodes"
     bl_label = "Align Nodes"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
     margin: IntProperty(name='Margin', default=50, description='The amount of space between nodes')
 
     def execute(self, context):
@@ -3201,7 +3202,7 @@ class NWAlignNodes(Operator, NWBase):
 class NWSelectParentChildren(Operator, NWBase):
     bl_idname = "node.nw_select_parent_child"
     bl_label = "Select Parent or Children"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     option: EnumProperty(
         name="option",
@@ -3233,7 +3234,7 @@ class NWDetachOutputs(Operator, NWBase):
     """Detach outputs of selected node leaving inputs linked"""
     bl_idname = "node.nw_detach_outputs"
     bl_label = "Detach Outputs"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     def execute(self, context):
         nodes, links = get_nodes_links(context)
@@ -3255,7 +3256,7 @@ class NWLinkToOutputNode(Operator):
     """Link to Composite node or Material Output node"""
     bl_idname = "node.nw_link_out"
     bl_label = "Connect to Output"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -3326,7 +3327,7 @@ class NWMakeLink(Operator, NWBase):
     """Make a link from one socket to another"""
     bl_idname = 'node.nw_make_link'
     bl_label = 'Make Link'
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
     from_socket: IntProperty()
     to_socket: IntProperty()
 
@@ -3347,7 +3348,7 @@ class NWCallInputsMenu(Operator, NWBase):
     """Link from this output"""
     bl_idname = 'node.nw_call_inputs_menu'
     bl_label = 'Make Link'
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
     from_socket: IntProperty()
 
     def execute(self, context):
@@ -3368,7 +3369,7 @@ class NWAddSequence(Operator, NWBase, ImportHelper):
     """Add an Image Sequence"""
     bl_idname = 'node.nw_add_sequence'
     bl_label = 'Import Image Sequence'
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     directory: StringProperty(
         subtype="DIR_PATH"
@@ -3489,7 +3490,7 @@ class NWAddMultipleImages(Operator, NWBase, ImportHelper):
     """Add multiple images at once"""
     bl_idname = 'node.nw_add_multiple_images'
     bl_label = 'Open Selected Images'
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
     directory: StringProperty(
         subtype="DIR_PATH"
     )
@@ -3542,6 +3543,7 @@ class NWViewerFocus(bpy.types.Operator):
     """Set the viewer tile center to the mouse position"""
     bl_idname = "node.nw_viewer_focus"
     bl_label = "Viewer Focus"
+    bl_options = {'INTERNAL'}
 
     x: bpy.props.IntProperty()
     y: bpy.props.IntProperty()
@@ -3598,6 +3600,7 @@ class NWSaveViewer(bpy.types.Operator, ExportHelper):
     """Save the current viewer node to an image file"""
     bl_idname = "node.nw_save_viewer"
     bl_label = "Save This Image"
+    bl_options = {'INTERNAL'}
     filepath: StringProperty(subtype="FILE_PATH")
     filename_ext: EnumProperty(
             name="Format",
@@ -3658,7 +3661,7 @@ class NWResetNodes(bpy.types.Operator):
     """Reset Nodes in Selection"""
     bl_idname = "node.nw_reset_nodes"
     bl_label = "Reset Nodes"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):

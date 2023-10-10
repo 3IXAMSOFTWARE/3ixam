@@ -1,9 +1,10 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup editorui
  *
  * API for simple creation of grid UIs, supporting typically needed features.
- * https://wiki.ixam.org/wiki/Source/Interface/Views/Grid_Views
+ * https://wiki.blender.org/wiki/Source/Interface/Views/Grid_Views
  */
 
 #pragma once

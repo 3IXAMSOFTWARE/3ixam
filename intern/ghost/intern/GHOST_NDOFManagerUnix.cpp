@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "GHOST_NDOFManagerUnix.h"
 #include "GHOST_System.h"

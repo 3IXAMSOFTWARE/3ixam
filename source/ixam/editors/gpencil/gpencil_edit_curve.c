@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. */
 
 
 /** \file
@@ -107,7 +109,7 @@ void GPENCIL_OT_stroke_enter_editcurve_mode(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_float(ot->srna,
@@ -195,7 +197,7 @@ void GPENCIL_OT_stroke_editcurve_set_handle_type(wmOperatorType *ot)
   ot->poll = gpencil_curve_edit_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "type", editcurve_handle_type_items, 1, "Type", "Spline type");

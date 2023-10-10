@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 GPU_SHADER_INTERFACE_INFO(overlay_grid_iface, "").smooth(Type::VEC3, "local_pos");
 

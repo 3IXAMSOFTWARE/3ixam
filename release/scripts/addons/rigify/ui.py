@@ -290,6 +290,7 @@ class DATA_PT_rigify_layer_names(bpy.types.Panel):
 class DATA_OT_rigify_add_bone_groups(bpy.types.Operator):
     bl_idname = "armature.rigify_add_bone_groups"
     bl_label = "Rigify Add Standard Bone Groups"
+    bl_optinos = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -333,6 +334,7 @@ class DATA_OT_rigify_add_bone_groups(bpy.types.Operator):
 class DATA_OT_rigify_use_standard_colors(bpy.types.Operator):
     bl_idname = "armature.rigify_use_standard_colors"
     bl_label = "Rigify Get active/select colors from current theme"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -360,6 +362,7 @@ class DATA_OT_rigify_use_standard_colors(bpy.types.Operator):
 class DATA_OT_rigify_apply_selection_colors(bpy.types.Operator):
     bl_idname = "armature.rigify_apply_selection_colors"
     bl_label = "Rigify Apply user defined active/select colors"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -384,6 +387,7 @@ class DATA_OT_rigify_apply_selection_colors(bpy.types.Operator):
 class DATA_OT_rigify_bone_group_add(bpy.types.Operator):
     bl_idname = "armature.rigify_bone_group_add"
     bl_label = "Rigify Add Bone Group color set"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -413,7 +417,7 @@ class DATA_OT_rigify_bone_group_add(bpy.types.Operator):
 class DATA_OT_rigify_bone_group_add_theme(bpy.types.Operator):
     bl_idname = "armature.rigify_bone_group_add_theme"
     bl_label = "Rigify Add Bone Group color set from Theme"
-    bl_options = {"REGISTER", "UNDO"}
+    bl_options = {"REGISTER", "UNDO", 'INTERNAL'}
 
     theme: EnumProperty(items=(
         ('THEME01', 'THEME01', ''),
@@ -468,6 +472,7 @@ class DATA_OT_rigify_bone_group_add_theme(bpy.types.Operator):
 class DATA_OT_rigify_bone_group_remove(bpy.types.Operator):
     bl_idname = "armature.rigify_bone_group_remove"
     bl_label = "Rigify Remove Bone Group color set"
+    bl_options = {'INTERNAL'}
 
     idx: IntProperty()
 
@@ -492,6 +497,7 @@ class DATA_OT_rigify_bone_group_remove(bpy.types.Operator):
 class DATA_OT_rigify_bone_group_remove_all(bpy.types.Operator):
     bl_idname = "armature.rigify_bone_group_remove_all"
     bl_label = "Rigify Remove All Bone Groups"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -785,7 +791,7 @@ class Generate(bpy.types.Operator):
 
     bl_idname = "pose.rigify_generate"
     bl_label = "Rigify Generate Rig"
-    bl_options = {'UNDO'}
+    bl_options = {'UNDO', 'INTERNAL'}
     bl_description = 'Generates a rig from the active metarig armature'
 
     @classmethod
@@ -820,7 +826,7 @@ class UpgradeMetarigTypes(bpy.types.Operator):
     bl_idname = "pose.rigify_upgrade_types"
     bl_label = "Rigify Upgrade Metarig Types"
     bl_description = 'Upgrades the rigify types on the active metarig armature'
-    bl_options = {'UNDO'}
+    bl_options = {'UNDO', 'INTERNAL'}
 
     def execute(self, context):
         for obj in bpy.data.objects:
@@ -880,7 +886,7 @@ class EncodeMetarig(bpy.types.Operator):
     """Creates Python code that will generate the selected metarig"""
     bl_idname = "armature.rigify_encode_metarig"
     bl_label = "Rigify Encode Metarig"
-    bl_options = {'UNDO'}
+    bl_options = {'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(self, context):
@@ -906,7 +912,7 @@ class EncodeMetarigSample(bpy.types.Operator):
     """Creates Python code that will generate the selected metarig as a sample"""
     bl_idname = "armature.rigify_encode_metarig_sample"
     bl_label = "Rigify Encode Metarig Sample"
-    bl_options = {'UNDO'}
+    bl_options = {'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(self, context):
@@ -957,7 +963,7 @@ class EncodeWidget(bpy.types.Operator):
     """
     bl_idname = "mesh.rigify_encode_mesh_widget"
     bl_label = "Rigify Encode Widget"
-    bl_options = {'UNDO'}
+    bl_options = {'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(self, context):

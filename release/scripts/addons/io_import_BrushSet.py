@@ -22,8 +22,8 @@ bl_info = {
     "location": "File > Import > BrushSet",
     "description": "Imports all image files from a folder.",
     "warning": '',    # used for warning icon and text in addons panel
-    "doc_url": "http://wiki.ixam.org/index.php/Extensions:2.5/Py/Scripts/Import-Export/BrushSet",
-    "tracker_url": "https://developer.ixam.org/maniphest/task/edit/form/2/",
+    "doc_url": "http://wiki.blender.org/index.php/Extensions:2.5/Py/Scripts/Import-Export/BrushSet",
+    "tracker_url": "https://developer.blender.org/maniphest/task/edit/form/2/",
     "category": "Import-Export",
 }
 

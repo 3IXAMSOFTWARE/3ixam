@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import bpy
 from bpy.types import Menu
 from bl_ui import node_add_menu
@@ -178,6 +180,7 @@ class NODE_MT_geometry_node_GEO_INSTANCE(Menu):
 class NODE_MT_geometry_node_GEO_MATERIAL(Menu):
     bl_idname = "NODE_MT_geometry_node_GEO_MATERIAL"
     bl_label = "Material"
+    bl_options = {'INTERNAL'}
 
     def draw(self, _context):
         layout = self.layout

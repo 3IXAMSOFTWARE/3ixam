@@ -14,8 +14,8 @@ bl_info = {
 
 """
 Related links:
-https://developer.ixam.org/T34456
-https://developer.ixam.org/T25408
+https://developer.blender.org/T34456
+https://developer.blender.org/T25408
 
 Usage Notes:
 

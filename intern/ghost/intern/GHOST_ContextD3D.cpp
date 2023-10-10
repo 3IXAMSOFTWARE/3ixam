@@ -1,9 +1,10 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup GHOST
  *
  * For testing purposes, it can be useful to do some DirectX only drawing. A patch for this can be
- * found here: https://developer.3ixam.com/P1284
+ * found here: https://developer.blender.com/P1284
  */
 
 #include <iostream>

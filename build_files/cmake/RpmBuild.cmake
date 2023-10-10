@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # VLMC RPM Finder
 # Authors: Rohit Yadav <rohityadav89@gmail.com>

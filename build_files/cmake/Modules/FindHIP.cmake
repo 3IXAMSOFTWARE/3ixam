@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2021 Blender Foundation.
+
 # - Find HIP compiler
 #
 # This module defines

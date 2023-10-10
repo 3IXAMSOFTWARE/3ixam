@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # Update "languages" text file used by 3IXAM at runtime to build translations menu.
 

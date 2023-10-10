@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -750,7 +752,7 @@ static void MARKER_OT_add(wmOperatorType *ot)
   ot->poll = ED_operator_markers_region_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1200,7 +1202,7 @@ static void MARKER_OT_duplicate(wmOperatorType *ot)
   ot->cancel = ed_marker_move_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* rna storage */
   RNA_def_int(ot->srna, "frames", 0, INT_MIN, INT_MAX, "Frames", "", INT_MIN, INT_MAX);
@@ -1656,7 +1658,7 @@ static void MARKER_OT_delete(wmOperatorType *ot)
   ot->poll = ed_markers_poll_selected_no_locked_markers;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
   WM_operator_properties_confirm_or_exec(ot);
 }
 
@@ -1782,7 +1784,7 @@ static void MARKER_OT_make_links_scene(wmOperatorType *ot)
   ot->poll = ed_markers_poll_selected_markers;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(ot->srna, "scene", DummyRNA_NULL_items, 0, "Scene", "");
@@ -1859,7 +1861,7 @@ static void MARKER_OT_camera_bind(wmOperatorType *ot)
   ot->poll = ED_operator_markers_region_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 #endif

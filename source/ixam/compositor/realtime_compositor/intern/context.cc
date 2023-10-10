@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "COM_context.hh"
 #include "COM_static_shader_manager.hh"

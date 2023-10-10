@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 /* NOTE: Requires OpenXR headers to be included before this one for OpenXR types (XrInstance,

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -763,7 +765,7 @@ void OBJECT_OT_hook_remove(wmOperatorType *ot)
   /* flags */
   /* this operator removes modifier which isn't stored in local undo stack,
    * so redoing it from redo panel gives totally weird results. */
-  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO;
+  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(
@@ -808,7 +810,7 @@ void OBJECT_OT_hook_reset(wmOperatorType *ot)
   ot->poll = hook_op_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(
@@ -859,7 +861,7 @@ void OBJECT_OT_hook_recenter(wmOperatorType *ot)
   ot->poll = hook_op_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(
@@ -922,7 +924,7 @@ void OBJECT_OT_hook_assign(wmOperatorType *ot)
   /* flags */
   /* this operator changes data stored in modifier which doesn't get pushed to undo stack,
    * so redoing it from redo panel gives totally weird results. */
-  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO;
+  ot->flag = /*OPTYPE_REGISTER|*/ OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(
@@ -967,7 +969,7 @@ void OBJECT_OT_hook_select(wmOperatorType *ot)
   ot->poll = hook_op_edit_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(

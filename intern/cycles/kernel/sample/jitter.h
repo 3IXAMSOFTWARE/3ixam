@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2011-2022 Blender Foundation */
+
 #include "kernel/sample/util.h"
 #include "util/hash.h"
 

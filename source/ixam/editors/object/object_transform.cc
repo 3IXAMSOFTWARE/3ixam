@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -383,7 +385,7 @@ void OBJECT_OT_location_clear(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_boolean(
@@ -505,7 +507,7 @@ void OBJECT_OT_origin_clear(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1104,7 +1106,7 @@ void OBJECT_OT_visual_transform_apply(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int object_transform_apply_exec(bContext *C, wmOperator *op)

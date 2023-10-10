@@ -9,7 +9,7 @@ bl_info = {
     "description": "Allows managing UI translations directly from Ixam "
         "(update main .po files, update scripts' translations, etc.)",
     "warning": "Still in development, not all features are fully implemented yet!",
-    "doc_url": "http://wiki.ixam.org/index.php/Dev:Doc/How_to/Translate_Ixam",
+    "doc_url": "http://wiki.blender.org/index.php/Dev:Doc/How_to/Translate_Ixam",
     "support": 'OFFICIAL',
     "category": "System",
 }

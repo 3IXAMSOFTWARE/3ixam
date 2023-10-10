@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: BSD-3-Clause
+ * Copyright 2001 Robert Penner. All rights reserved. */
 
 
 #pragma once

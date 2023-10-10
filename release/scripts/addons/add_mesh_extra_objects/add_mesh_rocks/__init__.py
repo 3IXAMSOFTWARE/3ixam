@@ -18,9 +18,9 @@ bl_info = {
     "ixam": (2, 80, 0),
     "location": "View3D > Add > Rock Generator",
     "description": "Adds a mesh rock to the Add Mesh menu",
-    "doc_url": "http://wiki.ixam.org/index.php/Extensions:2.6/Py/"
+    "doc_url": "http://wiki.blender.org/index.php/Extensions:2.6/Py/"
     "Scripts/Add_Mesh/Rock_Generator",
-    "tracker_url": "https://developer.ixam.org/maniphest/task/edit/form/2/",
+    "tracker_url": "https://developer.blender.org/maniphest/task/edit/form/2/",
     "category": "Add Mesh",
 }
 

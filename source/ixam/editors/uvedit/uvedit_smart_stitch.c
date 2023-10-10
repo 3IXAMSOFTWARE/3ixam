@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -2688,7 +2690,7 @@ void UV_OT_stitch(wmOperatorType *ot)
   ot->name = "Stitch";
   ot->description = "Stitch selected UV vertices by proximity";
   ot->idname = "UV_OT_stitch";
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = stitch_invoke;

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -958,6 +960,8 @@ static void UV_OT_remove_doubles(wmOperatorType *ot)
   ot->exec = uv_remove_doubles_exec;
   ot->poll = ED_operator_uvedit;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   RNA_def_float(ot->srna,
                 "threshold",
                 0.02f,
@@ -1081,7 +1085,7 @@ static void UV_OT_snap_cursor(wmOperatorType *ot)
   ot->name = "Snap Cursor";
   ot->description = "Snap cursor to target type";
   ot->idname = "UV_OT_snap_cursor";
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = uv_snap_cursor_exec;
@@ -1810,6 +1814,8 @@ static void UV_OT_cursor_set(wmOperatorType *ot)
   ot->invoke = uv_set_2d_cursor_invoke;
   ot->poll = ED_space_image_cursor_poll;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   RNA_def_float_vector(ot->srna,
                        "location",
@@ -1913,7 +1919,7 @@ static void UV_OT_seams_from_islands(wmOperatorType *ot)
   ot->idname = "UV_OT_seams_from_islands";
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = uv_seams_from_islands_exec;

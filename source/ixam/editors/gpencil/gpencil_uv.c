@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "MEM_guardedalloc.h"
@@ -441,7 +442,7 @@ void GPENCIL_OT_transform_fill(wmOperatorType *ot)
   ot->poll = gpencil_transform_fill_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_GRAB_CURSOR_XY | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_GRAB_CURSOR_XY | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "mode", uv_mode, GP_UV_ROTATE, "Mode", "");
@@ -527,7 +528,7 @@ void GPENCIL_OT_reset_transform_fill(wmOperatorType *ot)
   ot->poll = gpencil_transform_fill_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "mode", uv_clear_mode, GP_UV_ALL, "Mode", "");

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: Apache-2.0 */
 
 #include "BLI_array.hh"
 #include "BLI_length_parameterize.hh"

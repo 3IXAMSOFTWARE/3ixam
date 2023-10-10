@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -129,7 +131,7 @@ void CLIP_OT_dopesheet_select_channel(wmOperatorType *ot)
   ot->poll = dopesheet_select_channel_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -196,5 +198,5 @@ void CLIP_OT_dopesheet_view_all(wmOperatorType *ot)
   ot->poll = space_clip_dopesheet_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }

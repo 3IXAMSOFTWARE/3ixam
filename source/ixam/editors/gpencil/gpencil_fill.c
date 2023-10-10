@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2017 Blender Foundation. */
 
 
 /** \file
@@ -3079,7 +3081,7 @@ void GPENCIL_OT_fill(wmOperatorType *ot)
   ot->cancel = gpencil_fill_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   prop = RNA_def_boolean(ot->srna, "on_back", false, "Draw on Back", "Send new stroke to back");
   RNA_def_property_flag(prop, PROP_SKIP_SAVE);

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. */
 
 
 /** \file
@@ -698,7 +700,7 @@ void ED_operatormacros_gpencil(void)
       "GPENCIL_OT_duplicate_move",
       "Duplicate Strokes",
       "Make copies of the selected Grease Pencil strokes and move them",
-      OPTYPE_UNDO | OPTYPE_REGISTER);
+      OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "GPENCIL_OT_duplicate");
   otmacro = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   RNA_boolean_set(otmacro->ptr, "gpencil_strokes", true);

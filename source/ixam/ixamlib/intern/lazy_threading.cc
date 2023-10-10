@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "BLI_lazy_threading.hh"
 #include "BLI_stack.hh"

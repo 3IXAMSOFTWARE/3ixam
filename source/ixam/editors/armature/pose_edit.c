@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -456,7 +458,7 @@ void POSE_OT_paths_clear(wmOperatorType *ot)
   ot->poll = ED_operator_posemode_exclusive;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_boolean(
@@ -547,7 +549,7 @@ void POSE_OT_flip_names(wmOperatorType *ot)
   ot->poll = ED_operator_posemode_local;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "do_strip_numbers",
@@ -813,7 +815,7 @@ void ARMATURE_OT_armature_layers(wmOperatorType *ot)
   ot->poll = armature_layers_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean_layer_member(
@@ -903,7 +905,7 @@ void POSE_OT_bone_layers(wmOperatorType *ot)
   ot->poll = ED_operator_posemode_exclusive;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean_layer_member(
@@ -979,7 +981,7 @@ void ARMATURE_OT_bone_layers(wmOperatorType *ot)
   ot->poll = ED_operator_editarmature;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean_layer_member(
@@ -1115,7 +1117,7 @@ void POSE_OT_reveal(wmOperatorType *ot)
   ot->poll = ED_operator_posemode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "select", true, "Select", "");
 }

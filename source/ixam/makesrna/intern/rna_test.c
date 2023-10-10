@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 /* Defines a structure with properties used for array manipulation tests in BPY. */

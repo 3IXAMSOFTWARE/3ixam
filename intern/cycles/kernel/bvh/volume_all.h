@@ -1,3 +1,8 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Adapted from code Copyright 2009-2010 NVIDIA Corporation,
+ * and code copyright 2009-2012 Intel Corporation
+ *
+ * Modifications Copyright 2011-2022 Blender Foundation. */
 
 
 #if BVH_FEATURE(BVH_HAIR)

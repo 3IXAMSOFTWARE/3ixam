@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2022 NVIDIA Corporation
+ * Copyright 2022 Blender Foundation */
 
 
 #include "hydra/instancer.h"

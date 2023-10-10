@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(WIN32 AND BUILD_MODE STREQUAL Debug)
   set(SITE_PACKAGES_EXTRA --global-option build --global-option --debug)

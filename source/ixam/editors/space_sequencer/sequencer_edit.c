@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -288,7 +290,7 @@ void SEQUENCER_OT_gap_remove(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "all", 0, "All Gaps", "Do all gaps to right of current frame");
 }
@@ -326,7 +328,7 @@ void SEQUENCER_OT_gap_insert(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna,
               "frames",
@@ -441,7 +443,7 @@ void SEQUENCER_OT_snap(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna,
               "frame",
@@ -829,7 +831,7 @@ void SEQUENCER_OT_slip(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna,
               "offset",
@@ -893,7 +895,7 @@ void SEQUENCER_OT_mute(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(
       ot->srna, "unselected", 0, "Unselected", "Mute unselected rather than selected strips");
@@ -950,7 +952,7 @@ void SEQUENCER_OT_unmute(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(
       ot->srna, "unselected", 0, "Unselected", "Unmute unselected rather than selected strips");
@@ -991,7 +993,7 @@ void SEQUENCER_OT_lock(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1029,7 +1031,7 @@ void SEQUENCER_OT_unlock(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1077,7 +1079,7 @@ void SEQUENCER_OT_reload(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER; /* No undo, the data changed is stored outside 'main'. */
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL; /* No undo, the data changed is stored outside 'main'. */
 
   prop = RNA_def_boolean(ot->srna,
                          "adjust_length",
@@ -1123,6 +1125,8 @@ void SEQUENCER_OT_refresh_all(struct wmOperatorType *ot)
   /* Api callbacks. */
   ot->exec = sequencer_refresh_all_exec;
   ot->poll = sequencer_refresh_all_poll;
+
+  ot->flag = OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1293,7 +1297,7 @@ void SEQUENCER_OT_reassign_inputs(struct wmOperatorType *ot)
   ot->poll = sequencer_effect_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1334,7 +1338,7 @@ void SEQUENCER_OT_swap_inputs(struct wmOperatorType *ot)
   ot->poll = sequencer_effect_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1519,7 +1523,7 @@ void SEQUENCER_OT_split(struct wmOperatorType *ot)
   ot->ui = sequencer_split_ui;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   PropertyRNA *prop;
   RNA_def_int(ot->srna,
@@ -1641,7 +1645,7 @@ void SEQUENCER_OT_duplicate(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1728,7 +1732,7 @@ void SEQUENCER_OT_delete(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /*  Properties. */
   ot->prop = RNA_def_boolean(ot->srna,
@@ -1791,7 +1795,7 @@ void SEQUENCER_OT_offset_clear(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1892,7 +1896,7 @@ void SEQUENCER_OT_images_separate(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna, "length", 1, 1, INT_MAX, "Length", "Length of each frame", 1, 1000);
 }
@@ -1945,7 +1949,7 @@ void SEQUENCER_OT_meta_toggle(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2012,7 +2016,7 @@ void SEQUENCER_OT_meta_make(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2074,7 +2078,7 @@ void SEQUENCER_OT_meta_separate(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2140,7 +2144,7 @@ void SEQUENCER_OT_strip_jump(wmOperatorType *ot)
   ot->poll = sequencer_strip_jump_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   RNA_def_boolean(ot->srna, "next", true, "Next Strip", "");
@@ -2298,7 +2302,7 @@ void SEQUENCER_OT_swap(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   RNA_def_enum(
@@ -2366,7 +2370,7 @@ void SEQUENCER_OT_rendersize(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2468,7 +2472,7 @@ void SEQUENCER_OT_copy(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2608,7 +2612,7 @@ void SEQUENCER_OT_paste(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   PropertyRNA *prop = RNA_def_boolean(
@@ -2681,7 +2685,7 @@ void SEQUENCER_OT_swap_data(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2743,7 +2747,7 @@ void SEQUENCER_OT_change_effect_input(struct wmOperatorType *ot)
   ot->poll = sequencer_effect_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(
       ot->srna, "swap", prop_change_effect_input_types, 0, "Swap", "The effect inputs to swap");
@@ -2822,7 +2826,7 @@ void SEQUENCER_OT_change_effect_type(struct wmOperatorType *ot)
   ot->poll = sequencer_effect_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna,
                           "type",
@@ -2964,7 +2968,7 @@ void SEQUENCER_OT_change_path(struct wmOperatorType *ot)
   ot->poll = sequencer_strip_has_path_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER,
@@ -3047,7 +3051,7 @@ void SEQUENCER_OT_change_scene(struct wmOperatorType *ot)
   ot->poll = sequencer_strip_change_scene_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   prop = RNA_def_enum(ot->srna, "scene", DummyRNA_NULL_items, 0, "Scene", "");
@@ -3209,7 +3213,7 @@ void SEQUENCER_OT_export_subtitles(struct wmOperatorType *ot)
   ot->poll = sequencer_strip_is_text_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER,
@@ -3284,7 +3288,7 @@ void SEQUENCER_OT_set_range_to_strips(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_boolean(ot->srna, "preview", false, "Preview", "Set the preview range instead");
   RNA_def_property_flag(prop, PROP_SKIP_SAVE | PROP_HIDDEN);
@@ -3361,7 +3365,7 @@ void SEQUENCER_OT_strip_transform_clear(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna,
                           "property",
@@ -3425,7 +3429,7 @@ void SEQUENCER_OT_strip_transform_fit(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna,
                           "fit_method",
@@ -3479,7 +3483,7 @@ void SEQUENCER_OT_strip_color_tag_set(struct wmOperatorType *ot)
   ot->poll = sequencer_strip_color_tag_set_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(
       ot->srna, "color", rna_enum_strip_color_items, SEQUENCE_COLOR_NONE, "Color Tag", "");
@@ -3532,7 +3536,7 @@ void SEQUENCER_OT_cursor_set(wmOperatorType *ot)
   ot->poll = sequencer_view_has_preview_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import bpy
 import sys
 import subprocess
@@ -212,13 +214,22 @@ class TOPBAR_MT_editor_menus(Menu):
             sub.menu(*args, shape=alternating_shape(), **kwargs)
             layout.separator(factor=2.0)
 
-
-        trapezoid_menu("TOPBAR_MT_file")
-        trapezoid_menu("TOPBAR_MT_window")
-        trapezoid_menu("TOPBAR_MT_materials")
-        trapezoid_menu("TOPBAR_MT_object")
-        trapezoid_menu("TOPBAR_MT_render")
-        trapezoid_menu("TOPBAR_MT_help")
+        if context.workspace.type == 'PRO_ANIMATE':
+            trapezoid_menu("TOPBAR_MT_file")
+            trapezoid_menu("TOPBAR_MT_object")
+            trapezoid_menu("TOPBAR_MT_help")
+        elif context.workspace.type == 'VR_HANDS':
+            trapezoid_menu("TOPBAR_MT_file")
+            trapezoid_menu("TOPBAR_MT_window")
+            trapezoid_menu("TOPBAR_MT_object")
+            trapezoid_menu("TOPBAR_MT_help")
+        else:
+            trapezoid_menu("TOPBAR_MT_file")
+            trapezoid_menu("TOPBAR_MT_window")
+            trapezoid_menu("TOPBAR_MT_materials")
+            trapezoid_menu("TOPBAR_MT_object")
+            trapezoid_menu("TOPBAR_MT_render")
+            trapezoid_menu("TOPBAR_MT_help")
 
 class TOPBAR_MT_ixam(Menu):
     bl_label = "3IXAM"
@@ -544,7 +555,7 @@ class TOPBAR_MT_render(Menu):
         layout.operator("view3d.add_camera_to_view")
         layout.separator()
 
-        layout.label(text="CrossPlatform Rendering")
+        layout.label(text="CrossRender")
 
         
 class TOPBAR_MT_edit(Menu):
@@ -1028,7 +1039,7 @@ class ToggleThreadsMode(bpy.types.Operator):
     bl_idname = "render.toggle_threads_mode"
     bl_label = "Set Threads"
     bl_description = "I will switch the number of threads in the CPU to be used for rendering"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     threads: bpy.props.IntProperty(name="Number of threads", default=1, min=1, max=16, soft_min=1, soft_max=16, step=1)
 
@@ -1083,7 +1094,7 @@ class SyncAllSubsurfRenderLevels(bpy.types.Operator):
     bl_idname = "render.sync_all_subsurf_render_levels"
     bl_label = "Sync All Subdivision Levels"
     bl_description = "sync_all_subsurf_render_levels"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     level_offset: bpy.props.IntProperty(name="Sync Levels", default=0, min=-20, max=20, soft_min=-20, soft_max=20, step=1)
 

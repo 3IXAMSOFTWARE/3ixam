@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1819,5 +1821,5 @@ void VIEW3D_OT_object_mode_pie_or_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_view3d_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2009-2013 Intel Corporation */
 
 
 #ifndef __UTIL_AVXI_H__

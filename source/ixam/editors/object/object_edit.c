@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -1323,7 +1325,7 @@ void OBJECT_OT_paths_calculate(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,
@@ -1511,7 +1513,7 @@ void OBJECT_OT_paths_clear(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_boolean(
@@ -1884,6 +1886,8 @@ void OBJECT_OT_mode_set_with_submode(wmOperatorType *ot)
   ot->name = "Set Object Mode with Sub-mode";
   ot->idname = "OBJECT_OT_mode_set_with_submode";
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   /* we could add other types - particle for eg. */
   PropertyRNA *prop;
@@ -2216,7 +2220,7 @@ void OBJECT_OT_link_to_collection(wmOperatorType *ot)
   ot->poll = move_to_collection_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_int(ot->srna,
                      "collection_index",

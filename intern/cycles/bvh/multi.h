@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2020-2022 Blender Foundation. */
 
 
 #ifndef __BVH_MULTI_H__

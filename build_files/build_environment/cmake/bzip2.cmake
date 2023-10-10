@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(BZIP2_PREFIX "${LIBDIR}/bzip2")
 set(BZIP2_CONFIGURE_ENV echo .)

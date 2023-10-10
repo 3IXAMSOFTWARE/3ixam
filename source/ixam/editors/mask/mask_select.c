@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -222,7 +224,7 @@ void MASK_OT_select_all(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_select_all(ot);
@@ -399,7 +401,7 @@ void MASK_OT_select(wmOperatorType *ot)
   ot->get_name = ED_select_pick_get_name;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_mouse_select(ot);
@@ -504,7 +506,7 @@ void MASK_OT_select_box(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_box(ot);
@@ -628,7 +630,7 @@ void MASK_OT_select_lasso(wmOperatorType *ot)
   ot->cancel = WM_gesture_lasso_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_UNDO | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_lasso(ot);
@@ -746,7 +748,7 @@ void MASK_OT_select_circle(wmOperatorType *ot)
   ot->get_name = ED_select_circle_get_name;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_circle(ot);
@@ -809,7 +811,7 @@ void MASK_OT_select_linked_pick(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "deselect", 0, "Deselect", "");
 }
@@ -864,7 +866,7 @@ void MASK_OT_select_linked(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -963,7 +965,7 @@ void MASK_OT_select_more(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int mask_select_less_exec(bContext *C, wmOperator *UNUSED(op))
@@ -983,7 +985,7 @@ void MASK_OT_select_less(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

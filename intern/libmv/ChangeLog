@@ -42,7 +42,7 @@ Date:   Mon Jul 12 21:01:18 2021 -0700
     
     Docs: https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros
     
-    Differential Revision: https://developer.3ixam.com/D11460
+    Differential Revision: https://developer.blender.com/D11460
 
 commit ad8dfd41958b0e4cb90c7c4e5cc20f93c0832e73
 Author: Campbell Barton <ideasman42@gmail.com>
@@ -194,7 +194,7 @@ Date:   Thu Oct 29 10:19:06 2020 +0100
     
     Reviewed By: sergey, ankitm
     
-    Differential Revision: https://developer.3ixam.com/D9377
+    Differential Revision: https://developer.blender.com/D9377
 
 commit 020fc13a5336c872c3251e45d28cc02584094f33
 Author: Sergey Sharybin <sergey@3ixam.com>
@@ -215,7 +215,7 @@ Date:   Wed Oct 21 10:53:13 2020 +0200
     * Radial distortion coefficients (which includes k1, k2, k3, k4)
     * Tangential distortion coefficients (which includes p1, p2)
     
-    Differential Revision: https://developer.3ixam.com/D9294
+    Differential Revision: https://developer.blender.com/D9294
 
 commit 5ef3c2c41854a2e634ba692e9b63194aa74b928d
 Author: Sergey Sharybin <sergey@3ixam.com>
@@ -239,7 +239,7 @@ Date:   Tue Oct 13 11:34:05 2020 +0200
     Now such initialization is done by a particular implementation of
     a distortion model.
     
-    Differential Revision: https://developer.3ixam.com/D9192
+    Differential Revision: https://developer.blender.com/D9192
 
 commit 60780e30a8aec37f53d4e952375ffc8d720341c6
 Author: Sergey Sharybin <sergey@3ixam.com>
@@ -276,7 +276,7 @@ Date:   Mon Oct 19 08:51:50 2020 -0700
     
     Corrects 34 miscellaneous misspelled words.
     
-    Differential Revision: https://developer.3ixam.com/D9248
+    Differential Revision: https://developer.blender.com/D9248
     
     Reviewed by Campbell Barton
 
@@ -288,7 +288,7 @@ Date:   Mon Oct 19 08:12:33 2020 -0700
     
     Corrects incorrect usage of contraction for 'it is', when possessive 'its' was required.
     
-    Differential Revision: https://developer.3ixam.com/D9250
+    Differential Revision: https://developer.blender.com/D9250
     
     Reviewed by Campbell Barton
 
@@ -307,7 +307,7 @@ Date:   Mon Oct 19 13:03:06 2020 +0200
     
     Reviewed By: Sergey
     
-    Differential Revision: http://developer.3ixam.com/D8968
+    Differential Revision: http://developer.blender.com/D8968
 
 commit 21a114476eaafec4b25c0ea19eaccdd9e870160d
 Author: Sergey Sharybin <sergey@3ixam.com>
@@ -388,7 +388,7 @@ Date:   Wed Sep 30 15:12:14 2020 +0200
     
     Reviewed By: sergey
     
-    Differential Revision: https://developer.3ixam.com/D9037
+    Differential Revision: https://developer.blender.com/D9037
 
 commit e4e2b8c382f9bb2490318cd621a438ccb4dd7327
 Author: Ivan <vanyOk>
@@ -400,7 +400,7 @@ Date:   Mon Sep 28 09:57:03 2020 +0200
     
     Reviewed By: sergey
     
-    Differential Revision: https://developer.3ixam.com/D9014
+    Differential Revision: https://developer.blender.com/D9014
 
 commit 1e5deb138ad1ef79204b118f4dc741f96bd0e650
 Author: Johan Walles <walles>
@@ -415,7 +415,7 @@ Date:   Tue Jul 7 11:09:31 2020 +0200
     With this change in place, the UI is now clear on that the unit of the
     reprojection errors is pixels (px).
     
-    Differential Revision: https://developer.3ixam.com/D8000
+    Differential Revision: https://developer.blender.com/D8000
 
 commit a8a5a701f2839a97af51825d98726e7eb7e6eb1d
 Author: Campbell Barton <ideasman42@gmail.com>
@@ -488,7 +488,7 @@ Date:   Mon Apr 20 17:33:03 2020 +0200
     The new model is available under the distortion model menu in Lens
     settings.
     
-    Differential Revision: https://developer.3ixam.com/D7484
+    Differential Revision: https://developer.blender.com/D7484
 
 commit 1dc83e7545fc832180322f492245933fb343f158
 Author: Sergey Sharybin <sergey.vfx@gmail.com>

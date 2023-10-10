@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # Populate a template file (POT format currently) from 3IXAM RNA/py/C data.
 # XXX: This script is meant to be used from inside 3IXAM!

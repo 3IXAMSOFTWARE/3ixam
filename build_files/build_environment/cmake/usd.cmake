@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(WIN32)
   # OIIO and OSL are statically linked for us, but USD doesn't know

@@ -9,7 +9,7 @@ bl_info = {
     "location": "VIEW3D > Edge menu(CTRL-E) > Offset Edges",
     "description": "Offset Edges",
     "warning": "",
-    "doc_url": "http://wiki.ixam.org/index.php/Extensions:2.6/Py/Scripts/Modeling/offset_edges",
+    "doc_url": "http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Modeling/offset_edges",
     "tracker_url": "",
     "category": "Mesh",
 }

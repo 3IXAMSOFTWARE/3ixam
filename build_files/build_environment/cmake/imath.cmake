@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(IMATH_EXTRA_ARGS
   -DBUILD_SHARED_LIBS=OFF

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 
 # <pep8 compliant>
@@ -1081,7 +1082,7 @@ class USERPREF_PT_system_cycles_devices(SystemPanel, CenterAlignMixIn, Panel):
 #         split.operator("preferences.associate_ixam", text="Make Default")
 
 class USERPREF_PT_system_cross_platform(SystemPanel, CenterAlignMixIn, Panel):
-    bl_label = "Cross Platform Rendering"
+    bl_label = "CrossRender"
 
     def draw_centered(self, context, layout):
         prefs = context.preferences
@@ -2839,7 +2840,7 @@ class ExperimentalPanel:
     bl_region_type = 'WINDOW'
     bl_context = "experimental"
 
-    url_prefix = "https://developer.3ixam.com/"
+    url_prefix = "https://developer.blender.com/"
 
     @classmethod
     def poll(cls, _context):

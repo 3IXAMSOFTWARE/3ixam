@@ -1,3 +1,8 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Mode switching
+ * Copyright 1997-2001 Id Software, Inc.
+ * Copyright 1993-2011 Tim Riker
+ * Copyright 2012 Alex Fraser */
 
 
 /** \file

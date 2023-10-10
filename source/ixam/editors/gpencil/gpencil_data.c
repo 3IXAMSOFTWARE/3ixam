@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. */
 
 
 /** \file
@@ -126,7 +128,7 @@ void GPENCIL_OT_annotation_add(wmOperatorType *ot)
   ot->name = "Annotation Add New";
   ot->idname = "GPENCIL_OT_annotation_add";
   ot->description = "Add new Annotation data-block";
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_data_add_exec;
@@ -178,7 +180,7 @@ void GPENCIL_OT_data_unlink(wmOperatorType *ot)
   ot->name = "Annotation Unlink";
   ot->idname = "GPENCIL_OT_data_unlink";
   ot->description = "Unlink active Annotation data-block";
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_data_unlink_exec;
@@ -247,7 +249,7 @@ void GPENCIL_OT_layer_add(wmOperatorType *ot)
   ot->idname = "GPENCIL_OT_layer_add";
   ot->description = "Add new layer or note for the active data-block";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_layer_add_exec;
@@ -266,7 +268,7 @@ void GPENCIL_OT_layer_annotation_add(wmOperatorType *ot)
   ot->idname = "GPENCIL_OT_layer_annotation_add";
   ot->description = "Add new Annotation layer or note for the active data-block";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_layer_add_exec;
@@ -324,7 +326,7 @@ void GPENCIL_OT_layer_remove(wmOperatorType *ot)
   ot->idname = "GPENCIL_OT_layer_remove";
   ot->description = "Remove active Grease Pencil layer";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_layer_remove_exec;
@@ -346,7 +348,7 @@ void GPENCIL_OT_layer_annotation_remove(wmOperatorType *ot)
   ot->idname = "GPENCIL_OT_layer_annotation_remove";
   ot->description = "Remove active Annotation layer";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_layer_remove_exec;
@@ -404,7 +406,7 @@ void GPENCIL_OT_layer_move(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", slot_move, 0, "Type", "");
 }
@@ -427,7 +429,7 @@ void GPENCIL_OT_layer_annotation_move(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_annotation_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", slot_move, 0, "Type", "");
 }
@@ -494,7 +496,7 @@ void GPENCIL_OT_layer_duplicate(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "mode", copy_mode, GP_LAYER_DUPLICATE_ALL, "Mode", "");
 }
@@ -613,7 +615,7 @@ void GPENCIL_OT_layer_duplicate_object(wmOperatorType *ot)
   ot->poll = gpencil_layer_duplicate_object_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "mode", copy_mode, GP_LAYER_COPY_OBJECT_ALL_FRAME, "Mode", "");
 
@@ -680,7 +682,7 @@ void GPENCIL_OT_frame_duplicate(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "mode", duplicate_mode, GP_FRAME_DUP_ACTIVE, "Mode", "");
 }
@@ -765,7 +767,7 @@ void GPENCIL_OT_frame_clean_fill(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "mode", duplicate_mode, GP_FRAME_DUP_ACTIVE, "Mode", "");
 }
@@ -841,7 +843,7 @@ void GPENCIL_OT_frame_clean_loose(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna,
               "limit",
@@ -997,7 +999,7 @@ void GPENCIL_OT_frame_clean_duplicate(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", clean_type, 0, "Type", "");
 }
@@ -1051,7 +1053,7 @@ void GPENCIL_OT_hide(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll; /* NOTE: we need an active layer to play with */
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(
@@ -1139,7 +1141,7 @@ void GPENCIL_OT_reveal(wmOperatorType *ot)
   ot->poll = gpencil_reveal_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(ot->srna, "select", true, "Select", "");
@@ -1181,7 +1183,7 @@ void GPENCIL_OT_lock_all(wmOperatorType *ot)
   ot->poll = gpencil_reveal_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* -------------------------- */
@@ -1219,7 +1221,7 @@ void GPENCIL_OT_unlock_all(wmOperatorType *ot)
   ot->poll = gpencil_reveal_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ********************** Isolate Layer **************************** */
@@ -1294,7 +1296,7 @@ void GPENCIL_OT_layer_isolate(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna,
@@ -1428,7 +1430,7 @@ void GPENCIL_OT_layer_merge(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "mode", merge_modes, GP_LAYER_MERGE_ACTIVE, "Mode", "");
 }
@@ -1499,7 +1501,7 @@ void GPENCIL_OT_layer_change(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* gp layer to use (dynamic enum) */
   ot->prop = RNA_def_enum(ot->srna, "layer", DummyRNA_DEFAULT_items, 0, "Grease Pencil Layer", "");
@@ -1544,7 +1546,7 @@ void GPENCIL_OT_layer_active(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* GPencil layer to use. */
   ot->prop = RNA_def_int(ot->srna, "layer", 0, 0, INT_MAX, "Grease Pencil Layer", "", 0, INT_MAX);
@@ -1730,7 +1732,7 @@ void GPENCIL_OT_stroke_arrange(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "direction", slot_move, GP_STROKE_MOVE_UP, "Direction", "");
@@ -1831,7 +1833,7 @@ void GPENCIL_OT_stroke_change_color(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_string(ot->srna, "material", NULL, MAX_ID_NAME - 2, "Material", "Name of the material");
 }
@@ -1910,7 +1912,7 @@ void GPENCIL_OT_material_lock_unused(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ************************************************ */
@@ -1978,7 +1980,7 @@ void GPENCIL_OT_brush_reset(wmOperatorType *ot)
   ot->exec = gpencil_brush_reset_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static Brush *gpencil_brush_get_first_by_mode(Main *bmain,
@@ -2188,7 +2190,7 @@ void GPENCIL_OT_brush_reset_all(wmOperatorType *ot)
   ot->exec = gpencil_brush_reset_all_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /*********************** Vertex Groups ***********************************/
@@ -2261,7 +2263,7 @@ void GPENCIL_OT_vertex_group_assign(wmOperatorType *ot)
   ot->exec = gpencil_vertex_group_assign_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* remove point from vertex group */
@@ -2296,7 +2298,7 @@ void GPENCIL_OT_vertex_group_remove_from(wmOperatorType *ot)
   ot->exec = gpencil_vertex_group_remove_from_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int gpencil_vertex_group_select_exec(bContext *C, wmOperator *UNUSED(op))
@@ -2330,7 +2332,7 @@ void GPENCIL_OT_vertex_group_select(wmOperatorType *ot)
   ot->exec = gpencil_vertex_group_select_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int gpencil_vertex_group_deselect_exec(bContext *C, wmOperator *UNUSED(op))
@@ -2364,7 +2366,7 @@ void GPENCIL_OT_vertex_group_deselect(wmOperatorType *ot)
   ot->exec = gpencil_vertex_group_deselect_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* invert */
@@ -2432,7 +2434,7 @@ void GPENCIL_OT_vertex_group_invert(wmOperatorType *ot)
   ot->exec = gpencil_vertex_group_invert_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* smooth */
@@ -2529,7 +2531,7 @@ void GPENCIL_OT_vertex_group_smooth(wmOperatorType *ot)
   ot->exec = gpencil_vertex_group_smooth_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_float(ot->srna, "factor", 0.5f, 0.0f, 1.0, "Factor", "", 0.0f, 1.0f);
   RNA_def_int(ot->srna, "repeat", 1, 1, 10000, "Iterations", "", 1, 200);
@@ -2607,7 +2609,7 @@ void GPENCIL_OT_vertex_group_normalize(wmOperatorType *ot)
   ot->exec = gpencil_vertex_group_normalize_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* normalize all */
@@ -2714,7 +2716,7 @@ void GPENCIL_OT_vertex_group_normalize_all(wmOperatorType *ot)
   ot->exec = gpencil_vertex_group_normalize_all_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(ot->srna,
@@ -3101,6 +3103,8 @@ void GPENCIL_OT_lock_layer(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = gpencil_lock_layer_exec;
   ot->poll = gpencil_active_layer_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /* ********************** Isolate gpencil_ color **************************** */
@@ -3198,7 +3202,7 @@ void GPENCIL_OT_material_isolate(wmOperatorType *ot)
   ot->poll = gpencil_active_material_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna,
@@ -3268,7 +3272,7 @@ void GPENCIL_OT_material_hide(wmOperatorType *ot)
   ot->poll = gpencil_active_material_poll; /* NOTE: we need an active color to play with */
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_boolean(
@@ -3324,7 +3328,7 @@ void GPENCIL_OT_material_reveal(wmOperatorType *ot)
   ot->poll = gpencil_active_material_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ***************** Lock/Unlock All colors ************************ */
@@ -3378,7 +3382,7 @@ void GPENCIL_OT_material_lock_all(wmOperatorType *ot)
   ot->poll = gpencil_active_material_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* -------------------------- */
@@ -3430,7 +3434,7 @@ void GPENCIL_OT_material_unlock_all(wmOperatorType *ot)
   ot->poll = gpencil_active_material_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ***************** Select all strokes using color ************************ */
@@ -3519,7 +3523,7 @@ void GPENCIL_OT_material_select(wmOperatorType *ot)
   ot->poll = gpencil_active_material_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   ot->prop = RNA_def_boolean(ot->srna, "deselect", 0, "Deselect", "Unselect strokes");
@@ -3561,7 +3565,7 @@ void GPENCIL_OT_material_set(wmOperatorType *ot)
   ot->poll = gpencil_active_material_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Material to use (dynamic enum) */
   ot->prop = RNA_def_enum(ot->srna, "slot", DummyRNA_DEFAULT_items, 0, "Material Slot", "");
@@ -3613,7 +3617,7 @@ void GPENCIL_OT_set_active_material(wmOperatorType *ot)
   ot->poll = gpencil_active_material_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ********************* Append Materials in a new object ************************** */
@@ -3679,7 +3683,7 @@ void GPENCIL_OT_materials_copy_to_object(wmOperatorType *ot)
   ot->poll = gpencil_materials_copy_to_object_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   prop = RNA_def_boolean(ot->srna,
                          "only_active",
@@ -3790,7 +3794,7 @@ void GPENCIL_OT_layer_mask_add(wmOperatorType *ot)
   ot->idname = "GPENCIL_OT_layer_mask_add";
   ot->description = "Add new layer as masking";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_layer_mask_add_exec;
@@ -3839,7 +3843,7 @@ void GPENCIL_OT_layer_mask_remove(wmOperatorType *ot)
   ot->idname = "GPENCIL_OT_layer_mask_remove";
   ot->description = "Remove Layer Mask";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_layer_mask_remove_exec;
@@ -3889,7 +3893,7 @@ void GPENCIL_OT_layer_mask_move(wmOperatorType *ot)
   ot->poll = gpencil_active_layer_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_enum(ot->srna, "type", slot_move, 0, "Type", "");
 }

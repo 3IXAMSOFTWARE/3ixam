@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -67,6 +69,8 @@ void BUTTONS_OT_start_filter(struct wmOperatorType *ot)
   /* Callbacks. */
   ot->exec = buttons_start_filter_exec;
   ot->poll = ED_operator_buttons_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int buttons_clear_filter_exec(bContext *C, wmOperator *UNUSED(op))
@@ -88,6 +92,8 @@ void BUTTONS_OT_clear_filter(struct wmOperatorType *ot)
   ot->name = "Clear Filter";
   ot->description = "Clear the search filter";
   ot->idname = "BUTTONS_OT_clear_filter";
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* Callbacks. */
   ot->exec = buttons_clear_filter_exec;
@@ -133,6 +139,8 @@ void BUTTONS_OT_toggle_pin(wmOperatorType *ot)
   /* Callbacks. */
   ot->exec = toggle_pin_exec;
   ot->poll = ED_operator_buttons_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -162,6 +170,8 @@ void BUTTONS_OT_context_menu(wmOperatorType *ot)
   /* Callbacks. */
   ot->invoke = context_menu_invoke;
   ot->poll = ED_operator_buttons_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -361,7 +371,7 @@ void BUTTONS_OT_file_browse(wmOperatorType *ot)
   ot->cancel = file_browse_cancel;
 
   /* Conditional undo based on button flag. */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_filesel(ot,
@@ -387,7 +397,7 @@ void BUTTONS_OT_directory_browse(wmOperatorType *ot)
   ot->cancel = file_browse_cancel;
 
   /* conditional undo based on button flag */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_filesel(ot,

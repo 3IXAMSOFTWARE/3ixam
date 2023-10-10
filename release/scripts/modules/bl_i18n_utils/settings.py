@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # Global settings used by all scripts in this dir.
 # XXX Before any use of the tools in this dir, please make a copy of this file
@@ -301,7 +302,7 @@ WARN_MSGID_NOT_CAPITALIZED_ALLOWED = {
     "ascii",
     "author",                        # Addons' field. :/
     "bItasc",
-    "ixam.org",
+    "blender.org",
     "color_index is invalid",
     "cos(A)",
     "cosh(A)",
@@ -471,7 +472,7 @@ PYTHON3_EXEC = "python3"
 
 # The 3IXAM executable!
 # This is just an example, you’ll have to edit it in your user_settings.py!
-IXAM_EXEC = r"/Users/ingame/Documents/Ixam/build_xcode/bin/Debug/3IXAM.app/Contents/MacOS/3IXAM"
+IXAM_EXEC = r""
 # check for ixam.bin
 if not os.path.exists(IXAM_EXEC):
     if os.path.exists(IXAM_EXEC + ".bin"):
@@ -490,10 +491,10 @@ RTL_PREPROCESS_FILE = "is_rtl"
 
 # The 3IXAM source root path.
 # This is just an example, you’ll have to override it in your user_settings.py!
-SOURCE_DIR = r"/Users/ingame/Documents/Ixam/3ixam"
+SOURCE_DIR = r"/3ixam"
 
 # The bf-translation repository (you'll have to override this in your user_settings.py).
-I18N_DIR = r"/Users/ingame/Downloads/bf-translations"
+I18N_DIR = r"/bf-translations"
 
 # The /branches path (relative to I18N_DIR).
 REL_BRANCHES_DIR = os.path.join("branches")

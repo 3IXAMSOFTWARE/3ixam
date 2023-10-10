@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "MEM_guardedalloc.h"
@@ -138,7 +139,7 @@ void PAINT_OT_vertex_color_from_weight(wmOperatorType *ot)
   ot->poll = vertex_weight_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* TODO: invert, alpha */
 }
@@ -235,7 +236,7 @@ void PAINT_OT_vertex_color_smooth(wmOperatorType *ot)
   ot->poll = vertex_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -350,7 +351,7 @@ void PAINT_OT_vertex_color_brightness_contrast(wmOperatorType *ot)
   ot->poll = vertex_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* params */
   const float min = -100, max = +100;
@@ -407,7 +408,7 @@ void PAINT_OT_vertex_color_hsv(wmOperatorType *ot)
   ot->poll = vertex_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* params */
   RNA_def_float(ot->srna, "h", 0.5f, 0.0f, 1.0f, "Hue", "", 0.0f, 1.0f);
@@ -448,7 +449,7 @@ void PAINT_OT_vertex_color_invert(wmOperatorType *ot)
   ot->poll = vertex_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int vertex_color_levels_exec(bContext *C, wmOperator *op)
@@ -487,7 +488,7 @@ void PAINT_OT_vertex_color_levels(wmOperatorType *ot)
   ot->poll = vertex_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* params */
   RNA_def_float(

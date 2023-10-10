@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2016 Intel Corporation */
 
 
 #ifndef __UTIL_AVXF_H__

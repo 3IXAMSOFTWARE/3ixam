@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2016 Blender Foundation. */
 
 
 /** \file
@@ -939,7 +941,7 @@ void GPENCIL_OT_interpolate(wmOperatorType *ot)
   ot->poll = gpencil_view3d_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   static const EnumPropertyItem gpencil_interpolation_layer_items[] = {
       {0, "ACTIVE", 0, "Active", ""},
@@ -1678,7 +1680,7 @@ void GPENCIL_OT_interpolate_sequence(wmOperatorType *ot)
                 FLT_MAX);
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ******************** Remove Breakdowns ************************ */
@@ -1804,5 +1806,5 @@ void GPENCIL_OT_interpolate_reverse(wmOperatorType *ot)
   ot->poll = gpencil_interpolate_reverse_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }

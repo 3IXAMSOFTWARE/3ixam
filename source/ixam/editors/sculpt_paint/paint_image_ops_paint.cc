@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -519,7 +521,7 @@ void PAINT_OT_image_paint(wmOperatorType *ot)
   ot->cancel = paint_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   paint_stroke_operator_properties(ot);
 }

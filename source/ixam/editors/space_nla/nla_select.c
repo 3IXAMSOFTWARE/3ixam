@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation, Joshua Leung. All rights reserved. */
 
 
 /** \file
@@ -185,7 +187,7 @@ void NLA_OT_select_all(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER /*|OPTYPE_UNDO*/;
+  ot->flag = OPTYPE_REGISTER /*|OPTYPE_UNDO*/ | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_select_all(ot);
@@ -416,7 +418,7 @@ void NLA_OT_select_box(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna, "axis_range", 0, "Axis Range", "");
@@ -584,7 +586,7 @@ void NLA_OT_select_leftright(wmOperatorType *ot)
   ot->poll = ED_operator_nla_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(
@@ -725,7 +727,7 @@ void NLA_OT_click_select(wmOperatorType *ot)
   ot->modal = WM_generic_select_modal;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_generic_select(ot);

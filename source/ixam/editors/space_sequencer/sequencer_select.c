@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -499,7 +501,7 @@ void SEQUENCER_OT_select_all(struct wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -1020,7 +1022,7 @@ void SEQUENCER_OT_select(wmOperatorType *ot)
   ot->get_name = ED_select_pick_get_name;
 
   /* Flags. */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_generic_select(ot);
@@ -1169,7 +1171,7 @@ void SEQUENCER_OT_select_more(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1205,7 +1207,7 @@ void SEQUENCER_OT_select_less(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1261,7 +1263,7 @@ void SEQUENCER_OT_select_linked_pick(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   PropertyRNA *prop;
@@ -1304,7 +1306,7 @@ void SEQUENCER_OT_select_linked(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1414,7 +1416,7 @@ void SEQUENCER_OT_select_handles(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   RNA_def_enum(ot->srna,
@@ -1491,7 +1493,7 @@ void SEQUENCER_OT_select_side_of_frame(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   PropertyRNA *prop;
@@ -1559,7 +1561,7 @@ void SEQUENCER_OT_select_side(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   RNA_def_enum(ot->srna,
@@ -1752,7 +1754,7 @@ void SEQUENCER_OT_select_box(wmOperatorType *ot)
   ot->poll = ED_operator_sequencer_active;
 
   /* Flags. */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_gesture_box(ot);
@@ -2121,7 +2123,7 @@ void SEQUENCER_OT_select_grouped(wmOperatorType *ot)
   ot->poll = sequencer_edit_poll;
 
   /* Flags. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* Properties. */
   ot->prop = RNA_def_enum(ot->srna, "type", sequencer_prop_select_grouped_types, 0, "Type", "");

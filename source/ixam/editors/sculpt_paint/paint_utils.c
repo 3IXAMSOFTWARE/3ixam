@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -603,6 +605,8 @@ void BRUSH_OT_curve_preset(wmOperatorType *ot)
   ot->exec = brush_curve_preset_exec;
   ot->poll = brush_curve_preset_poll;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   prop = RNA_def_enum(ot->srna, "shape", prop_shape_items, CURVE_PRESET_SMOOTH, "Mode", "");
   RNA_def_property_translation_context(prop,
                                        BLT_I18NCONTEXT_ID_CURVE_LEGACY); /* Abusing id_curve :/ */
@@ -625,7 +629,7 @@ void PAINT_OT_face_select_linked(wmOperatorType *ot)
   ot->exec = paint_select_linked_exec;
   ot->poll = facemask_paint_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int paint_select_linked_pick_invoke(bContext *C, wmOperator *op, const wmEvent *event)
@@ -646,7 +650,7 @@ void PAINT_OT_face_select_linked_pick(wmOperatorType *ot)
   ot->invoke = paint_select_linked_pick_invoke;
   ot->poll = facemask_paint_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "deselect", 0, "Deselect", "Deselect rather than select items");
 }
@@ -670,7 +674,7 @@ void PAINT_OT_face_select_all(wmOperatorType *ot)
   ot->exec = face_select_all_exec;
   ot->poll = facemask_paint_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -693,7 +697,7 @@ void PAINT_OT_vert_select_all(wmOperatorType *ot)
   ot->exec = vert_select_all_exec;
   ot->poll = vert_paint_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -726,7 +730,7 @@ void PAINT_OT_vert_select_ungrouped(wmOperatorType *ot)
   ot->poll = vert_paint_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "extend", false, "Extend", "Extend the selection");
 }
@@ -749,7 +753,7 @@ void PAINT_OT_face_select_hide(wmOperatorType *ot)
   ot->exec = face_select_hide_exec;
   ot->poll = facemask_paint_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(
       ot->srna, "unselected", 0, "Unselected", "Hide unselected rather than selected objects");
@@ -773,7 +777,7 @@ void PAINT_OT_vert_select_hide(wmOperatorType *ot)
   ot->exec = vert_select_hide_exec;
   ot->poll = vert_paint_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(
       ot->srna, "unselected", 0, "Unselected", "Hide unselected rather than selected vertices");
@@ -812,7 +816,7 @@ void PAINT_OT_face_vert_reveal(wmOperatorType *ot)
   ot->exec = face_vert_reveal_exec;
   ot->poll = face_vert_reveal_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "select",

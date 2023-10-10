@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation, Joshua Leung. All rights reserved. */
 
 
 /** \file
@@ -124,6 +126,8 @@ void ANIM_OT_keying_set_add(wmOperatorType *ot)
   /* callbacks */
   ot->exec = add_default_keyingset_exec;
   ot->poll = keyingset_poll_default_add;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /* Remove 'Active' Keying Set ------------------------- */
@@ -172,6 +176,8 @@ void ANIM_OT_keying_set_remove(wmOperatorType *ot)
   /* callbacks */
   ot->exec = remove_active_keyingset_exec;
   ot->poll = keyingset_poll_active_edit;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /* Add Empty Keying Set Path ------------------------- */
@@ -215,6 +221,8 @@ void ANIM_OT_keying_set_path_add(wmOperatorType *ot)
   /* callbacks */
   ot->exec = add_empty_ks_path_exec;
   ot->poll = keyingset_poll_active_edit;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /* Remove Active Keying Set Path ------------------------- */
@@ -258,6 +266,8 @@ void ANIM_OT_keying_set_path_remove(wmOperatorType *ot)
   /* callbacks */
   ot->exec = remove_active_ks_path_exec;
   ot->poll = keyingset_poll_activePath_edit;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /* ************************************************** */
@@ -498,7 +508,7 @@ void ANIM_OT_keying_set_active_set(wmOperatorType *ot)
   ot->poll = ED_operator_areaactive;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* keyingset to use (dynamic enum) */
   prop = RNA_def_enum(

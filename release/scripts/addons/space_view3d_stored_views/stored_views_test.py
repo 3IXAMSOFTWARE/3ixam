@@ -8,7 +8,7 @@ bl_info = {
     "ixam": (2, 80, 0),
     "location": "View3D > Properties > Stored Views",
     "warning": "",
-    "doc_url": "https://wiki.ixam.org/index.php/Extensions:2.5/"
+    "doc_url": "https://wiki.blender.org/index.php/Extensions:2.5/"
                "Py/Scripts/3D_interaction/stored_views",
     "category": "3D View"
 }
@@ -27,7 +27,7 @@ NOTE: logging setup has to be provided by the user in a separate config file
     as Ixam will not try to configure logging by default in an add-on
     The Config File should be in the Ixam Config folder > /scripts/startup/config_logging.py
     For setting up /location of the config folder see:
-    https://docs.ixam.org/manual/en/latest/getting_started/
+    https://docs.blender.org/manual/en/latest/getting_started/
     installing/configuration/directories.html
     For configuring logging itself in the file, general Python documentation should work
     As the logging calls are not configured, they can be kept in the other modules of this add-on

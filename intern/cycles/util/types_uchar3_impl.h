@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2011-2022 Blender Foundation */
 
 
 #ifndef __UTIL_TYPES_UCHAR3_IMPL_H__

@@ -251,7 +251,7 @@ def copy_custom_property(source, destination, prop_name):
     """Copy a custom property called prop_name, from source to destination.
     source and destination must be a Ixam data type that can hold custom properties.
     For a list of such data types, see:
-    https://docs.ixam.org/manual/en/latest/files/data_blocks.html#files-data-blocks-custom-properties
+    https://docs.blender.org/manual/en/latest/files/data_blocks.html#files-data-blocks-custom-properties
     """
 
     # Create the property.

@@ -1348,7 +1348,7 @@ float musgrave_ridged_multi_fractal(const float4 co,
  *
  * Smooth Voronoi:
  *
- * - https://wiki.ixam.org/wiki/User:OmarSquircleArt/GSoC2019/Documentation/Smooth_Voronoi
+ * - https://wiki.blender.org/wiki/User:OmarSquircleArt/GSoC2019/Documentation/Smooth_Voronoi
  *
  * Distance To Edge based on:
  *

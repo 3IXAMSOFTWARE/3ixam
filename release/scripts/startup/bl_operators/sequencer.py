@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import Operator
@@ -15,7 +16,7 @@ class SequencerCrossfadeSounds(Operator):
 
     bl_idname = "sequencer.crossfade_sounds"
     bl_label = "Crossfade Sounds"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -63,7 +64,7 @@ class SequencerSplitMulticam(Operator):
 
     bl_idname = "sequencer.split_multicam"
     bl_label = "Split Multicam"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     camera: IntProperty(
         name="Camera",
@@ -103,7 +104,7 @@ class SequencerDeinterlaceSelectedMovies(Operator):
 
     bl_idname = "sequencer.deinterlace_selected_movies"
     bl_label = "Deinterlace Movies"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -122,7 +123,7 @@ class SequencerFadesClear(Operator):
     """Removes fade animation from selected sequences"""
     bl_idname = "sequencer.fades_clear"
     bl_label = "Clear Fades"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -159,7 +160,7 @@ class SequencerFadesAdd(Operator):
     """Adds or updates a fade animation for either visual or audio strips"""
     bl_idname = "sequencer.fades_add"
     bl_label = "Add Fades"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     duration_seconds: FloatProperty(
         name="Fade Duration",

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "BLI_math.h"
@@ -488,7 +489,7 @@ void VIEW3D_OT_ndof_orbit(struct wmOperatorType *ot)
   ot->poll = ED_operator_view3d_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -609,7 +610,7 @@ void VIEW3D_OT_ndof_orbit_zoom(struct wmOperatorType *ot)
   ot->poll = ED_operator_view3d_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -681,7 +682,7 @@ void VIEW3D_OT_ndof_pan(struct wmOperatorType *ot)
   ot->poll = ED_operator_view3d_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -720,7 +721,7 @@ void VIEW3D_OT_ndof_all(struct wmOperatorType *ot)
   ot->poll = ED_operator_view3d_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 #endif /* WITH_INPUT_NDOF */

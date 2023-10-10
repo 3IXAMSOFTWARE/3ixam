@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 function(download_source dep)
   set(TARGET_FILE ${${dep}_FILE})
   set(TARGET_HASH_TYPE ${${dep}_HASH_TYPE})
@@ -5,9 +7,9 @@ function(download_source dep)
   if(PACKAGE_USE_UPSTREAM_SOURCES)
     set(TARGET_URI  ${${dep}_URI})
   elseif(IXAM_VERSION)
-    set(TARGET_URI  https://svn.3ixam.org/svnroot/bf-ixam/tags/ixam-${IXAM_VERSION}-release/lib/packages/${TARGET_FILE})
+    set(TARGET_URI  https://svn.blender.org/svnroot/bf-ixam/tags/ixam-${IXAM_VERSION}-release/lib/packages/${TARGET_FILE})
   else()
-    set(TARGET_URI  https://svn.3ixam.org/svnroot/bf-ixam/trunk/lib/packages/${TARGET_FILE})
+    set(TARGET_URI  https://svn.blender.org/svnroot/bf-ixam/trunk/lib/packages/${TARGET_FILE})
   endif()
   # Validate all required variables are set and give an explicit error message
   # rather than CMake erroring out later on with a more ambigious error.

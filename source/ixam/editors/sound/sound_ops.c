@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2007 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -146,7 +148,7 @@ static void SOUND_OT_open(wmOperatorType *ot)
   ot->cancel = sound_open_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_filesel(ot,
@@ -173,7 +175,7 @@ static void SOUND_OT_open_mono(wmOperatorType *ot)
   ot->cancel = sound_open_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_filesel(ot,
@@ -282,7 +284,7 @@ static void SOUND_OT_update_animation_flags(wmOperatorType *ot)
   ot->exec = sound_update_animation_flags_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /* ******************************************************* */
@@ -320,7 +322,7 @@ static void SOUND_OT_bake_animation(wmOperatorType *ot)
   ot->exec = sound_bake_animation_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 }
 
 /******************** mixdown operator ********************/
@@ -699,7 +701,7 @@ static void SOUND_OT_mixdown(wmOperatorType *ot)
   ot->ui = sound_mixdown_draw;
 #endif
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_filesel(ot,
@@ -860,7 +862,7 @@ static void SOUND_OT_unpack(wmOperatorType *ot)
   ot->poll = sound_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2015 Blender Foundation.
+
 # - Find LZO library
 # Find the native LZO includes and library
 # This module defines

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+
 #include "BKE_screen.h"
 
 #include "DNA_space_types.h"
@@ -42,7 +44,7 @@ static void SPREADSHEET_OT_add_row_filter_rule(wmOperatorType *ot)
   ot->exec = row_filter_add_exec;
   ot->poll = ED_operator_spreadsheet_active;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int row_filter_remove_exec(bContext *C, wmOperator *op)
@@ -72,7 +74,7 @@ static void SPREADSHEET_OT_remove_row_filter_rule(wmOperatorType *ot)
   ot->exec = row_filter_remove_exec;
   ot->poll = ED_operator_spreadsheet_active;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna, "index", 0, 0, INT_MAX, "Index", "", 0, INT_MAX);
 }

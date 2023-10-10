@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup edinterface
@@ -1003,13 +1004,16 @@ static void menu_search_update_fn(const bContext * /*C*/,
 
   StringSearch *search = BLI_string_search_new();
 
+  printf("=============================\n");
   LISTBASE_FOREACH (MenuSearch_Item *, item, &data->items) {
     // type == 1 is Operator, see MenuSearch_Item struct
     if (item->type == 1 && item->op.type->flag & OPTYPE_INTERNAL) {
       continue;
     }
+    printf("%s\n", item->drawwstr_full);
     BLI_string_search_add(search, item->drawwstr_full, item, 0);
   }
+  printf("=============================\n");
 
   MenuSearch_Item **filtered_items;
   const int filtered_amount = BLI_string_search_query(search, str, (void ***)&filtered_items);

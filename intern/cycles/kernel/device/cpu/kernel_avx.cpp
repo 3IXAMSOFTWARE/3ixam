@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2011-2022 Blender Foundation */
 
 
 /* Optimized CPU kernel entry points. This file is compiled with AVX

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008-2018 Blender Foundation. */
 
 
 /** \file
@@ -2777,7 +2779,7 @@ void GPENCIL_OT_annotate(wmOperatorType *ot)
   ot->poll = annotation_draw_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* settings for drawing */
   ot->prop = RNA_def_enum(

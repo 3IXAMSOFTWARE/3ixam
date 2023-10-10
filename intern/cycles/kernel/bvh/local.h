@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Adapted from code Copyright 2009-2010 NVIDIA Corporation,
+ * and code copyright 2009-2012 Intel Corporation */
 
 
 #if BVH_FEATURE(BVH_HAIR)

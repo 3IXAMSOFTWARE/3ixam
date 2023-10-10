@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2007 Blender Foundation. All rights reserved. */
 
 #pragma once
 
@@ -922,7 +924,7 @@ void WM_operator_properties_select_walk_direction(struct wmOperatorType *ot);
 /**
  * Selecting and tweaking items are overlapping operations. Getting both to work without conflicts
  * requires special care. See
- * https://wiki.ixam.org/wiki/Human_Interface_Guidelines/Selection#Select-tweaking for the
+ * https://wiki.blender.org/wiki/Human_Interface_Guidelines/Selection#Select-tweaking for the
  * desired behavior.
  *
  * For default click selection (with no modifier keys held), the select operators can do the

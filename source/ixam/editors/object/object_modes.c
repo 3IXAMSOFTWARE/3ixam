@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup edobj
@@ -524,7 +525,7 @@ void OBJECT_OT_transfer_mode(wmOperatorType *ot)
   ot->poll = object_transfer_mode_poll;
 
   /* Undo push is handled by the operator. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   ot->cursor_pending = WM_CURSOR_EYEDROPPER;
 

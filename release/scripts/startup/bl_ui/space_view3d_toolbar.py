@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 from bpy.types import Menu, Panel, UIList, WindowManager
 from bl_ui.properties_grease_pencil_common import (
     GreasePencilSculptAdvancedPanel,
@@ -2493,6 +2495,14 @@ class _defs_pro_menu:
             description="Available in the PRO version"
         )
     @ToolDef.from_fn
+    def pro_animate():
+        return dict(
+            idname="VIEW3D_OT_pro_animate",
+            label="   Pro\nAnimate",
+            type="Operator",
+            description="Open Pro Animate"
+        )
+    @ToolDef.from_fn
     def upcoming_features():
         return dict(
             idname="wm.url_open",
@@ -2564,7 +2574,8 @@ class VIEW3D_PT_pro_menu(ToolSelectPanelHelper, Panel):
 
     @classmethod
     def poll(cls, context):
-        return (context.space_data.type == 'VIEW_3D')
+        return (context.space_data.type == 'VIEW_3D' and
+                context.workspace.type not in ('VR_HANDS', 'PRO_ANIMATE'))
 
     @classmethod
     def icon_scale(self):
@@ -2785,39 +2796,42 @@ class VIEW3D_PT_header(Panel):
         right_menu.emboss = 'NORMAL'
         right_menu.icon_scale = 1
 
-        orient_slot = scene.transform_orientation_slots[0]
-        sub = right_menu.row()
-        sub.scale_x = 0.7
-        sub.label(text="", icon='WORLD_AXIS')
-        sub.prop(orient_slot, "type", text="")
+        if context.workspace.type not in ('VR_HANDS', 'PRO_ANIMATE'):
+            orient_slot = scene.transform_orientation_slots[0]
+            sub = right_menu.row()
+            sub.scale_x = 0.7
+            sub.label(text="", icon='WORLD_AXIS')
+            sub.prop(orient_slot, "type", text="")
 
-        sub = right_menu.row()
-        sub.scale_x = 0.7
-        
-        # Sub layouts only needed because of icon_scale scaling text size also
-        sub_icon = sub.row()
-        sub_icon.scale_x = 1.2
-        sub_icon.icon_scale = 1.6
-        sub_icon.label(text="", icon="WORLD_AXIS")
-        
-        sub.popover("VIEW3D_PT_pivot", text = self.get_pivot_center_name(context=context))
+            sub = right_menu.row()
+            sub.scale_x = 0.7
+            
+            # Sub layouts only needed because of icon_scale scaling text size also
+            sub_icon = sub.row()
+            sub_icon.scale_x = 1.2
+            sub_icon.icon_scale = 1.6
+            sub_icon.label(text="", icon="WORLD_AXIS")
+            
+            sub.popover("VIEW3D_PT_pivot", text = self.get_pivot_center_name(context=context))
 
-        sub = right_menu.row()
-        sub.scale_x = 0.7
-        
-        sub_icon = sub.row()
-        sub_icon.scale_x = 1.2
-        sub_icon.icon_scale = 1.6
-        sub_icon.label(text="", icon="POLYFORM")
-        
-        depress = context.mode in {'EDIT_MESH', 'EDIT_CURVE', 'EDIT_ARMATURE', 'POSE'}
-        sub.popover("VIEW3D_PT_polyform", text = "Poly Form", depress=depress)
+            sub = right_menu.row()
+            sub.scale_x = 0.7
+            
+            sub_icon = sub.row()
+            sub_icon.scale_x = 1.2
+            sub_icon.icon_scale = 1.6
+            sub_icon.label(text="", icon="POLYFORM")
+            
+            depress = context.mode in {'EDIT_MESH', 'EDIT_CURVE', 'EDIT_ARMATURE', 'POSE'}
+            sub.popover("VIEW3D_PT_polyform", text = "Poly Form", depress=depress)
 
-        search_menu = right_menu.row()
-        search_menu.scale_x = 0.35
-        # split = search_menu.split(factor=0.7)       
-        search_menu.search()
-        logo_3ixam = right_menu.row()
+            search_menu = right_menu.row()
+            search_menu.scale_x = 0.35
+            # split = search_menu.split(factor=0.7)       
+            search_menu.search()
+            logo_3ixam = right_menu.row()
+        else:
+            logo_3ixam = right_menu.row()
 
         logo_3ixam.scale_x = 2.5
         logo_3ixam.scale_y = 0.5
@@ -3134,58 +3148,59 @@ class VIEW3D_PT_view_bar(Panel):
         viewport.scale_y = 3.4
         viewport.ui_units_x = 2.3
 
-        viewport.viewport_configuration(panel="VIEW3D_PT_viewport_configuration")
+        if context.workspace.type not in ('VR_HANDS', 'PRO_ANIMATE'): 
+            viewport.viewport_configuration(panel="VIEW3D_PT_viewport_configuration")
 
-        sub = row.column()
-        sub.ui_units_x=3.5
-        sub.label(text="Poly Info")
+            sub = row.column()
+            sub.ui_units_x=3.5
+            sub.label(text="Poly Info")
 
-        faces = "0"
-        verts = "0"
-        objects = "0"
-        for stat in bpy.context.scene.statistics(bpy.context.view_layer).split(" | "):
-            if stat.startswith("Faces:"):
-                faces = stat[6:]
-            if stat.startswith("Verts:"):
-                verts = stat[6:]
-            if stat.startswith("Objects:"):
-                objects = stat[8:]
+            faces = "0"
+            verts = "0"
+            objects = "0"
+            for stat in bpy.context.scene.statistics(bpy.context.view_layer).split(" | "):
+                if stat.startswith("Faces:"):
+                    faces = stat[6:]
+                if stat.startswith("Verts:"):
+                    verts = stat[6:]
+                if stat.startswith("Objects:"):
+                    objects = stat[8:]
 
-        # sub = sub.column()
-        # sub.scale_y = 0.35
-        # sub.label(text=f"Polys:  {faces}")
-        # sub.label(text=f"Verts:  {verts}")
-        # sub.label(text=f"Objects:  {objects}")
+            # sub = sub.column()
+            # sub.scale_y = 0.35
+            # sub.label(text=f"Polys:  {faces}")
+            # sub.label(text=f"Verts:  {verts}")
+            # sub.label(text=f"Objects:  {objects}")
 
-        sub = sub.column()
-        sub.scale_y = 0.35
+            sub = sub.column()
+            sub.scale_y = 0.35
 
-        row = sub.row()
-        col = row.column()
-        col.alignment = 'LEFT'
-        col.label(text="Polys:")
+            row = sub.row()
+            col = row.column()
+            col.alignment = 'LEFT'
+            col.label(text="Polys:")
 
-        col = row.column()
-        col.alignment = 'RIGHT'
-        col.label(text=f"{faces}")
+            col = row.column()
+            col.alignment = 'RIGHT'
+            col.label(text=f"{faces}")
 
-        row = sub.row()
-        col = row.column()
-        col.alignment = 'LEFT'
-        col.label(text="Verts:")
+            row = sub.row()
+            col = row.column()
+            col.alignment = 'LEFT'
+            col.label(text="Verts:")
 
-        col = row.column()
-        col.alignment = 'RIGHT'
-        col.label(text=f"{verts}")
+            col = row.column()
+            col.alignment = 'RIGHT'
+            col.label(text=f"{verts}")
 
-        row = sub.row()
-        col = row.column()
-        col.alignment = 'LEFT'
-        col.label(text="Objects:")
+            row = sub.row()
+            col = row.column()
+            col.alignment = 'LEFT'
+            col.label(text="Objects:")
 
-        col = row.column()
-        col.alignment = 'RIGHT'
-        col.label(text=f"{objects}")
+            col = row.column()
+            col.alignment = 'RIGHT'
+            col.label(text=f"{objects}")
 
 class VIEW3D_MT_ProLight(Menu):
     bl_label = "PRO\nLIGHT"

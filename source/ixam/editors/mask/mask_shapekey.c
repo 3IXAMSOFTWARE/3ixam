@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -69,7 +71,7 @@ void MASK_OT_shape_key_insert(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int mask_shape_key_clear_exec(bContext *C, wmOperator *UNUSED(op))
@@ -115,7 +117,7 @@ void MASK_OT_shape_key_clear(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 }
 
 static int mask_shape_key_feather_reset_exec(bContext *C, wmOperator *UNUSED(op))
@@ -199,7 +201,7 @@ void MASK_OT_shape_key_feather_reset(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 }
 
 /*
@@ -358,7 +360,7 @@ void MASK_OT_shape_key_rekey(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna, "location", true, "Location", "");

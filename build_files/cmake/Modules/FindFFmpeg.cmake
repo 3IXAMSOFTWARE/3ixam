@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2020 Blender Foundation.
+
 # - Find FFmpeg library and includes.
 # Set FFMPEG_FIND_COMPONENTS to the canonical names of the libraries
 # before using the module.

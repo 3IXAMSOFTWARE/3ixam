@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 from __future__ import annotations
 
 import bpy
@@ -18,7 +20,7 @@ class ConsoleExec(Operator):
     """Execute the current console line as a python expression"""
     bl_idname = "console.execute"
     bl_label = "Console Execute"
-    bl_options = {'UNDO_GROUPED'}
+    bl_options = {'UNDO_GROUPED', 'INTERNAL'}
 
     interactive: BoolProperty(
         options={'SKIP_SAVE'},
@@ -47,6 +49,7 @@ class ConsoleAutocomplete(Operator):
         """options or complete the name if there is only one"""
     bl_idname = "console.autocomplete"
     bl_label = "Console Autocomplete"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -69,6 +72,7 @@ class ConsoleCopyAsScript(Operator):
     """Copy the console contents for use in a script"""
     bl_idname = "console.copy_as_script"
     bl_label = "Copy to Clipboard (as Script)"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -92,6 +96,7 @@ class ConsoleBanner(Operator):
     """Print a message when the terminal initializes"""
     bl_idname = "console.banner"
     bl_label = "Console Banner"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -119,6 +124,7 @@ class ConsoleLanguage(Operator):
     """Set the current language for this console"""
     bl_idname = "console.language"
     bl_label = "Console Language"
+    bl_options = {'INTERNAL'}
 
     language: StringProperty(
         name="Language",

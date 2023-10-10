@@ -25,7 +25,7 @@ class VIEW3D_OT_materialutilities_assign_material_edit(bpy.types.Operator):
 
     bl_idname = "view3d.materialutilities_assign_material_edit"
     bl_label = "Assign Material (Material Utilities)"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     material_name: StringProperty(
             name = 'Material Name',
@@ -84,7 +84,7 @@ class VIEW3D_OT_materialutilities_assign_material_object(bpy.types.Operator):
 
     bl_idname = "view3d.materialutilities_assign_material_object"
     bl_label = "Assign Material (Material Utilities)"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     material_name: StringProperty(
             name = 'Material Name',
@@ -195,7 +195,7 @@ class VIEW3D_OT_materialutilities_copy_material_to_others(bpy.types.Operator):
 
     bl_idname = "view3d.materialutilities_copy_material_to_others"
     bl_label = "Copy material(s) to others (Material Utilities)"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -210,7 +210,7 @@ class VIEW3D_OT_materialutilities_clean_material_slots(bpy.types.Operator):
 
     bl_idname = "view3d.materialutilities_clean_material_slots"
     bl_label = "Clean Material Slots (Material Utilities)"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     # affect: EnumProperty(
     #         name = "Affect",
@@ -246,7 +246,7 @@ class VIEW3D_OT_materialutilities_remove_material_slot(bpy.types.Operator):
 
     bl_idname = "view3d.materialutilities_remove_material_slot"
     bl_label = "Remove Active Material Slot (Material Utilities)"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     only_active: BoolProperty(
             name = 'Only active object',
@@ -341,7 +341,7 @@ class VIEW3D_OT_materialutilities_fake_user_set(bpy.types.Operator):
 
     bl_idname = "view3d.materialutilities_fake_user_set"
     bl_label = "Set Fake User (Material Utilities)"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     fake_user: EnumProperty(
             name = "Fake User",
@@ -380,7 +380,7 @@ class VIEW3D_OT_materialutilities_change_material_link(bpy.types.Operator):
 
     bl_idname = "view3d.materialutilities_change_material_link"
     bl_label = "Change Material Linking (Material Utilities)"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     override: BoolProperty(
             name = "Override Data material",
@@ -430,6 +430,7 @@ class MATERIAL_OT_materialutilities_merge_base_names(bpy.types.Operator):
     bl_idname = "material.materialutilities_merge_base_names"
     bl_label = "Merge Base Names"
     bl_description = "Merge materials that has the same base names but ends with .xxx (.001, .002 etc)"
+    bl_options = {'INTERNAL'}
 
     material_base_name: StringProperty(
                             name = "Material Base Name",
@@ -589,7 +590,7 @@ class MATERIAL_OT_materialutilities_material_slot_move(bpy.types.Operator):
     bl_idname = "material.materialutilities_slot_move"
     bl_label = "Move Slot"
     bl_description = "Move the material slot"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     movement: EnumProperty(
                 name = "Move",
@@ -639,7 +640,7 @@ class MATERIAL_OT_materialutilities_join_objects(bpy.types.Operator):
     bl_idname = "material.materialutilities_join_objects"
     bl_label = "Join by material (Material Utilities)"
     bl_description = "Join objects that share the same material"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     material_name: StringProperty(
                             name = "Material",
@@ -701,7 +702,7 @@ class MATERIAL_OT_materialutilities_auto_smooth_angle(bpy.types.Operator):
 
     bl_idname = "view3d.materialutilities_auto_smooth_angle"
     bl_label = "Set Auto Smooth Angle (Material Utilities)"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     affect: EnumProperty(
             name = "Affect",

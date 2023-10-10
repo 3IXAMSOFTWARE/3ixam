@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /** \file
  * \ingroup DNA
@@ -218,6 +219,8 @@ typedef enum eWorkSpaceFlags {
 
 typedef enum eWorkSpaceTypes {
   WORKSPACE_TYPE_NONE = 0,
+  WORKSPACE_TYPE_PRO_ANIMATE,
+  WORKSPACE_TYPE_VR_HANDS,
 } eWorkSpaceTypes;
 
 #ifdef __cplusplus

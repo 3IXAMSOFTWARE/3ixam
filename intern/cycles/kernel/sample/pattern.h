@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2011-2022 Blender Foundation */
 
 #pragma once
 
@@ -113,7 +115,7 @@ ccl_device_inline bool sample_is_class_A(int pattern, int sample)
    * implemented with efficient bit-fiddling.
    *
    * This approach also turns out to work equally well with Sobol-Burley
-   * (see https://developer.ixam.org/D15746#429471).
+   * (see https://developer.blender.org/D15746#429471).
    */
   return popcount(uint(sample) & 0xaaaaaaaa) & 1;
 }

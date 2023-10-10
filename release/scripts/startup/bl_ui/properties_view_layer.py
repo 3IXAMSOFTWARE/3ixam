@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 from rna_prop_ui import PropertyPanel
 from bpy.types import (

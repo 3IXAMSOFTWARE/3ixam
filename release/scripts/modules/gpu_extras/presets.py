@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 def draw_circle_2d(position, color, radius, *, segments=None):
     """

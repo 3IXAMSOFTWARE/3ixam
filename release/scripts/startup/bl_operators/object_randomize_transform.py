@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 from bpy.types import Operator
 from mathutils import Vector
@@ -81,7 +82,7 @@ class RandomizeLocRotSize(Operator):
     """Randomize objects location, rotation, and scale"""
     bl_idname = "object.randomize_transform"
     bl_label = "Randomize Transform"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     random_seed: IntProperty(
         name="Random Seed",

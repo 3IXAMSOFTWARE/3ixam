@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 /* Silence warnings from copying deprecated fields. Needed for an Object copy constructor use. */
 #define DNA_DEPRECATED_ALLOW

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 #include "BLI_kdtree.h"
 #include "BLI_rand.hh"
@@ -262,7 +263,7 @@ static void SCULPT_CURVES_OT_brush_stroke(struct wmOperatorType *ot)
   ot->modal = sculpt_curves_stroke_modal;
   ot->cancel = sculpt_curves_stroke_cancel;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   paint_stroke_operator_properties(ot);
 }
@@ -336,7 +337,7 @@ static void CURVES_OT_sculptmode_toggle(wmOperatorType *ot)
   ot->exec = curves_sculptmode_toggle_exec;
   ot->poll = curves::curves_poll;
 
-  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER;
+  ot->flag = OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -480,7 +481,7 @@ static void SCULPT_CURVES_OT_select_random(wmOperatorType *ot)
   ot->poll = curves::editable_curves_poll;
   ot->ui = select_random::select_random_ui;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int(ot->srna,
               "seed",
@@ -576,7 +577,7 @@ static void SCULPT_CURVES_OT_select_end(wmOperatorType *ot)
   ot->exec = select_end::select_end_exec;
   ot->poll = select_end::select_end_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "end_points",
@@ -907,7 +908,7 @@ static void SCULPT_CURVES_OT_select_grow(wmOperatorType *ot)
   ot->modal = select_grow::select_grow_modal;
   ot->poll = curves::editable_curves_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   PropertyRNA *prop;
   prop = RNA_def_float(ot->srna,
@@ -1262,7 +1263,7 @@ static void SCULPT_CURVES_OT_min_distance_edit(wmOperatorType *ot)
   ot->invoke = min_distance_edit::min_distance_edit_invoke;
   ot->modal = min_distance_edit::min_distance_edit_modal;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 }
 
 }  // namespace ixam::ed::sculpt_paint

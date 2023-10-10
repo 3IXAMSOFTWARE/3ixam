@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
 from bpy.types import Header, Menu, Panel, Operator
@@ -169,6 +170,7 @@ class GRAPH_HT_tool_header(Header):
 class GRAPH_OT_pivot_point_toggle(Operator):
     bl_idname = "graph.pivot_point_togge"
     bl_label = "Toggle pivot point"
+    bl_options = {'INTERNAL'}
 
     def execute(self, context):
         st = context.space_data

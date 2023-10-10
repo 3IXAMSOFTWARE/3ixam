@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 from bpy.types import Operator
 from mathutils import Vector

@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "DNA_object_types.h"
@@ -574,10 +575,16 @@ static bool curve_draw_init(bContext *C, wmOperator *op, bool is_invoke)
     BKE_report(op->reports, RPT_ERROR, "Could not find operator [curve.primitive_bezier_curve_add]");
     return false;
   }
+  if (!WM_operator_poll(C, ot)) {
+    return false;
+  }
   WM_operator_properties_create_ptr(&op_ptr, ot);
   RNA_float_set(&op_ptr, "radius", 0.0001);
-  WM_operator_name_call_ptr(C, ot, WM_OP_EXEC_DEFAULT, &op_ptr, NULL);
+  int retval = WM_operator_name_call_ptr(C, ot, WM_OP_EXEC_DEFAULT, &op_ptr, NULL);
   WM_operator_properties_free(&op_ptr);
+  if (retval != OPERATOR_FINISHED) {
+    return false;
+  }
 
   ED_object_mode_set(C, OB_MODE_EDIT);
 
@@ -778,7 +785,7 @@ static int curve_draw_exec(bContext *C, wmOperator *op)
   const CurvePaintSettings *cps = &cdd->vc.scene->toolsettings->curve_paint_settings;
   Object *obedit = cdd->vc.obedit;
   Curve *cu = obedit->data;
-  ListBase *nurblist = object_editcurve_get(obedit);
+  ListBase *nurblist = BKE_curve_nurbs_get(cu);
 
   int stroke_len = BLI_mempool_len(cdd->stroke_elem_pool);
 
@@ -1158,6 +1165,10 @@ static void curve_draw_cancel(bContext *UNUSED(C), wmOperator *op)
 
 static bool curve_draw_poll(bContext *C)
 {
+  Object *obedit = CTX_data_edit_object(C);
+  if (obedit && obedit->type == OB_CURVES_LEGACY) {
+    return false;
+  }
   return true;
 }
 

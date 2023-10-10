@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2002-2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1012,7 +1014,7 @@ void SCULPT_OT_uv_sculpt_stroke(wmOperatorType *ot)
   ot->poll = uv_sculpt_stroke_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_enum(ot->srna, "mode", stroke_mode_items, BRUSH_STROKE_NORMAL, "Mode", "Stroke Mode");

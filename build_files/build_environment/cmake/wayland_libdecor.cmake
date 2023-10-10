@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # NOTE: currently only the header file is extracted, no compilation is needed
 # as the library is dynamically loaded when found on the system.

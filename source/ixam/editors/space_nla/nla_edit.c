@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation, Joshua Leung. All rights reserved. */
 
 
 /** \file
@@ -179,7 +181,7 @@ void NLA_OT_tweakmode_enter(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_boolean(ot->srna,
@@ -289,7 +291,7 @@ void NLA_OT_tweakmode_exit(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_on;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_boolean(ot->srna,
@@ -410,7 +412,7 @@ void NLA_OT_previewrange_set(wmOperatorType *ot)
   ot->poll = ED_operator_nla_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -548,7 +550,7 @@ void NLA_OT_view_all(wmOperatorType *ot)
   ot->poll = ED_operator_nla_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void NLA_OT_view_selected(wmOperatorType *ot)
@@ -563,7 +565,7 @@ void NLA_OT_view_selected(wmOperatorType *ot)
   ot->poll = ED_operator_nla_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -591,7 +593,7 @@ void NLA_OT_view_frame(wmOperatorType *ot)
   ot->poll = ED_operator_nla_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -755,7 +757,7 @@ void NLA_OT_actionclip_add(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   /* TODO: this would be nicer as an ID-pointer. */
@@ -893,7 +895,7 @@ void NLA_OT_transition_add(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -987,7 +989,7 @@ void NLA_OT_soundclip_add(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1065,7 +1067,7 @@ void NLA_OT_meta_add(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1132,7 +1134,7 @@ void NLA_OT_meta_remove(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1251,7 +1253,7 @@ void NLA_OT_duplicate(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* own properties */
   ot->prop = RNA_def_boolean(ot->srna,
@@ -1344,7 +1346,7 @@ void NLA_OT_delete(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1509,7 +1511,7 @@ void NLA_OT_split(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1581,7 +1583,7 @@ void NLA_OT_mute_toggle(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1764,7 +1766,7 @@ void NLA_OT_swap(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1856,7 +1858,7 @@ void NLA_OT_move_up(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1948,7 +1950,7 @@ void NLA_OT_move_down(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2036,7 +2038,7 @@ void NLA_OT_action_sync_length(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_boolean(ot->srna,
@@ -2135,7 +2137,7 @@ void NLA_OT_make_single_user(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2270,7 +2272,7 @@ void NLA_OT_apply_scale(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2341,7 +2343,7 @@ void NLA_OT_clear_scale(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2506,7 +2508,7 @@ void NLA_OT_snap(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "type", prop_nlaedit_snap_types, 0, "Type", "");
@@ -2653,7 +2655,7 @@ void NLA_OT_fmodifier_add(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* id-props */
   ot->prop = RNA_def_enum(ot->srna, "type", rna_enum_fmodifier_type_items, 0, "Type", "");
@@ -2736,7 +2738,7 @@ void NLA_OT_fmodifier_copy(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 
   /* id-props */
 #if 0
@@ -2831,7 +2833,7 @@ void NLA_OT_fmodifier_paste(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_boolean(

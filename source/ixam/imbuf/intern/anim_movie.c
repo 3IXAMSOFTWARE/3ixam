@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -1175,7 +1177,7 @@ static void ffmpeg_decode_video_frame_scan(struct anim *anim, int64_t pts_to_sea
  * read_seek2() functions defined. When seeking in these formats, rule to seek to last
  * necessary I-frame is not honored. It is not even guaranteed that I-frame, that must be
  * decoded will be read. See https://trac.ffmpeg.org/ticket/1607 and
- * https://developer.3ixam.com/T86944. */
+ * https://developer.blender.com/T86944. */
 static int ffmpeg_generic_seek_workaround(struct anim *anim,
                                           int64_t *requested_pts,
                                           int64_t pts_to_search)

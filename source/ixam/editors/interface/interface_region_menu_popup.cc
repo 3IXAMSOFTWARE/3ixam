@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -606,16 +608,18 @@ void UI_popup_menu_reports(bContext *C, ReportList *reports)
       UI_popup_menu_end(C, pup);
     }
 #else
-    const char *fmt = (strstr(msg, "OSError") == NULL ? "Warning" : IFACE_("Warning\nTry to save in another directory"));
+    const char *title = (strstr(msg, "OSError") == NULL ?
+                             IFACE_("Warning") :
+                             IFACE_("Warning\nTry to save in another directory"));
     const char *exclude = "Python: ";
-    char buf[UI_MAX_DRAW_STR] = {'\0'};
-    BLI_strncpy(buf, msg, sizeof(buf));
-    if (BLI_str_startswith(buf, exclude))
-    {
-      BLI_strncpy(buf, msg + BLI_strnlen(exclude, UI_MAX_DRAW_STR), sizeof(buf));
-    }
+    char message[UI_MAX_DRAW_STR] = {'\0'};
 
-    WM_show_message_box(fmt, buf, IFACE_("Okey"));
+    BLI_strncpy(message, msg, sizeof(message));
+    if (BLI_str_startswith(message, exclude)) {
+      BLI_strncpy(message, msg + BLI_strnlen(exclude, UI_MAX_DRAW_STR), sizeof(message));
+    }
+    
+    WM_show_message_box(title, message, IFACE_("OK"));
 #endif
   }
 }

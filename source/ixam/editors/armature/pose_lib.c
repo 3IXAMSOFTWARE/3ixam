@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2007 Blender Foundation. */
 
 
 /** \file
@@ -242,7 +244,7 @@ void POSELIB_OT_new(wmOperatorType *ot)
   ot->poll = ED_operator_posemode;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ------------------------------------------------ */
@@ -367,7 +369,7 @@ void POSELIB_OT_action_sanitize(wmOperatorType *ot)
   ot->poll = has_poselib_pose_data_for_editing_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ------------------------------------------ */
@@ -533,7 +535,7 @@ void POSELIB_OT_pose_add(wmOperatorType *ot)
   ot->poll = poselib_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int(ot->srna, "frame", 1, 0, INT_MAX, "Frame", "Frame to store pose on", 0, INT_MAX);
@@ -656,7 +658,7 @@ void POSELIB_OT_pose_remove(wmOperatorType *ot)
   ot->poll = has_poselib_pose_data_for_editing_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(ot->srna, "pose", DummyRNA_NULL_items, 0, "Pose", "The pose to remove");
@@ -747,7 +749,7 @@ void POSELIB_OT_pose_rename(wmOperatorType *ot)
   ot->poll = has_poselib_pose_data_for_editing_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   /* NOTE: name not pose is the operator's "main" property,
@@ -830,7 +832,7 @@ void POSELIB_OT_pose_move(wmOperatorType *ot)
   ot->poll = has_poselib_pose_data_for_editing_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(ot->srna, "pose", DummyRNA_NULL_items, 0, "Pose", "The pose to move");
@@ -1838,7 +1840,7 @@ void POSELIB_OT_browse_interactive(wmOperatorType *ot)
   ot->poll = has_poselib_pose_data_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   /* TODO: make the pose_index into a proper enum instead of a cryptic int. */
@@ -1882,7 +1884,7 @@ void POSELIB_OT_apply_pose(wmOperatorType *ot)
   ot->poll = has_poselib_pose_data_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   /* TODO: make the pose_index into a proper enum instead of a cryptic int... */

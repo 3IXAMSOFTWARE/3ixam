@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2021 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -2260,7 +2262,7 @@ void SCULPT_OT_expand(wmOperatorType *ot)
   ot->cancel = sculpt_expand_cancel;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   static EnumPropertyItem prop_sculpt_expand_falloff_type_items[] = {
       {SCULPT_EXPAND_FALLOFF_GEODESIC, "GEODESIC", 0, "Geodesic", ""},

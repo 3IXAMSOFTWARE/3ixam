@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+
 #include "marching_cubes_table.h"
 
 const int marching_cubes_numtri[TOTCONF] = {

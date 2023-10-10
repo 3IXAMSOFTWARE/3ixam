@@ -83,6 +83,7 @@ class MATLIB_OT_material_label(Operator):
     bl_idname = "matlib.mat_label"
     bl_label = "Material"
     bl_description = "Material Group"
+    bl_options = {'INTERNAL'}
 
     def execute(self, context):
         return {'FINISHED'}

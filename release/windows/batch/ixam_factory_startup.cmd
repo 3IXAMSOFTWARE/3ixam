@@ -3,7 +3,7 @@ echo Starting ixam with factory settings, log files will be created
 echo in your temp folder, windows explorer will open after you close ixam
 echo to help you find them.
 echo.
-echo If you report a bug on https://developer.3ixam.com you can attach these files
+echo If you report a bug on https://developer.blender.com you can attach these files
 echo by dragging them into the text area of your bug report, please include both
 echo ixam_debug_output.txt and ixam_system_info.txt in your report. 
 echo.

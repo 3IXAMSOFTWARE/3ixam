@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2020 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -492,7 +494,7 @@ void GRAPH_OT_ghost_curves_create(wmOperatorType *ot)
   ot->poll = graphop_visible_keyframes_poll;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* TODO: add props for start/end frames */
 }
@@ -541,7 +543,7 @@ void GRAPH_OT_ghost_curves_clear(wmOperatorType *ot)
   ot->poll = ED_operator_graphedit_active;
 
   /* Flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

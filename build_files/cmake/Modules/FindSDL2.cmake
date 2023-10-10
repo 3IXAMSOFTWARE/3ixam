@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2015 Blender Foundation.
+
 # - Find SDL library
 # Find the native SDL includes and library
 # This module defines

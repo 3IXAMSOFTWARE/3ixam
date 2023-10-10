@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # defaults for building ixam as a python module 'bpy'
 #

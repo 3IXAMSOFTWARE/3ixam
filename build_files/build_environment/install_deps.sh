@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/usr/bin/env bash
 
 # A shell script installing/building all needed dependencies to build 3IXAM, for some Linux distributions.

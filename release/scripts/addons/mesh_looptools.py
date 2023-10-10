@@ -3238,7 +3238,7 @@ class Bridge(Operator):
     bl_idname = 'mesh.looptools_bridge'
     bl_label = "Bridge / Loft"
     bl_description = "Bridge two, or loft several, loops of vertices"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     cubic_strength: FloatProperty(
         name="Strength",
@@ -3611,7 +3611,7 @@ class Curve(Operator):
     bl_idname = "mesh.looptools_curve"
     bl_label = "Curve"
     bl_description = "Turn a loop into a smooth curve"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     boundaries: BoolProperty(
         name="Boundaries",
@@ -3877,7 +3877,7 @@ class RemoveAnnotation(Operator):
     bl_idname = "remove.annotation"
     bl_label = "Remove Annotation"
     bl_description = "Remove all Annotation Strokes"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     def execute(self, context):
 
@@ -3894,7 +3894,7 @@ class RemoveGPencil(Operator):
     bl_idname = "remove.gp"
     bl_label = "Remove GPencil"
     bl_description = "Remove all GPencil Strokes"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     def execute(self, context):
 

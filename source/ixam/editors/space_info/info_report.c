@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <limits.h>
@@ -121,6 +122,8 @@ void INFO_OT_report_replay(wmOperatorType *ot)
   ot->poll = ED_operator_info_active;
   ot->exec = report_replay_exec;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* flags */
   /* ot->flag = OPTYPE_REGISTER; */
 
@@ -177,6 +180,8 @@ void INFO_OT_select_pick(wmOperatorType *ot)
   ot->invoke = select_report_pick_invoke;
   ot->exec = select_report_pick_exec;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* flags */
   /* ot->flag = OPTYPE_REGISTER; */
 
@@ -212,6 +217,8 @@ void INFO_OT_select_all(wmOperatorType *ot)
   /* api callbacks */
   ot->poll = ED_operator_info_active;
   ot->exec = report_select_all_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_select_action(ot, SEL_SELECT, true);
@@ -298,7 +305,7 @@ void INFO_OT_select_box(wmOperatorType *ot)
   ot->poll = ED_operator_info_active;
 
   /* flags */
-  /* ot->flag = OPTYPE_REGISTER; */
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_box(ot);
@@ -343,7 +350,7 @@ void INFO_OT_report_delete(wmOperatorType *ot)
   ot->exec = report_delete_exec;
 
   /* flags */
-  // ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
 }
@@ -387,7 +394,7 @@ void INFO_OT_report_copy(wmOperatorType *ot)
   ot->exec = report_copy_exec;
 
   /* flags */
-  // ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
 }

@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2019, NVIDIA Corporation.
+ * Copyright 2019-2022 Blender Foundation. */
 
 
 #ifndef __BVH_OPTIX_H__

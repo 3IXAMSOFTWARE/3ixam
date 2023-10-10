@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2019 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -231,7 +233,7 @@ void WM_OT_usd_export(struct wmOperatorType *ot)
   ot->cancel = wm_usd_export_cancel;
   ot->check = wm_usd_export_check;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_PRESET; /* No UNDO possible. */
+  ot->flag = OPTYPE_REGISTER | OPTYPE_PRESET | OPTYPE_INTERNAL; /* No UNDO possible. */
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER | FILE_TYPE_USD,
@@ -500,7 +502,7 @@ void WM_OT_usd_import(struct wmOperatorType *ot)
   ot->poll = WM_operator_winactive;
   ot->ui = wm_usd_import_draw;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_PRESET;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_PRESET | OPTYPE_INTERNAL;
 
   WM_operator_properties_filesel(ot,
                                  FILE_TYPE_FOLDER | FILE_TYPE_USD,

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -108,7 +110,7 @@ void MASK_OT_new(wmOperatorType *ot)
   ot->idname = "MASK_OT_new";
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = mask_new_exec;
@@ -148,7 +150,7 @@ void MASK_OT_layer_new(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_string(ot->srna, "name", NULL, MAX_ID_NAME - 2, "Name", "Name of new mask layer");
@@ -183,7 +185,7 @@ void MASK_OT_layer_remove(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /******************** slide *********************/
@@ -909,7 +911,7 @@ void MASK_OT_slide_point(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna,
                   "slide_feather",
@@ -1299,7 +1301,7 @@ void MASK_OT_slide_spline_curvature(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /******************** toggle cyclic *********************/
@@ -1338,7 +1340,7 @@ void MASK_OT_cyclic_toggle(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /******************** delete *********************/
@@ -1495,7 +1497,7 @@ void MASK_OT_delete(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* *** switch direction *** */
@@ -1553,7 +1555,7 @@ void MASK_OT_switch_direction(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* *** recalc normals *** */
@@ -1615,7 +1617,7 @@ void MASK_OT_normals_make_consistent(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /******************** set handle type *********************/
@@ -1695,7 +1697,7 @@ void MASK_OT_handle_type_set(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "type", editcurve_handle_type_items, 1, "Type", "Spline type");
@@ -1739,7 +1741,7 @@ void MASK_OT_hide_view_clear(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "select", true, "Select", "");
 }
@@ -1799,7 +1801,7 @@ void MASK_OT_hide_view_set(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(
       ot->srna, "unselected", 0, "Unselected", "Hide unselected rather than selected layers");
@@ -1851,7 +1853,7 @@ void MASK_OT_feather_weight_clear(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /******************** move mask layer operator *********************/
@@ -1925,7 +1927,7 @@ void MASK_OT_layer_move(wmOperatorType *ot)
   ot->poll = mask_layer_move_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna,
@@ -2045,7 +2047,7 @@ void MASK_OT_duplicate(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_visible_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /********************** copy splines to clipboard operator *********************/
@@ -2076,7 +2078,7 @@ void MASK_OT_copy_splines(wmOperatorType *ot)
   ot->poll = ED_maskedit_mask_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL | OPTYPE_INTERNAL;
 }
 
 /********************** paste tracks from clipboard operator *********************/
@@ -2120,5 +2122,5 @@ void MASK_OT_paste_splines(wmOperatorType *ot)
   ot->poll = paste_splines_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }

@@ -134,7 +134,7 @@ class POSE_OT_rigify_mirror_parameters(bpy.types.Operator):
 
     bl_idname = "pose.rigify_mirror_parameters"
     bl_label = "Mirror Rigify Parameters"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -185,7 +185,7 @@ class POSE_OT_rigify_copy_parameters(bpy.types.Operator):
 
     bl_idname = "pose.rigify_copy_parameters"
     bl_label = "Copy Rigify Parameters to Selected"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     match_type: bpy.props.BoolProperty(
         name = "Match Type",

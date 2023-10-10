@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
-# DevBo Task: https://developer.ixam.org/T37377
+# DevBo Task: https://developer.blender.org/T37377
 
 bl_info = {
     "name": "Bevel/Taper Curve",

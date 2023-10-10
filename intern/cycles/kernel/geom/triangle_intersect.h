@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2014-2022 Blender Foundation. */
 
 
 /* Triangle/Ray intersections.

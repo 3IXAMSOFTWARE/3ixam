@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2006 by Nicholas Bishop. All rights reserved. */
 
 
 /** \file
@@ -121,7 +123,7 @@ static void SCULPT_OT_set_persistent_base(wmOperatorType *ot)
   ot->exec = sculpt_set_persistent_base_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /************************* SCULPT_OT_optimize *************************/
@@ -151,7 +153,7 @@ static void SCULPT_OT_optimize(wmOperatorType *ot)
   ot->exec = sculpt_optimize_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /********************* Dynamic topology symmetrize ********************/
@@ -244,6 +246,8 @@ static void SCULPT_OT_symmetrize(wmOperatorType *ot)
   /* API callbacks. */
   ot->exec = sculpt_symmetrize_exec;
   ot->poll = sculpt_no_multires_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   RNA_def_float(ot->srna,
                 "merge_tolerance",
@@ -540,7 +544,7 @@ static void SCULPT_OT_sculptmode_toggle(wmOperatorType *ot)
   ot->exec = sculpt_mode_toggle_exec;
   ot->poll = ED_operator_object_active_editable_mesh;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void SCULPT_geometry_preview_lines_update(bContext *C, SculptSession *ss, float radius)
@@ -663,7 +667,7 @@ static void SCULPT_OT_sample_color(wmOperatorType *ot)
   ot->invoke = sculpt_sample_color_invoke;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 /**
@@ -964,7 +968,7 @@ static void SCULPT_OT_mask_by_color(wmOperatorType *ot)
   ot->invoke = sculpt_mask_by_color_invoke;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   ot->prop = RNA_def_boolean(
       ot->srna, "contiguous", false, "Contiguous", "Mask only contiguous color areas");
@@ -1239,7 +1243,7 @@ static void SCULPT_OT_mask_from_cavity(wmOperatorType *ot)
   ot->exec = sculpt_bake_cavity_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "mix_mode", mix_modes, AUTOMASK_BAKE_MIX, "Mode", "Mix mode");
   RNA_def_float(ot->srna, "mix_factor", 1.0f, 0.0f, 5.0f, "Mix Factor", "", 0.0f, 1.0f);
@@ -1379,7 +1383,7 @@ static void SCULPT_OT_reveal_all(wmOperatorType *ot)
   ot->exec = sculpt_reveal_all_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void ED_operatortypes_sculpt(void)

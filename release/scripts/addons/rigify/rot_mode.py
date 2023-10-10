@@ -163,7 +163,7 @@ class POSE_OT_convert_rotation(bpy.types.Operator):
     bl_label = 'Convert Rotation Modes'
     bl_idname = 'pose.convert_rotation'
     bl_description = 'Convert animation from any rotation mode to any other'
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     # Properties.
     target_rotation_mode: EnumProperty(

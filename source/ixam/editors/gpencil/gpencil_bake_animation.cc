@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2021 Blender Foundation. */
+
 /** \file
  * \ingroup edgpencil
  */
@@ -345,7 +348,7 @@ void GPENCIL_OT_bake_grease_pencil_animation(wmOperatorType *ot)
   ot->exec = gpencil_bake_grease_pencil_animation_exec;
   ot->poll = gpencil_bake_grease_pencil_animation_poll;
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
   /* properties */
   prop = RNA_def_int(
       ot->srna, "frame_start", 1, 1, 100000, "Start Frame", "The start frame", 1, 100000);

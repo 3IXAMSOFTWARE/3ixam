@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 from bpy.types import Panel
 from bl_ui.space_view3d import (
     VIEW3D_PT_shading_lighting,

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/usr/bin/env python3
 
 
@@ -212,14 +214,14 @@ def report_personal_weekly_get(time_start, time_end):
     print("'''Review: %s'''" % len(review))
     for key in review:
         txn = review[key][0]
-        print("* %s [https://developer.3ixam.com/%s %s]" % (txn.text, txn.object_name, txn.object_name))
+        print("* %s [https://developer.blender.com/%s %s]" % (txn.text, txn.object_name, txn.object_name))
     print()
 
     # Print created diffs
     print("'''Created patches: %s'''" % len(created_diffs))
     for key in created_diffs:
         txn = created_diffs[key][0]
-        print("* %s [https://developer.3ixam.com/%s %s]" % (txn.object_title, txn.object_name, txn.object_name))
+        print("* %s [https://developer.blender.com/%s %s]" % (txn.object_title, txn.object_name, txn.object_name))
     print()
 
     # Print open diffs
@@ -229,7 +231,7 @@ def report_personal_weekly_get(time_start, time_end):
             continue
         diff_title = diff["fields"]["title"]
         diff_status = diff["fields"]["status"]['name']
-        print("* %s: %s [https://developer.3ixam.com/D%s D%s]" % (diff_status, diff_title, diff['id'], diff['id']))
+        print("* %s: %s [https://developer.blender.com/D%s D%s]" % (diff_status, diff_title, diff['id'], diff['id']))
     print()
 
     # Print commits

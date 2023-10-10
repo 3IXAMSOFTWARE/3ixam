@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "DNA_curve_types.h"
@@ -1069,7 +1070,7 @@ void VIEW3D_OT_view_center_cursor(wmOperatorType *ot)
   ot->poll = view3d_location_poll;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */

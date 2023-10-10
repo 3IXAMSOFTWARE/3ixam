@@ -1,3 +1,7 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2022 NVIDIA Corporation
+ * Copyright 2022 Blender Foundation */
+
 #include "hydra/attribute.h"
 #include "hydra/geometry.h"
 #include "hydra/instancer.h"

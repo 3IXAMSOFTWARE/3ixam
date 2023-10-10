@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2004 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -525,7 +527,7 @@ void MESH_OT_extrude_context(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "use_normal_flip", false, "Flip Normals", "");
   RNA_def_boolean(ot->srna, "use_dissolve_ortho_edges", false, "Dissolve Orthogonal Edges", "");
@@ -696,7 +698,7 @@ void MESH_OT_extrude_faces_indiv(wmOperatorType *ot)
   ot->poll = ED_operator_editmesh;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   Transform_Properties(ot, P_NO_DEFAULTS | P_MIRROR_DUMMY);
 }

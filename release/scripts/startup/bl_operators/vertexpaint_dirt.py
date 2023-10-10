@@ -131,7 +131,7 @@ class VertexPaintDirt(Operator):
     '''Generate a dirt map gradient based on cavity'''
     bl_idname = "paint.vertex_color_dirt"
     bl_label = "Dirty Vertex Colors"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     blur_strength: FloatProperty(
         name="Blur Strength",

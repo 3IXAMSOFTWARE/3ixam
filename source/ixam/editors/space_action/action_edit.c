@@ -138,7 +138,7 @@ void ACTION_OT_markers_make_local(wmOperatorType *ot)
   ot->poll = act_markers_make_local_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ************************************************************************** */
@@ -288,7 +288,7 @@ void ACTION_OT_previewrange_set(wmOperatorType *ot)
   ot->poll = ED_operator_action_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* ****************** View-All Operator ****************** */

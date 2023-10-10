@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "MEM_guardedalloc.h"
@@ -236,7 +237,7 @@ static void TRANSFORM_OT_delete_orientation(struct wmOperatorType *ot)
   ot->name = "Delete Orientation";
   ot->description = "Delete transformation orientation";
   ot->idname = "TRANSFORM_OT_delete_orientation";
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = delete_orientation_invoke;
@@ -284,7 +285,7 @@ static void TRANSFORM_OT_create_orientation(struct wmOperatorType *ot)
   ot->name = "Create Orientation";
   ot->description = "Create transformation orientation from selection";
   ot->idname = "TRANSFORM_OT_create_orientation";
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->exec = create_orientation_exec;
@@ -846,7 +847,7 @@ static void TRANSFORM_OT_skin_resize(struct wmOperatorType *ot)
   ot->name = "Skin Resize";
   ot->description = "Scale selected vertices' skin radii";
   ot->idname = OP_SKIN_RESIZE;
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_invoke;
@@ -872,7 +873,7 @@ static void TRANSFORM_OT_trackball(struct wmOperatorType *ot)
   ot->name = "Trackball";
   ot->description = "Trackball style rotation of selected items";
   ot->idname = OP_TRACKBALL;
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_invoke;
@@ -951,7 +952,7 @@ static void TRANSFORM_OT_bend(struct wmOperatorType *ot)
   ot->description = "Bend selected items between the 3D cursor and the mouse";
   ot->idname = OP_BEND;
   /* Depend on cursor location because the cursor location is used to define the region to bend. */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_invoke;
@@ -1104,7 +1105,7 @@ static void TRANSFORM_OT_bbone_resize(struct wmOperatorType *ot)
   ot->name = "Scale B-Joint";
   ot->description = "Scale selected bendy joints display size";
   ot->idname = OP_BONE_SIZE;
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_invoke;
@@ -1130,7 +1131,7 @@ static void TRANSFORM_OT_edge_slide(struct wmOperatorType *ot)
   ot->name = "Edge Slide";
   ot->description = "Slide an edge loop along a mesh";
   ot->idname = OP_EDGE_SLIDE;
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_invoke;
@@ -1203,7 +1204,7 @@ static void TRANSFORM_OT_edge_crease(struct wmOperatorType *ot)
   ot->name = "Edge Crease";
   ot->description = "Change the crease of edges";
   ot->idname = OP_EDGE_CREASE;
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_invoke;
@@ -1226,7 +1227,7 @@ static void TRANSFORM_OT_vert_crease(struct wmOperatorType *ot)
   ot->name = "Vertex Crease";
   ot->description = "Change the crease of vertices";
   ot->idname = OP_VERT_CREASE;
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_invoke;
@@ -1249,7 +1250,7 @@ static void TRANSFORM_OT_edge_bevelweight(struct wmOperatorType *ot)
   ot->name = "Edge Bevel Weight";
   ot->description = "Change the bevel weight of edges";
   ot->idname = OP_EDGE_BWEIGHT;
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_invoke;
@@ -1391,7 +1392,7 @@ static void TRANSFORM_OT_from_gizmo(struct wmOperatorType *ot)
   ot->name = "Transform from Gizmo";
   ot->description = "Transform selected items by mode type";
   ot->idname = "TRANSFORM_OT_from_gizmo";
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* api callbacks */
   ot->invoke = transform_from_gizmo_invoke;

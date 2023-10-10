@@ -2916,7 +2916,7 @@ void MATPRO_OT_shader_script_update(wmOperatorType *ot)
   ot->poll = node_shader_script_update_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

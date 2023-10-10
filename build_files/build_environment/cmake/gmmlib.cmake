@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(GMMLIB_EXTRA_ARGS
 )

@@ -1,3 +1,6 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2011-2013 Intel Corporation
+ * Modifications Copyright 2014-2022 Blender Foundation. */
 
 
 #ifndef __UTIL_SIMD_TYPES_H__

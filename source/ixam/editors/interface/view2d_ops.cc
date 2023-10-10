@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -1494,7 +1496,7 @@ static void VIEW2D_OT_ndof(wmOperatorType *ot)
   ot->poll = view2d_poll;
 
   /* flags */
-  ot->flag = OPTYPE_LOCK_BYPASS;
+  ot->flag = OPTYPE_LOCK_BYPASS | OPTYPE_INTERNAL;
 }
 #endif /* WITH_INPUT_NDOF */
 

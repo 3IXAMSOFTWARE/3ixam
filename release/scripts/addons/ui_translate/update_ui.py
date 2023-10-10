@@ -199,7 +199,7 @@ class UI_OT_i18n_updatetranslation_svn_init_settings(Operator):
 
     bl_idname = "ui.i18n_updatetranslation_svn_init_settings"
     bl_label = "Init I18n Update Settings"
-    bl_option = {'REGISTER'}
+    bl_options = {'REGISTER', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -249,6 +249,7 @@ class UI_OT_i18n_updatetranslation_svn_settings_select(Operator):
 
     bl_idname = "ui.i18n_updatetranslation_svn_settings_select"
     bl_label = "Init I18n Update Select Languages"
+    bl_options = {'INTERNAL'}
 
     # Operator Arguments
     use_select: BoolProperty(

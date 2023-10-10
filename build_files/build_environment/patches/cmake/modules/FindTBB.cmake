@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2016 Blender Foundation.
+
 # - Find TBB library
 # Find the native TBB includes and library
 # This module defines

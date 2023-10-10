@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2018 Blender Foundation. */
 
 
 /** \file
@@ -188,7 +190,7 @@ void GPENCIL_OT_convert_old_files(wmOperatorType *ot)
   ot->poll = gpencil_convert_old_files_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   ot->prop = RNA_def_boolean(ot->srna, "annotation", 0, "Annotation", "Convert to Annotations");

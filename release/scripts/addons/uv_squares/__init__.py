@@ -875,7 +875,7 @@ class UV_PT_RipFaces(bpy.types.Operator):
     """Rip UV faces apart"""
     bl_idname = "uv.uv_face_rip"
     bl_label = "UV Face Rip"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -889,7 +889,7 @@ class UV_PT_JoinFaces(bpy.types.Operator):
     """Join selected UV faces to closest nonselected vertices"""
     bl_idname = "uv.uv_face_join"
     bl_label = "UV Face Join"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -903,7 +903,7 @@ class UV_PT_SnapToAxis(bpy.types.Operator):
     """Snap sequenced vertices to Axis"""
     bl_idname = "uv.uv_snap_to_axis"
     bl_label = "UV snap vertices to axis"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):

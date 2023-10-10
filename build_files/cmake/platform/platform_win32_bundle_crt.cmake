@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # First generate the manifest for tests since it will not need the dependency on the CRT.
 configure_file(${CMAKE_SOURCE_DIR}/release/windows/manifest/3ixam.exe.manifest.in ${CMAKE_CURRENT_BINARY_DIR}/tests.exe.manifest @ONLY)

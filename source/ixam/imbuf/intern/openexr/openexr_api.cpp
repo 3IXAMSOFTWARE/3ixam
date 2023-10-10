@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright by Gernot Ziegler <gz@lysator.liu.se>. All rights reserved. */
 
 
 /** \file

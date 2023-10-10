@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 
 #  Filename : split_at_highest_2d_curvature.py

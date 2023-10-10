@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <math.h>
@@ -87,7 +88,7 @@ void DPAINT_OT_surface_slot_add(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_local_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int surface_slot_remove_exec(bContext *C, wmOperator *UNUSED(op))
@@ -135,7 +136,7 @@ void DPAINT_OT_surface_slot_remove(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_local_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int type_toggle_exec(bContext *C, wmOperator *op)
@@ -187,7 +188,7 @@ void DPAINT_OT_type_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_local_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_enum(ot->srna,
@@ -270,7 +271,7 @@ void DPAINT_OT_output_toggle(wmOperatorType *ot)
   ot->poll = ED_operator_object_active_local_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_enum(ot->srna, "output", prop_output_toggle_types, 0, "Output Toggle", "");
@@ -526,4 +527,6 @@ void DPAINT_OT_bake(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = dynamicpaint_bake_exec;
   ot->poll = ED_operator_object_active_local_editable;
+
+  ot->flag = OPTYPE_INTERNAL;
 }

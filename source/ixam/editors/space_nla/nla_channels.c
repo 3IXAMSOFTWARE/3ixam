@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation, Joshua Leung. All rights reserved. */
 
 
 /** \file
@@ -348,7 +350,7 @@ void NLA_OT_channels_click(wmOperatorType *ot)
   ot->poll = ED_operator_nla_active;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   prop = RNA_def_boolean(ot->srna, "extend", 0, "Extend Select", ""); /* SHIFTKEY */
@@ -467,7 +469,7 @@ void NLA_OT_action_pushdown(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = RNA_def_int(ot->srna,
@@ -541,6 +543,8 @@ void NLA_OT_action_unlink(wmOperatorType *ot)
   ot->invoke = nla_action_unlink_invoke;
   ot->exec = nla_action_unlink_exec;
   ot->poll = nla_action_unlink_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   prop = RNA_def_boolean(ot->srna,
@@ -685,7 +689,7 @@ void NLA_OT_tracks_add(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna,
@@ -765,7 +769,7 @@ void NLA_OT_tracks_delete(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* *********************************************** */
@@ -821,7 +825,7 @@ void NLA_OT_selected_objects_add(wmOperatorType *ot)
   ot->poll = nlaop_poll_tweakmode_off;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /* *********************************************** */

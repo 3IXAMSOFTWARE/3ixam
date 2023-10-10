@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -732,7 +734,7 @@ void OBJECT_OT_material_slot_remove_unused(wmOperatorType *ot)
   ot->poll = object_materials_supported_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -1481,6 +1483,8 @@ void SCENE_OT_light_cache_bake(wmOperatorType *ot)
   ot->cancel = light_cache_bake_cancel;
   ot->exec = light_cache_bake_exec;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   ot->prop = RNA_def_int(ot->srna,
                          "delay",
                          0,
@@ -1541,6 +1545,8 @@ void SCENE_OT_light_cache_free(wmOperatorType *ot)
   ot->idname = "SCENE_OT_light_cache_free";
   ot->description = "Delete cached indirect lighting";
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* api callbacks */
   ot->exec = light_cache_free_exec;
   ot->poll = light_cache_free_poll;
@@ -1583,7 +1589,7 @@ void SCENE_OT_render_view_add(wmOperatorType *ot)
   ot->exec = render_view_add_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -132,7 +134,7 @@ void ED_operatormacros_node()
   ot = WM_operatortype_append_macro("NODE_OT_select_link_viewer",
                                     "Link Viewer",
                                     "Select node and link it to a viewer node",
-                                    OPTYPE_UNDO);
+                                    OPTYPE_UNDO | OPTYPE_INTERNAL);
   mot = WM_operatortype_macro_define(ot, "NODE_OT_select");
   RNA_boolean_set(mot->ptr, "extend", false);
   RNA_boolean_set(mot->ptr, "socket_select", true);
@@ -142,7 +144,7 @@ void ED_operatormacros_node()
   ot = WM_operatortype_append_macro("NODE_OT_translate_attach",
                                     "Move and Attach",
                                     "Move nodes and attach to frame",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   mot = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   WM_operatortype_macro_define(ot, "NODE_OT_attach");
   WM_operatortype_macro_define(ot, "NODE_OT_insert_offset");
@@ -151,7 +153,7 @@ void ED_operatormacros_node()
   ot = WM_operatortype_append_macro("NODE_OT_translate_attach_remove_on_cancel",
                                     "Move and Attach",
                                     "Move nodes and attach to frame",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   mot = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   RNA_boolean_set(mot->ptr, "remove_on_cancel", true);
   RNA_boolean_set(mot->ptr, "view2d_edge_pan", true);
@@ -165,7 +167,7 @@ void ED_operatormacros_node()
   ot = WM_operatortype_append_macro("NODE_OT_detach_translate_attach",
                                     "Detach and Move",
                                     "Detach nodes, move and attach to frame",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "NODE_OT_detach");
   mot = WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   WM_operatortype_macro_define(ot, "NODE_OT_attach");
@@ -173,7 +175,7 @@ void ED_operatormacros_node()
   ot = WM_operatortype_append_macro("NODE_OT_duplicate_move",
                                     "Duplicate",
                                     "Duplicate selected nodes and move them",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   mot = WM_operatortype_macro_define(ot, "NODE_OT_duplicate");
   RNA_boolean_set(mot->ptr, "linked", false);
   WM_operatortype_macro_define(ot, "NODE_OT_translate_attach");
@@ -182,7 +184,7 @@ void ED_operatormacros_node()
       "NODE_OT_duplicate_move_linked",
       "Duplicate Linked",
       "Duplicate selected nodes, but not their node trees, and move them",
-      OPTYPE_UNDO | OPTYPE_REGISTER);
+      OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   mot = WM_operatortype_macro_define(ot, "NODE_OT_duplicate");
   RNA_boolean_set(mot->ptr, "linked", true);
   WM_operatortype_macro_define(ot, "NODE_OT_translate_attach");
@@ -191,7 +193,7 @@ void ED_operatormacros_node()
   ot = WM_operatortype_append_macro("NODE_OT_duplicate_move_keep_inputs",
                                     "Duplicate",
                                     "Duplicate selected nodes keeping input links and move them",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   mot = WM_operatortype_macro_define(ot, "NODE_OT_duplicate");
   RNA_boolean_set(mot->ptr, "keep_inputs", true);
   WM_operatortype_macro_define(ot, "NODE_OT_translate_attach");
@@ -199,7 +201,7 @@ void ED_operatormacros_node()
   ot = WM_operatortype_append_macro("NODE_OT_move_detach_links",
                                     "Detach",
                                     "Move a node to detach links",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "NODE_OT_links_detach");
   WM_operatortype_macro_define(ot, "TRANSFORM_OT_translate");
   WM_operatortype_macro_define(ot, "NODE_OT_insert_offset");
@@ -207,7 +209,7 @@ void ED_operatormacros_node()
   ot = WM_operatortype_append_macro("NODE_OT_move_detach_links_release",
                                     "Detach",
                                     "Move a node to detach links",
-                                    OPTYPE_UNDO | OPTYPE_REGISTER);
+                                    OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   WM_operatortype_macro_define(ot, "NODE_OT_links_detach");
   WM_operatortype_macro_define(ot, "NODE_OT_translate_attach");
 }

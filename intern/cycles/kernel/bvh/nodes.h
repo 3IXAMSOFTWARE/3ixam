@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0
+ * Copyright 2011-2022 Blender Foundation. */
 
 
 // TODO(sergey): Look into avoid use of full Transform and use 3x3 matrix and

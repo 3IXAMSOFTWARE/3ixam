@@ -126,7 +126,7 @@ def view_cage(obj):
 
     if bpy.context.mode == 'PAINT_GPENCIL':
         # points cannot be assign to API yet(ugly and slow workaround but only way)
-        # -> https://developer.ixam.org/T56280 so, hop'in'ops !
+        # -> https://developer.blender.org/T56280 so, hop'in'ops !
 
         # store selection and deselect all
         plist = []
@@ -572,7 +572,7 @@ valid:Spacebar/Enter, cancel:Del/Backspace/Tab/Ctrl+T"
 
 
         # bpy.ops.ed.undo_push(message="Box deform step")#don't work as expected (+ might be obsolete)
-        # https://developer.ixam.org/D6147 <- undo forget
+        # https://developer.blender.org/D6147 <- undo forget
 
         self.gp_obj = context.object
 

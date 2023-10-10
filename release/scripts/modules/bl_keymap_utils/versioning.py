@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # Update 3IXAM version this key-map was written in:
 #

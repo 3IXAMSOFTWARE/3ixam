@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2011 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -74,7 +76,7 @@ void CLIP_OT_create_plane_track(wmOperatorType *ot)
   ot->poll = ED_space_clip_tracking_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /********************** Slide plane marker corner operator *********************/
@@ -373,5 +375,5 @@ void CLIP_OT_slide_plane_marker(wmOperatorType *ot)
   ot->modal = slide_plane_marker_modal;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_GRAB_CURSOR_XY | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_GRAB_CURSOR_XY | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 }

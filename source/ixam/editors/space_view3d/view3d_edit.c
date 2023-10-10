@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -338,7 +340,7 @@ void VIEW3D_OT_render_border(wmOperatorType *ot)
   ot->poll = ED_operator_view3d_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_border(ot);
@@ -394,7 +396,7 @@ void VIEW3D_OT_clear_render_border(wmOperatorType *ot)
   ot->poll = ED_operator_view3d_active;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -452,7 +454,7 @@ void VIEW3D_OT_zoom_camera_1_to_1(wmOperatorType *ot)
   ot->poll = view3d_camera_user_poll;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -608,7 +610,7 @@ void VIEW3D_OT_background_image_add(wmOperatorType *ot)
   ot->poll = background_image_add_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_id_lookup(ot, true);
@@ -670,7 +672,7 @@ void VIEW3D_OT_background_image_remove(wmOperatorType *ot)
   ot->poll = ED_operator_camera_poll;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_int(
@@ -808,7 +810,7 @@ void VIEW3D_OT_clip_border(wmOperatorType *ot)
   ot->poll = ED_operator_region_view3d_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_border(ot);
@@ -1086,6 +1088,8 @@ void VIEW3D_OT_cursor3d(wmOperatorType *ot)
   ot->invoke = view3d_cursor3d_invoke;
 
   ot->poll = ED_operator_region_view3d_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* flags */
   //  ot->flag = OPTYPE_REGISTER|OPTYPE_UNDO;

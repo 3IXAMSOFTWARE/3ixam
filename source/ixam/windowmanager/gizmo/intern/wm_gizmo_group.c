@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2014 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -380,7 +382,7 @@ void GIZMOGROUP_OT_gizmo_select(wmOperatorType *ot)
   /* api callbacks */
   ot->invoke = gizmo_select_invoke;
 
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_mouse_select(ot);
 }
@@ -605,6 +607,8 @@ void GIZMOGROUP_OT_gizmo_tweak(wmOperatorType *ot)
   /* api callbacks */
   ot->invoke = gizmo_tweak_invoke;
   ot->modal = gizmo_tweak_modal;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* TODO(@campbellbarton): This causes problems tweaking settings for operators,
    * need to find a way to support this. */

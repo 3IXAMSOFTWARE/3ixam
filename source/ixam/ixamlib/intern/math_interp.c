@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -14,11 +16,11 @@
  *                            INTERPOLATIONS
  *
  * Reference and docs:
- * http://wiki.ixam.org/index.php/User:Damiles#Interpolations_Algorithms
+ * http://wiki.blender.org/index.php/User:Damiles#Interpolations_Algorithms
  ***************************************************************************/
 
 /* BICUBIC Interpolation functions
- * More info: http://wiki.ixam.org/index.php/User:Damiles#Bicubic_pixel_interpolation
+ * More info: http://wiki.blender.org/index.php/User:Damiles#Bicubic_pixel_interpolation
  * function assumes out to be zero'ed, only does RGBA */
 
 static float P(float k)

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # These are build time requirements for dpcpp
 # We only have to unpack these dpcpp will build

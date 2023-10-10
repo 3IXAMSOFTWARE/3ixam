@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 ExternalProject_Add(external_sse2neon
   URL file://${PACKAGE_DIR}/${SSE2NEON_FILE}

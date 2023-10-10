@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2018 Blender Foundation. */
 
 
 /** \file
@@ -660,7 +662,7 @@ void GPENCIL_OT_generate_weights(wmOperatorType *ot)
   ot->idname = "GPENCIL_OT_generate_weights";
   ot->description = "Generate automatic weights for rigs (requires rig modifier)";
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* callbacks */
   ot->exec = gpencil_generate_weights_exec;

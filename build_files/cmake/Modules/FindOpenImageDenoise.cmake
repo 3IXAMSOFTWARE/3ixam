@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2019 Blender Foundation.
+
 # - Find OpenImageDenoise library
 # Find the native OpenImageDenoise includes and library
 # This module defines

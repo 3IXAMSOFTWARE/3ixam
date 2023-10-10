@@ -84,7 +84,7 @@ class GP_OT_install_brush_pack(bpy.types.Operator):
 
         self.temp = Path(temp)
 
-        dl_url = 'https://download.ixam.org/demo/bundles/bundles-3.0/grease-pencil-brush-pack.zip'
+        dl_url = 'https://download.blender.org/demo/bundles/bundles-3.0/grease-pencil-brush-pack.zip'
 
         ## need to create an SSl context or linux fail and raise unverified ssl
         ssl._create_default_https_context = ssl._create_unverified_context
@@ -126,7 +126,7 @@ class GP_OT_install_brush_pack(bpy.types.Operator):
         ## Download, unzip, use blend
         print(f'Downloading brushpack in {self.brushzip}')
 
-        fallback_url='https://cloud.ixam.org/p/gallery/5f235cc297f8815e74ffb90b'
+        fallback_url='https://cloud.blender.org/p/gallery/5f235cc297f8815e74ffb90b'
         err = simple_dl_url(dl_url, str(self.brushzip), fallback_url)
 
         if err:

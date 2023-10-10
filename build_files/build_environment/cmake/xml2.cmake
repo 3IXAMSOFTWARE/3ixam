@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(WIN32)
   set(XML2_EXTRA_ARGS 

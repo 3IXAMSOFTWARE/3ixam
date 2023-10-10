@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 from __future__ import annotations
 
 import bpy
@@ -33,7 +35,7 @@ class ASSET_OT_tag_add(AssetBrowserMetadataOperator, Operator):
 
     bl_idname = "asset.tag_add"
     bl_label = "Add Asset Tag"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     def execute(self, context):
         active_asset = SpaceAssetInfo.get_active_asset(context)
@@ -47,7 +49,7 @@ class ASSET_OT_tag_remove(AssetBrowserMetadataOperator, Operator):
 
     bl_idname = "asset.tag_remove"
     bl_label = "Remove Asset Tag"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):

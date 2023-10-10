@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include "BLI_ixamlib.h"
@@ -282,7 +283,7 @@ void VIEW3D_OT_view_roll(wmOperatorType *ot)
   ot->cancel = viewroll_cancel;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   ot->prop = prop = RNA_def_float(

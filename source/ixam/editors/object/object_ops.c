@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2008 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -302,7 +304,7 @@ void ED_operatormacros_object(void)
       "OBJECT_OT_duplicate_move_linked",
       "Duplicate Linked",
       "Duplicate the selected objects, but not their object data, and move them",
-      OPTYPE_UNDO | OPTYPE_REGISTER);
+      OPTYPE_UNDO | OPTYPE_REGISTER | OPTYPE_INTERNAL);
   if (ot) {
     otmacro = WM_operatortype_macro_define(ot, "OBJECT_OT_duplicate");
     RNA_boolean_set(otmacro->ptr, "linked", true);

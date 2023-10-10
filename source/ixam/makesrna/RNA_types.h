@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 /* Use a define instead of `#pragma once` because of `BKE_addon.h`, `ED_object.h` & others. */

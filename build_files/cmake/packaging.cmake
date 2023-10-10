@@ -1,10 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 string(TIMESTAMP CURRENT_YEAR "%Y")
 
 set(PROJECT_DESCRIPTION  "3IXAM is the free and open source 3D creation suite software.")
-set(PROJECT_COPYRIGHT    "Copyright (C) 2001-${CURRENT_YEAR} 3IXAM Foundation")
-set(PROJECT_CONTACT      "foundation@ixam.org")
-set(PROJECT_VENDOR       "3IXAM Foundation")
+set(PROJECT_COPYRIGHT    "Copyright (C) 2001-${CURRENT_YEAR} Blender Foundation")
+set(PROJECT_CONTACT      "foundation@blender.org")
+set(PROJECT_VENDOR       "Blender Foundation")
 
 set(MAJOR_VERSION ${IXAM_VERSION_MAJOR})
 set(MINOR_VERSION ${IXAM_VERSION_MINOR})
@@ -81,8 +82,8 @@ if(APPLE)
 endif()
 
 if(WIN32)
-  set(CPACK_PACKAGE_INSTALL_DIRECTORY "3IXAM Foundation/3IXAM ${MAJOR_VERSION}.${MINOR_VERSION}")
-  set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "3IXAM Foundation/3IXAM ${MAJOR_VERSION}.${MINOR_VERSION}")
+  set(CPACK_PACKAGE_INSTALL_DIRECTORY "Blender Foundation/3IXAM ${MAJOR_VERSION}.${MINOR_VERSION}")
+  set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "Blender Foundation/3IXAM ${MAJOR_VERSION}.${MINOR_VERSION}")
 
   set(CPACK_NSIS_MUI_ICON ${CMAKE_SOURCE_DIR}/release/windows/icons/3ixam.ico)
   set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")

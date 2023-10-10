@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2019 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -438,6 +440,8 @@ void OBJECT_OT_lineart_bake_strokes(wmOperatorType *ot)
   ot->invoke = lineart_gpencil_bake_strokes_invoke;
   ot->exec = lineart_gpencil_bake_strokes_exec;
   ot->modal = lineart_gpencil_bake_strokes_commom_modal;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void OBJECT_OT_lineart_bake_strokes_all(wmOperatorType *ot)
@@ -449,6 +453,8 @@ void OBJECT_OT_lineart_bake_strokes_all(wmOperatorType *ot)
   ot->invoke = lineart_gpencil_bake_strokes_all_invoke;
   ot->exec = lineart_gpencil_bake_strokes_all_exec;
   ot->modal = lineart_gpencil_bake_strokes_commom_modal;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void OBJECT_OT_lineart_clear(wmOperatorType *ot)
@@ -458,6 +464,8 @@ void OBJECT_OT_lineart_clear(wmOperatorType *ot)
   ot->idname = "OBJECT_OT_lineart_clear";
 
   ot->exec = lineart_gpencil_clear_strokes_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void OBJECT_OT_lineart_clear_all(wmOperatorType *ot)
@@ -467,6 +475,8 @@ void OBJECT_OT_lineart_clear_all(wmOperatorType *ot)
   ot->idname = "OBJECT_OT_lineart_clear_all";
 
   ot->exec = lineart_gpencil_clear_strokes_all_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 void WM_operatortypes_lineart(void)

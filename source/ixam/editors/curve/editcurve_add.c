@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -612,7 +614,7 @@ void CURVE_OT_primitive_bezier_circle_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -635,7 +637,7 @@ void CURVE_OT_primitive_nurbs_curve_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -658,7 +660,7 @@ void CURVE_OT_primitive_nurbs_circle_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -681,7 +683,7 @@ void CURVE_OT_primitive_nurbs_path_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -705,7 +707,7 @@ void SURFACE_OT_primitive_nurbs_surface_curve_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -728,7 +730,7 @@ void SURFACE_OT_primitive_nurbs_surface_circle_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -751,7 +753,7 @@ void SURFACE_OT_primitive_nurbs_surface_surface_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -774,7 +776,7 @@ void SURFACE_OT_primitive_nurbs_surface_cylinder_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -797,7 +799,7 @@ void SURFACE_OT_primitive_nurbs_surface_sphere_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);
@@ -820,7 +822,7 @@ void SURFACE_OT_primitive_nurbs_surface_torus_add(wmOperatorType *ot)
   ot->poll = ED_operator_scene_editable;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   ED_object_add_unit_props_radius(ot);
   ED_object_add_generic_props(ot, true);

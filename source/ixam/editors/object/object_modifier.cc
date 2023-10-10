@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -2366,7 +2368,7 @@ void OBJECT_OT_multires_external_pack(wmOperatorType *ot)
   ot->exec = multires_external_pack_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2624,7 +2626,7 @@ void OBJECT_OT_skin_root_mark(wmOperatorType *ot)
   ot->exec = skin_root_mark_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 enum SkinLooseAction {
@@ -2683,7 +2685,7 @@ void OBJECT_OT_skin_loose_mark_clear(wmOperatorType *ot)
   ot->exec = skin_loose_mark_clear_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_enum(ot->srna, "action", action_items, SKIN_LOOSE_MARK, "Action", nullptr);
 }
@@ -2726,7 +2728,7 @@ void OBJECT_OT_skin_radii_equalize(wmOperatorType *ot)
   ot->exec = skin_radii_equalize_exec;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static void skin_armature_bone_create(Object *skin_ob,
@@ -3550,7 +3552,7 @@ void OBJECT_OT_geometry_node_tree_copy_assign(wmOperatorType *ot)
   ot->exec = geometry_node_tree_copy_assign_exec;
   ot->poll = ED_operator_object_active;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

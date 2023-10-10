@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 
 #  Filename : thickness_fof_depth_discontinuity.py

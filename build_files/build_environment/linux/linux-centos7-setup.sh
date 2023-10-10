@@ -1,7 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/usr/bin/env bash
 
-# This script is part of the official build environment, see WIKI page for details.
-# https://wiki.ixam.org/wiki/Building_Ixam/Other/CentOS7ReleaseEnvironment
 
 set -e
 

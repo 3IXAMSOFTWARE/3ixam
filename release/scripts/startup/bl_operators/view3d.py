@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 import typing
 import bpy
@@ -15,6 +16,7 @@ class VIEW3D_OT_edit_mesh_extrude_individual_move(Operator):
     """Extrude each individual face separately along local normals"""
     bl_label = "Extrude Individual and Move"
     bl_idname = "view3d.edit_mesh_extrude_individual_move"
+    bl_options = {'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
@@ -174,7 +176,7 @@ class VIEW3D_OT_edit_mesh_extrude_manifold_normal(Operator):
 class VIEW3D_OT_transform_gizmo_set(Operator):
     """Set the current transform gizmo"""
     bl_label = "Transform Gizmo Set"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
     bl_idname = "view3d.transform_gizmo_set"
 
     extend: BoolProperty(
@@ -375,7 +377,7 @@ class VIEW3D_OT_group(bpy.types.Operator):
     """Create a collection with selected objects in Library"""
     bl_idname = "view3d.group"
     bl_label = "Convert to Library Group"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     instname: bpy.props.StringProperty(name="Instance Name", default="Group")
     instance_center: bpy.props.EnumProperty(

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2012 by Nicholas Bishop. All rights reserved. */
 
 
 /** \file
@@ -197,7 +199,7 @@ void PAINT_OT_mask_flood_fill(struct wmOperatorType *ot)
   ot->exec = mask_flood_fill_exec;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* RNA. */
   RNA_def_enum(ot->srna, "mode", mode_items, PAINT_MASK_FLOOD_VALUE, "Mode", NULL);
@@ -1696,7 +1698,7 @@ void PAINT_OT_mask_lasso_gesture(wmOperatorType *ot)
 
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_gesture_lasso(ot);
@@ -1717,7 +1719,7 @@ void PAINT_OT_mask_box_gesture(wmOperatorType *ot)
 
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_border(ot);
@@ -1738,7 +1740,7 @@ void PAINT_OT_mask_line_gesture(wmOperatorType *ot)
 
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_gesture_straightline(ot, WM_CURSOR_EDIT);
@@ -1759,7 +1761,7 @@ void SCULPT_OT_face_set_lasso_gesture(wmOperatorType *ot)
 
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_gesture_lasso(ot);
@@ -1778,7 +1780,7 @@ void SCULPT_OT_face_set_box_gesture(wmOperatorType *ot)
 
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_border(ot);
@@ -1797,7 +1799,7 @@ void SCULPT_OT_trim_lasso_gesture(wmOperatorType *ot)
 
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_DEPENDS_ON_CURSOR;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_DEPENDS_ON_CURSOR | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_gesture_lasso(ot);
@@ -1818,7 +1820,7 @@ void SCULPT_OT_trim_box_gesture(wmOperatorType *ot)
 
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_border(ot);
@@ -1839,7 +1841,7 @@ void SCULPT_OT_project_line_gesture(wmOperatorType *ot)
 
   ot->poll = SCULPT_mode_poll_view3d;
 
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* Properties. */
   WM_operator_properties_gesture_straightline(ot, WM_CURSOR_EDIT);

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2020 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -137,7 +139,7 @@ void SCULPT_OT_detail_flood_fill(wmOperatorType *ot)
   ot->exec = sculpt_detail_flood_fill_exec;
   ot->poll = sculpt_and_constant_or_manual_detail_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -346,7 +348,7 @@ void SCULPT_OT_sample_detail_size(wmOperatorType *ot)
   ot->modal = sculpt_sample_detail_size_modal;
   ot->poll = SCULPT_mode_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_int_array(ot->srna,
                     "location",
@@ -432,7 +434,7 @@ void SCULPT_OT_set_detail_size(wmOperatorType *ot)
   ot->exec = sculpt_set_detail_size_exec;
   ot->poll = sculpt_and_dynamic_topology_poll;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -768,7 +770,7 @@ void SCULPT_OT_dyntopo_detail_size_edit(wmOperatorType *ot)
   ot->modal = dyntopo_detail_size_edit_modal;
   ot->cancel = dyntopo_detail_size_edit_cancel;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

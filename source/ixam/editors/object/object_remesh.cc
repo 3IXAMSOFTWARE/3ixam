@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2019 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -208,7 +210,7 @@ void OBJECT_OT_voxel_remesh(wmOperatorType *ot)
   ot->poll = object_remesh_poll;
   ot->exec = voxel_remesh_exec;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -627,7 +629,7 @@ void OBJECT_OT_voxel_size_edit(wmOperatorType *ot)
   ot->modal = voxel_size_edit_modal;
   ot->cancel = voxel_size_edit_cancel;
 
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

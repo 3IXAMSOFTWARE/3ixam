@@ -7,7 +7,7 @@ import typing
 log = logging.getLogger(__name__)
 
 # Can be overridden by setting the environment variable IXAM_ID_ENDPOINT.
-IXAM_ID_ENDPOINT = 'https://id.ixam.org/'
+IXAM_ID_ENDPOINT = 'https://id.blender.org/'
 
 # Will become a requests.Session at the first request to Ixam ID.
 requests_session = None

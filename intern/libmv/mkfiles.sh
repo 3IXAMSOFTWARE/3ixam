@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 #!/bin/sh
 
 find ./libmv/ -type f | sed -r 's/^\.\///' | sort > files.txt

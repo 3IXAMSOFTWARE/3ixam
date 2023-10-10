@@ -1,3 +1,10 @@
+/* SPDX-License-Identifier: BSD-3-Clause
+ * Parts adapted from Open Shading Language with this license:
+ *
+ * Copyright (c) 2009-2010 Sony Pictures Imageworks Inc., et al.
+ * All Rights Reserved.
+ *
+ * Modifications Copyright 2011-2022 Blender Foundation. */
 
 
 #pragma once

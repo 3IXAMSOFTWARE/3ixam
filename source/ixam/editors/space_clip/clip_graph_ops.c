@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2011 Blender Foundation. All rights reserved. */
 
 
 /** \file
@@ -323,7 +325,7 @@ void CLIP_OT_graph_select(wmOperatorType *ot)
   ot->poll = clip_graph_knots_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -434,7 +436,7 @@ void CLIP_OT_graph_select_box(wmOperatorType *ot)
   ot->poll = clip_graph_knots_poll;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO;
+  ot->flag = OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   WM_operator_properties_gesture_box_select(ot);
@@ -502,7 +504,7 @@ void CLIP_OT_graph_select_all_markers(wmOperatorType *ot)
   ot->poll = clip_graph_knots_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -538,7 +540,7 @@ void CLIP_OT_graph_delete_curve(wmOperatorType *ot)
   ot->poll = clip_graph_knots_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /******************** delete knot operator ********************/
@@ -580,7 +582,7 @@ void CLIP_OT_graph_delete_knot(wmOperatorType *ot)
   ot->poll = clip_graph_knots_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /******************** view all operator ********************/
@@ -664,6 +666,8 @@ void CLIP_OT_graph_view_all(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = view_all_exec;
   ot->poll = ED_space_clip_graph_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /******************** jump to current frame operator ********************/
@@ -700,6 +704,8 @@ void CLIP_OT_graph_center_current_frame(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = center_current_frame_exec;
   ot->poll = ED_space_clip_graph_poll;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /********************** disable markers operator *********************/
@@ -760,7 +766,7 @@ void CLIP_OT_graph_disable_markers(wmOperatorType *ot)
   ot->poll = ED_space_clip_graph_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_enum(ot->srna, "action", actions_items, 0, "Action", "Disable action to execute");

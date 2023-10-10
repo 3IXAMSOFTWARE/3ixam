@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 
 
 #include <ctype.h> /* #ispunct */
@@ -355,6 +356,8 @@ void CONSOLE_OT_move(wmOperatorType *ot)
   ot->exec = console_move_exec;
   ot->poll = ED_operator_console_active;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   RNA_def_enum(
       ot->srna, "type", console_move_type_items, LINE_BEGIN, "Type", "Where to move cursor to");
@@ -431,6 +434,8 @@ void CONSOLE_OT_insert(wmOperatorType *ot)
   ot->invoke = console_insert_invoke;
   ot->poll = ED_operator_console_active;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   prop = RNA_def_string(
       ot->srna, "text", NULL, 0, "Text", "Text to insert at the cursor position");
@@ -477,7 +482,7 @@ void CONSOLE_OT_indent_or_autocomplete(wmOperatorType *ot)
   ot->poll = ED_operator_console_active;
 
   /* flags */
-  ot->flag = 0;
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -529,6 +534,8 @@ void CONSOLE_OT_indent(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = console_indent_exec;
   ot->poll = ED_operator_console_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -583,6 +590,8 @@ void CONSOLE_OT_unindent(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = console_unindent_exec;
   ot->poll = ED_operator_console_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static const EnumPropertyItem console_delete_type_items[] = {
@@ -679,6 +688,8 @@ void CONSOLE_OT_delete(wmOperatorType *ot)
   ot->exec = console_delete_exec;
   ot->poll = ED_operator_console_active;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   RNA_def_enum(ot->srna,
                "type",
@@ -721,6 +732,8 @@ void CONSOLE_OT_clear_line(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = console_clear_line_exec;
   ot->poll = ED_operator_console_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 /* the python exec operator uses this */
@@ -763,6 +776,8 @@ void CONSOLE_OT_clear(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = console_clear_exec;
   ot->poll = ED_operator_console_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_boolean(ot->srna, "scrollback", 1, "Scrollback", "Clear the scrollback history");
@@ -833,6 +848,8 @@ void CONSOLE_OT_history_cycle(wmOperatorType *ot)
   ot->exec = console_history_cycle_exec;
   ot->poll = ED_operator_console_active;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
   RNA_def_boolean(ot->srna, "reverse", 0, "Reverse", "Reverse cycle history");
 }
@@ -888,6 +905,8 @@ void CONSOLE_OT_history_append(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = console_history_append_exec;
   ot->poll = ED_operator_console_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_string(ot->srna, "text", NULL, 0, "Text", "Text to insert at the cursor position");
@@ -948,6 +967,8 @@ void CONSOLE_OT_scrollback_append(wmOperatorType *ot)
   /* api callbacks */
   ot->exec = console_scrollback_append_exec;
   ot->poll = ED_operator_console_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_string(ot->srna, "text", NULL, 0, "Text", "Text to insert at the cursor position");
@@ -1031,6 +1052,8 @@ void CONSOLE_OT_copy(wmOperatorType *ot)
   ot->poll = ED_operator_console_active;
   ot->exec = console_copy_exec;
 
+  ot->flag = OPTYPE_INTERNAL;
+
   /* properties */
 }
 
@@ -1085,6 +1108,8 @@ void CONSOLE_OT_paste(wmOperatorType *ot)
   /* api callbacks */
   ot->poll = ED_operator_console_active;
   ot->exec = console_paste_exec;
+
+  ot->flag = OPTYPE_INTERNAL;
 
   /* properties */
 }
@@ -1215,6 +1240,8 @@ void CONSOLE_OT_select_set(wmOperatorType *ot)
   ot->modal = console_modal_select;
   ot->cancel = console_modal_select_cancel;
   ot->poll = ED_operator_console_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }
 
 static int console_selectword_invoke(bContext *C, wmOperator *UNUSED(op), const wmEvent *event)
@@ -1263,4 +1290,6 @@ void CONSOLE_OT_select_word(wmOperatorType *ot)
   /* api callbacks */
   ot->invoke = console_selectword_invoke;
   ot->poll = ED_operator_console_active;
+
+  ot->flag = OPTYPE_INTERNAL;
 }

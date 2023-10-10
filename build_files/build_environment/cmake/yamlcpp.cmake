@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(YAMLCPP_EXTRA_ARGS
   -DYAML_CPP_BUILD_TESTS=OFF

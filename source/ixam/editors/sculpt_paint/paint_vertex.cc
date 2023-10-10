@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -1523,7 +1525,7 @@ void PAINT_OT_weight_paint_toggle(wmOperatorType *ot)
   ot->poll = paint_mode_toggle_poll_test;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -2710,7 +2712,7 @@ void PAINT_OT_weight_paint(wmOperatorType *ot)
   ot->cancel = wpaint_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   paint_stroke_operator_properties(ot);
 }
@@ -2780,7 +2782,7 @@ void PAINT_OT_vertex_paint_toggle(wmOperatorType *ot)
   ot->poll = paint_mode_toggle_poll_test;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -4051,7 +4053,7 @@ void PAINT_OT_vertex_paint(wmOperatorType *ot)
   ot->cancel = vpaint_cancel;
 
   /* flags */
-  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   paint_stroke_operator_properties(ot);
 }
@@ -4235,7 +4237,7 @@ void PAINT_OT_vertex_color_set(wmOperatorType *ot)
   ot->poll = vertex_paint_mode_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */

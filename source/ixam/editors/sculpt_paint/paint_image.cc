@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -562,7 +564,7 @@ void PAINT_OT_grab_clone(wmOperatorType *ot)
   ot->poll = image_paint_2d_clone_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_BLOCKING | OPTYPE_INTERNAL;
 
   /* properties */
   RNA_def_float_vector(ot->srna,
@@ -742,7 +744,7 @@ void PAINT_OT_sample_color(wmOperatorType *ot)
   ot->poll = sample_color_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 
   /* properties */
   PropertyRNA *prop;
@@ -941,7 +943,7 @@ void PAINT_OT_texture_paint_toggle(wmOperatorType *ot)
   ot->poll = texture_paint_toggle_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 static int brush_colors_flip_exec(bContext *C, wmOperator * /*op*/)
@@ -998,7 +1000,7 @@ void PAINT_OT_brush_colors_flip(wmOperatorType *ot)
   ot->poll = brush_colors_flip_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_INTERNAL;
 }
 
 void ED_imapaint_bucket_fill(struct bContext *C,

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2001-2002 NaN Holding BV. All rights reserved. */
 
 
 /** \file
@@ -153,7 +155,7 @@ void LATTICE_OT_select_random(wmOperatorType *ot)
   ot->poll = ED_operator_editlattice;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   WM_operator_properties_select_random(ot);
@@ -242,7 +244,7 @@ void LATTICE_OT_select_mirror(wmOperatorType *ot)
   ot->poll = ED_operator_editlattice;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* props */
   RNA_def_enum_flag(ot->srna, "axis", rna_enum_axis_flag_xyz_items, (1 << 0), "Axis", "");
@@ -344,7 +346,7 @@ void LATTICE_OT_select_more(wmOperatorType *ot)
   ot->poll = ED_operator_editlattice;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 void LATTICE_OT_select_less(wmOperatorType *ot)
@@ -359,7 +361,7 @@ void LATTICE_OT_select_less(wmOperatorType *ot)
   ot->poll = ED_operator_editlattice;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 }
 
 /** \} */
@@ -474,7 +476,7 @@ void LATTICE_OT_select_all(wmOperatorType *ot)
   ot->poll = ED_operator_editlattice;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   WM_operator_properties_select_all(ot);
 }
@@ -546,7 +548,7 @@ void LATTICE_OT_select_ungrouped(wmOperatorType *ot)
   ot->poll = ED_operator_editlattice;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   RNA_def_boolean(ot->srna, "extend", false, "Extend", "Extend the selection");
 }

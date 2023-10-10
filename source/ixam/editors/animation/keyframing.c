@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2009 Blender Foundation, Joshua Leung. All rights reserved. */
 
 
 /** \file
@@ -2245,7 +2247,7 @@ void ANIM_OT_keyframe_delete_by_name(wmOperatorType *ot)
   ot->poll = modify_key_op_poll;
 
   /* flags */
-  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO;
+  ot->flag = OPTYPE_REGISTER | OPTYPE_UNDO | OPTYPE_INTERNAL;
 
   /* keyingset to use (idname) */
   prop = RNA_def_string(

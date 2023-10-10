@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import bpy
 from bpy_extras import object_utils
 from bpy.types import (
@@ -32,7 +34,7 @@ class MeshMirrorUV(Operator):
     """Copy mirror UV coordinates on the X axis based on a mirrored mesh"""
     bl_idname = "mesh.faces_mirror_uv"
     bl_label = "Copy Mirrored UV Coords"
-    bl_options = {'REGISTER', 'UNDO'}
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     direction: EnumProperty(
         name="Axis Direction",
@@ -1017,7 +1019,7 @@ def main(context, self, align_matrix, use_enter_edit_mode):
 
 class Simple(Operator, object_utils.AddObjectHelper):
     bl_idname = "simple.add"
-    bl_label = "Add s simple primitive"
+    bl_label = "Add simple primitive"
     bl_description = "Construct a Simple Primitive"
     bl_options = {'REGISTER', 'UNDO'}
 

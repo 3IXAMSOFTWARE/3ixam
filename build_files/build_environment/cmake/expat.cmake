@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 set(EXPAT_EXTRA_ARGS
   -DEXPAT_BUILD_DOCS=OFF
